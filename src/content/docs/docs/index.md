@@ -1,6 +1,6 @@
 ---
 title: Asteris Affiliates documentation
-description: Full documentation for Asteris Affiliates — self-hosted WordPress affiliate-program plugin for WooCommerce, EDD, and Surecart.
+description: Full documentation for Asteris Affiliates — self-hosted WordPress affiliate-program plugin for WordPress and WooCommerce.
 ---
 
 Asteris Affiliates is a self-hosted WordPress plugin that runs a full affiliate program inside your own site. Your affiliate data lives in your WordPress database — no SaaS, no cloud calls (unless you opt in to fraud signal sharing).
