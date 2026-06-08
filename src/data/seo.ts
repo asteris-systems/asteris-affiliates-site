@@ -127,7 +127,7 @@ export const SEO_DATA: Record<string, SeoEntry> = {
       {
         '@context': 'https://schema.org', '@type': 'Product',
         name: 'Asteris Affiliates',
-        description: 'Self-hosted affiliate-program plugin for WordPress, WooCommerce, EDD and Surecart, with two-tier referrals included.',
+        description: 'Self-hosted affiliate-program plugin for WordPress and WooCommerce, with two-tier referrals included.',
         image: `${SITE}/og-pricing.png`,
         brand: { '@type': 'Brand', name: 'Asteris Affiliates' },
         offers: OFFERS,
