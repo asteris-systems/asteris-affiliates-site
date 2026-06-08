@@ -1,0 +1,162 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Asteris Partners — the affiliate program for Asteris Affiliates itself.
+// Recursive but real: pay people to promote Asteris Affiliates.
+// 30% recurring lifetime commission. Aligned with WC/WP/Cart sites.
+---
+<Layout seoSlug="/partners">
+  <section class="hero">
+    <div class="eyebrow">★ ASTERIS PARTNERS PROGRAM</div>
+    <h1>Earn <span class="accent">30%</span> recurring on every Asteris Affiliates customer you refer.</h1>
+    <p class="lead">If you're an agency, consultant, content creator, or developer in the WooCommerce / WordPress space, the Asteris Partners program pays you 30% of every recurring annual subscription you bring us — for the lifetime of the customer.</p>
+    <div class="hero-actions">
+      <a href="https://pay.asteriscommerce.com/partners/apply" class="btn btn-pop btn-large">Apply to join →</a>
+      <a href="#how" class="btn btn-outline btn-large">How it works</a>
+    </div>
+    <p class="meta">Run on our own Asteris Affiliates plugin (eat-our-own-dog-food). Two-tier referrals available.</p>
+  </section>
+
+  <section class="numbers">
+    <div class="num-inner">
+      <div class="num"><div class="big">30%</div><div class="lbl">recurring commission</div></div>
+      <div class="num"><div class="big">Lifetime</div><div class="lbl">while the customer stays subscribed</div></div>
+      <div class="num"><div class="big">60-day</div><div class="lbl">referral cookie window</div></div>
+      <div class="num"><div class="big">Tier-2</div><div class="lbl">recruit other partners, earn 5% on their referrals</div></div>
+    </div>
+  </section>
+
+  <section id="how" class="how">
+    <div class="how-inner">
+      <h2>How it works</h2>
+      <ol>
+        <li><strong>Apply</strong> — short form, we review within 2 business days. We accept agencies, consultants, course creators, podcasters, bloggers, and devs with a relevant audience.</li>
+        <li><strong>Get your link</strong> — once approved, log in to your portal and grab your referral URL or vanity <code>/go/{your-handle}</code> link.</li>
+        <li><strong>Promote</strong> — use our swipe-copy library, pre-made banners, or write your own honest review.</li>
+        <li><strong>Earn</strong> — 30% commission credited on every new subscription (Starter, Pro, Agency). Recurring on renewals.</li>
+        <li><strong>Get paid</strong> — monthly batch via Stripe Connect or PayPal. Minimum threshold $50.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="payouts-info">
+    <div class="payouts-inner">
+      <h2>The commission table</h2>
+      <table>
+        <thead><tr><th>Customer tier</th><th>Annual price</th><th>Your commission (year 1)</th><th>Recurring (year 2+)</th></tr></thead>
+        <tbody>
+          <tr><td>Starter</td><td>$149/yr</td><td><strong>$44.70</strong></td><td><strong>$44.70/yr</strong></td></tr>
+          <tr><td>Pro</td><td>$299/yr</td><td><strong>$89.70</strong></td><td><strong>$89.70/yr</strong></td></tr>
+          <tr><td>Agency</td><td>$549/yr</td><td><strong>$164.70</strong></td><td><strong>$164.70/yr</strong></td></tr>
+        </tbody>
+      </table>
+      <p class="note">Recurring commissions continue for the lifetime of the customer's active subscription. If they cancel, recurring stops; existing commissions stay paid.</p>
+    </div>
+  </section>
+
+  <section class="ideal">
+    <div class="ideal-inner">
+      <h2>Best fit if you…</h2>
+      <ul>
+        <li>Run an agency that builds WooCommerce / EDD / Surecart stores</li>
+        <li>Publish content (YouTube / blog / podcast / newsletter) for WordPress store owners</li>
+        <li>Already promote AffiliateWP / SliceWP and want a higher-margin alternative</li>
+        <li>Run WordPress plugin reviews / comparison sites</li>
+        <li>Build courses or training around WC / EDD store growth</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="faq-inner">
+      <h2>FAQ</h2>
+      <details>
+        <summary>How long is the referral cookie active?</summary>
+        <p>60 days from first click. Plenty for the typical "I'll think about it" SaaS purchase cycle.</p>
+      </details>
+      <details>
+        <summary>Do I earn on renewals?</summary>
+        <p>Yes. 30% of every annual renewal for the lifetime of the customer's subscription.</p>
+      </details>
+      <details>
+        <summary>Can I refer myself?</summary>
+        <p>No. Self-referral is auto-detected and blocked. Refer someone else and earn legitimately.</p>
+      </details>
+      <details>
+        <summary>What if my referral cancels?</summary>
+        <p>Recurring stops, but any already-paid commissions stay yours. We don't claw back paid commissions unless the customer charges back (rare).</p>
+      </details>
+      <details>
+        <summary>How do I get paid?</summary>
+        <p>Monthly batch. Stripe Connect (preferred — direct to your Stripe account) or PayPal. Minimum payout $50.</p>
+      </details>
+      <details>
+        <summary>Can I be both a customer AND a partner?</summary>
+        <p>Yes. Many of our best partners are existing customers.</p>
+      </details>
+      <details>
+        <summary>What's the two-tier deal?</summary>
+        <p>If you refer another partner, you earn 5% on their referrals' commissions too. No depth beyond tier-2 (per MLM regulation in most jurisdictions).</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Ready to apply?</h2>
+      <p>2 business days from submission to approval. No application fee. No exclusivity required.</p>
+      <a href="https://pay.asteriscommerce.com/partners/apply" class="btn btn-pop btn-large">Apply now →</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero { max-width: 860px; margin: 0 auto; padding: 96px 24px 48px; text-align: center; }
+  .eyebrow { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(36px, 5vw, 56px); font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
+  .hero h1 .accent { color: var(--c-mint); }
+  .hero .lead { font-size: 18px; color: var(--c-text); line-height: 1.6; margin-bottom: 32px; max-width: 720px; margin-left: auto; margin-right: auto; }
+  .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .hero .meta { font-size: 13px; color: var(--c-muted); }
+
+  .numbers { padding: 32px 24px 64px; background: var(--c-bg); }
+  .num-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; }
+  .num { text-align: center; padding: 24px; background: #fff; border-radius: 10px; border-top: 4px solid var(--c-mint); }
+  .num .big { font-size: 36px; font-weight: 900; color: var(--c-mint); margin-bottom: 4px; }
+  .num .lbl { font-size: 13px; color: var(--c-muted); }
+
+  .how { padding: 64px 24px; background: #fff; }
+  .how-inner { max-width: 760px; margin: 0 auto; }
+  .how h2 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 24px; text-align: center; }
+  .how ol { padding-left: 24px; }
+  .how li { padding: 10px 0; line-height: 1.6; font-size: 16px; }
+  .how code { background: rgba(0,0,0,0.06); padding: 2px 6px; border-radius: 3px; font-family: var(--font-mono); font-size: 14px; }
+
+  .payouts-info { padding: 64px 24px; background: var(--c-bg); }
+  .payouts-inner { max-width: 760px; margin: 0 auto; }
+  .payouts-info h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 24px; text-align: center; }
+  .payouts-info table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; }
+  .payouts-info th, .payouts-info td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--c-border); }
+  .payouts-info th { background: var(--c-text); color: #fff; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+  .payouts-info td strong { color: var(--c-mint); }
+  .payouts-info .note { text-align: center; color: var(--c-muted); font-size: 14px; margin-top: 16px; }
+
+  .ideal { padding: 64px 24px; background: #fff; }
+  .ideal-inner { max-width: 720px; margin: 0 auto; }
+  .ideal h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 16px; text-align: center; }
+  .ideal ul { padding-left: 22px; }
+  .ideal li { padding: 8px 0; line-height: 1.55; }
+
+  .faq { padding: 64px 24px; background: var(--c-bg); }
+  .faq-inner { max-width: 760px; margin: 0 auto; }
+  .faq h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 24px; text-align: center; }
+  details { border: 1px solid var(--c-border); border-radius: 6px; margin-bottom: 8px; padding: 14px 18px; background: #fff; }
+  details[open] { border-color: var(--c-mint); }
+  summary { font-weight: 700; cursor: pointer; font-size: 16px; }
+  details p { margin-top: 10px; color: var(--c-muted); line-height: 1.6; }
+
+  .cta-section { background: var(--c-black); color: #fff; padding: 96px 24px; }
+  .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+  .cta-section h2 { font-size: clamp(28px, 4vw, 40px); color: #fff; margin-bottom: 16px; }
+  .cta-section p { color: rgba(255,255,255,0.85); font-size: 17px; margin-bottom: 32px; }
+</style>

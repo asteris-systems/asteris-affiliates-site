@@ -15,7 +15,7 @@ const features = [
   { icon: '🌳', title: 'MLM / two-tier referrals',      text: 'Optional tier-2 commissions. Affiliates earn from sub-affiliates they recruit.' },
   { icon: '🤖', title: 'AI swipe-copy generator',       text: '16 pre-written marketing snippets + AI variants. Affiliates copy-paste into emails/socials.' },
   { icon: '🛡️', title: 'Fraud detection',               text: 'Per-IP throttling + optional cloud-assist signal sharing across Asteris stores (opt-in, SHA-256 hashed).' },
-  { icon: '💳', title: 'PayPal API auto-payout',        text: 'OAuth2 + Payouts API. Schedule weekly/monthly batches. Bank transfer fallback for non-PayPal regions.' },
+  { icon: '💳', title: 'Stripe Connect + PayPal auto-payout', text: 'Direct payouts via Stripe Connect or PayPal Payouts API. Schedule weekly/monthly batches. Bank transfer fallback for non-Stripe/PayPal regions.' },
   { icon: '🛒', title: 'Per-product commission rates',  text: 'Override rates per WC product. High-margin items pay higher commissions.' },
   { icon: '📊', title: 'Real-time stats API',           text: 'Affiliate portal + REST API for headless dashboards. Cursor-pagination, transient-cached.' },
   { icon: '🌐', title: 'EDD + Surecart adapters',       text: 'Not just WooCommerce. Drop-in adapters for Easy Digital Downloads and Surecart.' },
@@ -39,14 +39,14 @@ const features = [
     </h1>
     <p class="lead">
       <strong>Self-hosted affiliate program for WooCommerce, EDD, and Surecart.</strong>
-      Unlimited affiliates. MLM tier-2. AI swipe-copy. PayPal auto-payout. Cloud-assist fraud detection.
+      Unlimited affiliates. MLM tier-2. AI swipe-copy. Stripe Connect + PayPal payouts. Cloud-assist fraud detection.
       <strong>$149/yr for 1 site, $299 for 3, $549 for 10.</strong> No SaaS subscription.
     </p>
     <div class="hero-actions">
       <a href="/pricing" class="btn btn-pop btn-large">Get Asteris Affiliates — $149/yr</a>
       <a href="#vs" class="btn btn-outline btn-large">See vs AffiliateWP →</a>
     </div>
-    <p class="no-cc">14-day money-back guarantee · Migrate from AffiliateWP/SliceWP in one CLI command · GPL-2.0 — fork it if you want</p>
+    <p class="no-cc">14-day money-back guarantee · Migrate from AffiliateWP / SliceWP in one CLI command · GPL-2.0 licensed</p>
   </section>
 
   <!-- VS comparison -->
@@ -77,7 +77,7 @@ const features = [
             <li>✅ MLM / two-tier referrals</li>
             <li>✅ AI swipe-copy generator</li>
             <li>✅ Vanity /go/ landing pages</li>
-            <li>✅ PayPal API auto-batch + bank transfer</li>
+            <li>✅ Stripe Connect + PayPal API auto-payout + bank transfer</li>
             <li>✅ Cloud-assist fraud detection (opt-in)</li>
             <li>✅ EDD + Surecart adapters (not just WC)</li>
             <li>✅ Real-time stats API + WP-CLI</li>
@@ -133,7 +133,7 @@ const features = [
   <section class="free-section">
     <div class="free-inner">
       <h2>There's a free tier too</h2>
-      <p>If you have under 25 affiliates and don't need MLM / AI swipe / cloud fraud / PayPal API auto-payout, the <strong>free version</strong> covers core affiliate tracking + commissions + manual payouts. <a href="/free">See what's in free →</a></p>
+      <p>If you have under 25 affiliates and don't need MLM / AI swipe / cloud fraud / Stripe Connect or PayPal auto-payout, the <strong>free version</strong> covers core affiliate tracking + commissions + manual payouts. <a href="/free">See what's in free →</a></p>
     </div>
   </section>
 

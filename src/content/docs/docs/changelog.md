@@ -34,6 +34,7 @@ description: Every Asteris Affiliates release, version by version.
 - AI swipe-copy generator (16 seed snippets + AI variants)
 - Vanity `/go/{handle}` landing pages with cookie + view tracking
 - Cloud-assist fraud detection (opt-in, SHA-256 hashed signals)
+- Stripe Connect direct payouts (Express onboarding, OAuth)
 - PayPal API auto-batch payout (OAuth2 + Payouts API)
 - EDD + Surecart adapters
 - A/B email testing on transactional emails

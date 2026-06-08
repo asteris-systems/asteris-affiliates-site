@@ -137,7 +137,7 @@ export const SEO_DATA: Record<string, SeoEntry> = {
 
   '/features': {
     title: 'Features — Asteris Affiliates for WordPress',
-    description: 'Two-tier referrals, AI swipe-copy, PayPal auto-payout, vanity links, EDD + Surecart adapters. 23 features in Asteris Affiliates v1.1.0, from $149/yr.',
+    description: 'Two-tier referrals, AI swipe-copy, Stripe Connect + PayPal payouts, vanity links, EDD + Surecart adapters. 23 features in Asteris Affiliates v1.1.0, from $149/yr.',
     ogImage: 'og-features.png',
     jsonLd: [
       ORG,
@@ -163,7 +163,7 @@ export const SEO_DATA: Record<string, SeoEntry> = {
         '@context': 'https://schema.org', '@type': 'FAQPage',
         mainEntity: [
           { '@type': 'Question', name: 'What does the free tier include?', acceptedAnswer: { '@type': 'Answer', text: 'Up to 25 affiliates, core tracking and manual payouts, self-hosted.' } },
-          { '@type': 'Question', name: 'When should I upgrade?', acceptedAnswer: { '@type': 'Answer', text: 'Upgrade to Starter ($149/yr) for unlimited affiliates, PayPal auto-payout and two-tier referrals.' } },
+          { '@type': 'Question', name: 'When should I upgrade?', acceptedAnswer: { '@type': 'Answer', text: 'Upgrade to Starter ($149/yr) for unlimited affiliates, Stripe Connect + PayPal auto-payout, and two-tier referrals.' } },
         ],
       },
     ],
@@ -489,6 +489,17 @@ export const SEO_DATA: Record<string, SeoEntry> = {
           { '@type': 'Question', name: 'How long does setup take?', acceptedAnswer: { '@type': 'Answer', text: 'Most stores are running in 15 minutes from install to first affiliate approved.' } },
         ],
       },
+    ],
+  },
+
+  '/partners': {
+    title: 'Asteris Partners — 30% recurring on every Asteris Affiliates customer',
+    description: "Earn 30% recurring lifetime commission promoting Asteris Affiliates. Agency, creator, consultant, dev programs. Stripe Connect or PayPal payouts. No exclusivity.",
+    ogImage: 'og-home.png',
+    jsonLd: [
+      ORG,
+      breadcrumb([{ name: 'Home', url: `${SITE}/` }, { name: 'Partners program', url: `${SITE}/partners` }]),
+      { '@context': 'https://schema.org', '@type': 'WebPage', name: 'Asteris Partners program', url: `${SITE}/partners` },
     ],
   },
 

@@ -62,6 +62,7 @@ export default defineConfig({
         {
           label: 'Payouts',
           items: [
+            { label: 'Stripe Connect direct', link: '/docs/payouts/stripe-connect' },
             { label: 'PayPal API auto-batch', link: '/docs/payouts/paypal-api' },
             { label: 'Bank transfer', link: '/docs/payouts/bank-transfer' },
             { label: 'Manual payouts', link: '/docs/payouts/manual' },
