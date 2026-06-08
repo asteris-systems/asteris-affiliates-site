@@ -74,6 +74,38 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+  <section class="more">
+    <div class="more-inner">
+      <h2>The commission-rate maths most stores get wrong</h2>
+      <p>Affiliates typically negotiate on commission rate, and stores typically panic-cut rates after a few months because the program "feels expensive." Both moves are usually mistakes — driven by looking at gross commission cost rather than net acquisition cost. Run the comparison properly:</p>
+      <ul>
+        <li><strong>Your current customer acquisition cost (CAC)</strong> across paid ads, content, SEO and email. For most WooCommerce stores in 2026 this lands somewhere between 15–40% of first-order revenue.</li>
+        <li><strong>Your effective affiliate CAC</strong> is the commission rate (typically 10–20%) plus the cost of running the program (tracking plugin licence + your time managing the program, amortised across all affiliate-driven orders).</li>
+        <li><strong>If the affiliate program's effective CAC is lower than your paid-channel CAC,</strong> you should be doing more affiliate marketing, not less. Cutting the commission rate when affiliates are out-performing ads is solving the wrong problem.</li>
+      </ul>
+      <p>The honest framing: an affiliate program isn't a discount you give away. It's a sales channel with capped, post-revenue acquisition cost. The cap is the commission rate. If the channel works, the bill grows — but every dollar of that bill is tied to a dollar of revenue that wouldn't have come in otherwise.</p>
+
+      <h2>The fraud problem most new programs underestimate</h2>
+      <p>Within 30 days of launching an affiliate program with auto-approval enabled, expect at least one of these patterns:</p>
+      <ul>
+        <li><strong>Self-referral fraud:</strong> someone signs up as an affiliate, buys your product themselves through their own affiliate link, then refunds the order after the commission credits. Asteris ships 5-pattern self-referral detection in core (user-ID match, email match, payout-detail match, IP match, cookie match).</li>
+        <li><strong>Coupon stacking:</strong> an affiliate-linked discount code gets shared on coupon-aggregator sites, customers who would have bought anyway use it, and the affiliate harvests commissions on traffic they didn't actually drive. Mitigate with attribution rules that require non-discount-referrer traffic, or with affiliate-specific landing pages that the coupon site can't easily extract from.</li>
+        <li><strong>Cookie-stuffing:</strong> shady affiliates inject your tracking cookie via iframe or redirect on any site visitor, hoping some percentage will later buy organically. Mitigate with first-click-only attribution (rather than last-click), and with affiliate-portal click-pattern analysis that flags affiliates with click-to-conversion ratios well outside the program average.</li>
+        <li><strong>Account takeover:</strong> an affiliate's account gets compromised and the attacker changes the payout email to their own. Mitigate with email-change notifications, payout-detail change cool-down periods (Asteris defaults to 48 hours), and 2FA on affiliate accounts (Asteris supports any WordPress 2FA plugin).</li>
+      </ul>
+      <p>The Asteris cloud-assist fraud detection layer (opt-in, SHA-256 hashed) shares fraud-pattern signals across stores running Asteris, so new stores benefit from the lessons every prior store learned. Disable it and you still get the per-store detection layers; enable it and you get the network-effect overlay.</p>
+
+      <h2>What "good" affiliate-program performance looks like</h2>
+      <p>Rough benchmarks that hold across most WooCommerce store categories. Use them as a sanity check on your program, not as targets:</p>
+      <ul>
+        <li><strong>Affiliate-driven revenue as a percent of total:</strong> 5–15% is typical for a mature program. Programs above 20% are doing something genuinely well; programs below 3% after a year are either under-recruited or have a product affiliates don't have a natural channel to recommend.</li>
+        <li><strong>Affiliate-to-conversion ratio:</strong> healthy programs see 1–5% of affiliate clicks convert. Below 0.5% suggests poor traffic quality; above 8% suggests possible cookie-stuffing or pre-converted traffic.</li>
+        <li><strong>Top-20% of affiliates driving 80% of revenue:</strong> almost universal. Identify the top 20% and invest in them — custom rates, dedicated swipe-copy support, occasional bonuses. The bottom 50% will either churn or stay dormant; don't spend energy converting them.</li>
+        <li><strong>Average affiliate lifespan:</strong> 6–18 months for active affiliates. Plan for renewal — annual program refreshes, new creatives, new commission structures keep the active list engaged.</li>
+      </ul>
+    </div>
+  </section>
+
   <section class="faq">
     <div class="faq-inner">
       <h2>FAQ</h2>
@@ -129,6 +161,14 @@ import Layout from '../layouts/Layout.astro';
   .deep a { color: var(--c-mint); font-weight: 600; }
   .deep code { background: rgba(0,0,0,0.06); padding: 1px 5px; border-radius: 3px; font-family: var(--font-mono); font-size: 13px; }
   .deep strong { color: var(--c-text); font-weight: 700; }
+  .more { padding: 80px 24px; background: var(--c-bg); border-top: 1px solid var(--c-border); }
+  .more-inner { max-width: 820px; margin: 0 auto; }
+  .more h2 { font-size: clamp(22px, 3vw, 30px); margin: 36px 0 16px; }
+  .more h2:first-child { margin-top: 0; }
+  .more p { font-size: 16px; line-height: 1.65; color: var(--c-text); margin-bottom: 14px; }
+  .more ul { padding-left: 24px; margin-bottom: 14px; }
+  .more li { padding: 5px 0; line-height: 1.6; font-size: 15.5px; color: var(--c-text); }
+  .more strong { color: var(--c-text); font-weight: 700; }
   .cta-section { background: var(--c-black); color: #fff; padding: 96px 24px; }
   .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
   .cta-section h2 { font-size: clamp(28px, 4vw, 40px); color: #fff; margin-bottom: 16px; }

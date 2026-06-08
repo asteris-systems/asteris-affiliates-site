@@ -88,6 +88,45 @@ const plugins = [
     </div>
   </section>
 
+  <section class="deeper">
+    <div class="deeper-inner">
+      <h2>What separates the best WooCommerce affiliate plugins from the also-rans</h2>
+      <p>The WordPress affiliate plugin market has a long tail of half-finished options, abandoned plugins, and SaaS trackers that pretend to be WooCommerce-native. The six plugins above are the ones we'd actually recommend a real WC store consider in 2026. Everything else either has a tiny install base, a stalled release cadence, or a feature surface so small it only solves the smallest stores. The honest sort criteria we use when shortlisting:</p>
+
+      <h3>Active development and recent releases</h3>
+      <p>Look for a plugin whose changelog shows monthly or fortnightly releases — not "last updated 9 months ago" on the WordPress.org page. WooCommerce itself ships breaking changes a few times a year; an affiliate plugin that hasn't shipped a release in 6 months will not survive the next WC update cleanly. All six plugins above pass this bar; many smaller plugins do not.</p>
+
+      <h3>HPOS compatibility</h3>
+      <p>WooCommerce 8.x introduced High-Performance Order Storage (HPOS), moving order data out of the post-meta tables and into dedicated tables. Affiliate plugins that hooked into the old post-meta storage break silently on HPOS-enabled stores — commissions stop crediting and nobody notices for a billing cycle. Confirm any plugin you're evaluating explicitly lists HPOS compatibility in its current readme.txt or docs. Asteris is HPOS-native from day one; the other five above have all updated for HPOS, but some smaller plugins haven't.</p>
+
+      <h3>Tested theme coverage</h3>
+      <p>An affiliate plugin's portal pages get rendered inside your theme. If the theme is unusual (most page builders, premium multi-purpose themes like Divi or Avada, Bricks, GeneratePress with custom hooks), the plugin's portal styles can collide with theme styles in unpredictable ways. The best WooCommerce affiliate plugins ship CSS that's deliberately resilient — high specificity selectors, scoped resets, isolated portal containers. Cheaper plugins ship "works on Storefront" CSS that breaks visually on every paid theme. Spot-check the plugin's portal on your actual theme before you commit.</p>
+
+      <h3>Payout-method coverage</h3>
+      <p>The smallest plugins ship manual payouts only (mark as paid, send the money yourself via PayPal or bank transfer). That works at 5–10 affiliates. At 50+ affiliates with monthly payouts, manual is a part-time job. The best plugins ship at least PayPal Payouts API batch payments and bank-CSV export for non-PayPal regions; Asteris adds Stripe Connect Express direct payouts at 0.25% as the default. Whichever plugin you pick, confirm it covers a payout method that will actually scale with your program.</p>
+
+      <h3>Honest pricing of the full feature set</h3>
+      <p>The single most-common mistake stores make when shopping affiliate plugins: comparing base licence prices against base licence prices. The real comparison is base + every add-on you'd actually enable. AffiliateWP's base is $299/yr; the full add-on stack adds $545+/yr. SliceWP Pro's base covers what most stores need without add-ons. Asteris's $149 Starter unlocks the full feature set in core (no add-on catalogue exists). When you compare like-for-like feature sets, the price spread between the best and worst options is closer to 6× than the 2× the base-price comparison would suggest.</p>
+    </div>
+  </section>
+
+  <section class="when">
+    <div class="when-inner">
+      <h2>Decision tree — which is the best for you</h2>
+      <p>Walk through these branches in order; whichever matches first is your best pick.</p>
+      <ol class="tree">
+        <li><strong>You're on Surecart (or any cart that isn't WC, EDD, or MemberPress).</strong> Asteris is the only major plugin with a native adapter. Pick Asteris.</li>
+        <li><strong>You're running MemberPress for memberships and your affiliate program is built around membership tiers.</strong> Pick Easy Affiliate — the MemberPress integration is genuinely native and worth the lock-in.</li>
+        <li><strong>You need two-tier (MLM) referrals in core, no add-on tax.</strong> Asteris ships MLM from Starter. AffiliateWP has it as a paid add-on. SliceWP and Solid Affiliate don't have it at all. Pick Asteris.</li>
+        <li><strong>You're WooCommerce-only, you don't need MLM, and you already use the AffiliateWP add-on stack you've paid for.</strong> Stay on AffiliateWP. Don't migrate for the sake of migration.</li>
+        <li><strong>You're WooCommerce-only, single-tier, under 25 affiliates, price-sensitive.</strong> Asteris Free or SliceWP free core are both excellent zero-cost starting points. Try both, see which UX you prefer.</li>
+        <li><strong>You're WooCommerce-only, want a focused single-purpose tool, per-product commission rates matter.</strong> Solid Affiliate is the WooCommerce-purist pick; Asteris matches it on per-product rates and adds MLM/AI/fraud/Stripe Connect on top. Pick whichever you prefer.</li>
+        <li><strong>You're running multiple Asteris-family products already (WC plugin, WP plugin, Cart, Blocks)</strong> — picking Asteris Affiliates gives you a single licence flow, one support team, shared schemas across the suite.</li>
+        <li><strong>None of the above describe you</strong> — pick Asteris. We're the value option across most dimensions, and the 14-day money-back guarantee means you can verify it on your real store before you commit.</li>
+      </ol>
+    </div>
+  </section>
+
   <section class="how">
     <div class="how-inner">
       <h2>How to pick</h2>
@@ -164,6 +203,19 @@ const plugins = [
   .deep h3 { font-size: 19px; margin: 28px 0 10px; color: var(--c-mint); }
   .deep p { font-size: 16px; line-height: 1.65; color: var(--c-text); margin-bottom: 12px; }
   .deep a { color: var(--c-mint); font-weight: 600; }
+  .deeper { padding: 80px 24px; background: var(--c-bg); border-top: 1px solid var(--c-border); }
+  .deeper-inner { max-width: 820px; margin: 0 auto; }
+  .deeper h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 18px; }
+  .deeper h3 { font-size: 18px; margin: 24px 0 10px; color: var(--c-mint); }
+  .deeper p { font-size: 16px; line-height: 1.65; color: var(--c-text); margin-bottom: 14px; }
+  .when { padding: 80px 24px; background: #fff; }
+  .when-inner { max-width: 820px; margin: 0 auto; }
+  .when h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 16px; }
+  .when > .when-inner > p { font-size: 16px; line-height: 1.65; color: var(--c-text); margin-bottom: 18px; }
+  .tree { padding-left: 24px; }
+  .tree li { padding: 10px 0; line-height: 1.6; font-size: 15.5px; color: var(--c-text); border-bottom: 1px solid var(--c-border); }
+  .tree li:last-child { border-bottom: none; }
+  .tree strong { color: var(--c-text); font-weight: 700; }
   .cta-section { background: var(--c-black); color: #fff; padding: 96px 24px; }
   .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
   .cta-section h2 { font-size: clamp(28px, 4vw, 40px); color: #fff; margin-bottom: 16px; }
