@@ -1,15 +1,19 @@
 ---
 // Global footer — appears on every non-Starlight page
+// 5-column layout (was 6 + stranded Legal). Legal collapsed to a horizontal
+// strip alongside the copyright. Migrate + Compare merged into one column
+// with two sub-lists. Compare links point at the actual vs-pages (were /#vs).
 const year = 2026; // bump manually
 ---
 
 <footer class="site-footer">
   <div class="footer-grid">
-    <div class="col">
+    <div class="col brand-col">
       <a href="/" class="brand" aria-label="Asteris Affiliates home"><span class="star">★</span> Asteris Affiliates</a>
-      <p class="tagline">Self-hosted affiliate program for WooCommerce, EDD, and Surecart. AffiliateWP-grade features. SliceWP pricing. Forever.</p>
+      <p class="tagline">Self-hosted affiliate program for WooCommerce, EDD, and Surecart.</p>
       <p class="aus">Made in Australia · ABN 30 652 358 159</p>
     </div>
+
     <div class="col">
       <h4>Product</h4>
       <a href="/why-asteris">Why Asteris</a>
@@ -21,67 +25,127 @@ const year = 2026; // bump manually
       <a href="/docs/">Docs</a>
       <a href="/partners">Partners (30% recurring)</a>
     </div>
+
     <div class="col">
       <h4>Resources</h4>
-      <a href="/docs/">Documentation</a>
       <a href="/changelog">Changelog</a>
       <a href="/roadmap">Roadmap</a>
       <a href="/founder">Founder story</a>
       <a href="/support">Support</a>
       <a href="/contact">Contact</a>
     </div>
+
     <div class="col">
-      <h4>Migrate</h4>
+      <h4>Switch from a rival</h4>
       <a href="/migrate">Migration hub</a>
       <a href="/migrate/from-affiliatewp">From AffiliateWP</a>
       <a href="/migrate/from-slicewp">From SliceWP</a>
       <a href="/migrate/from-tapfiliate">From Tapfiliate</a>
       <a href="/migrate/from-yith">From YITH Affiliates</a>
+      <a href="/migrate/from-solid-affiliate">From Solid Affiliate</a>
+      <div class="sub-divider"></div>
+      <a href="/affiliatewp-vs-asteris">vs AffiliateWP</a>
+      <a href="/slicewp-vs-asteris">vs SliceWP</a>
+      <a href="/tapfiliate-vs-asteris">vs Tapfiliate</a>
+      <a href="/solid-affiliate-vs-asteris">vs Solid Affiliate</a>
+      <a href="/easy-affiliate-vs-asteris">vs Easy Affiliate</a>
+      <a href="/best-woocommerce-affiliate-plugin">Best WooCommerce affiliate plugin</a>
     </div>
-    <div class="col">
-      <h4>Compare</h4>
-      <a href="/#vs">vs AffiliateWP</a>
-      <a href="/#vs">vs SliceWP</a>
-      <a href="/#vs">vs Tapfiliate</a>
-      <a href="/#vs">vs YITH</a>
-    </div>
+
     <div class="col">
       <h4>More from Asteris</h4>
       <a href="https://asterisforwoocommerce.com" target="_blank" rel="noopener"><span class="dot" style="color:#FF5B3F">●</span> Asteris for WooCommerce</a>
       <a href="https://asterisforwordpress.com" target="_blank" rel="noopener"><span class="dot" style="color:#3D5AFE">●</span> Asteris for WordPress</a>
       <a href="https://asteriscart.com" target="_blank" rel="noopener"><span class="dot" style="color:#00C853">●</span> Asteris Cart</a>
       <a href="https://asterisblocks.com" target="_blank" rel="noopener"><span class="dot" style="color:#FFC107">●</span> Asteris Blocks (free)</a>
-    </div>
-    <div class="col">
-      <h4>Legal</h4>
-      <a href="/terms">Terms</a>
-      <a href="/privacy">Privacy</a>
-      <a href="/license">EULA</a>
-      <a href="/refund-policy">Refund policy</a>
-      <a href="mailto:support@asterisaffiliates.com">support@</a>
+      <a href="https://asteriscommerce.com" target="_blank" rel="noopener" class="parent-link"><span class="dot" style="color:#AA00FF">●</span> Asteris Commerce</a>
     </div>
   </div>
+
   <div class="legal-strip">
-    <p>© {year} My Cosmic Message Pty Ltd t/a <a href="https://asteriscommerce.com" class="parent-brand" target="_blank" rel="noopener">Asteris Commerce</a>. All rights reserved.</p>
-    <p class="meta">WooCommerce, EDD, and Surecart are trademarks of their respective owners. Asteris is not affiliated.</p>
+    <div class="legal-left">
+      <p>© {year} My Cosmic Message Pty Ltd t/a <a href="https://asteriscommerce.com" class="parent-brand" target="_blank" rel="noopener">Asteris Commerce</a>. All rights reserved.</p>
+      <p class="meta">WooCommerce, EDD, and Surecart are trademarks of their respective owners. Asteris is not affiliated.</p>
+    </div>
+    <nav class="legal-links" aria-label="Legal">
+      <a href="/terms">Terms</a>
+      <span class="sep">·</span>
+      <a href="/privacy">Privacy</a>
+      <span class="sep">·</span>
+      <a href="/license">EULA</a>
+      <span class="sep">·</span>
+      <a href="/refund-policy">Refund policy</a>
+      <span class="sep">·</span>
+      <a href="mailto:support@asterisaffiliates.com">support@</a>
+    </nav>
   </div>
 </footer>
 
 <style>
   .site-footer { background: var(--c-black); color: #cccccc; padding: 64px 36px 32px; }
-  .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr repeat(5, 1fr); gap: 36px; padding-bottom: 48px; }
+  .footer-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr 1.4fr 1.2fr;
+    gap: 32px;
+    padding-bottom: 48px;
+  }
   .col h4 { color: var(--c-white); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px; }
   .col a { display: block; color: #999999; font-size: 13px; padding: 4px 0; text-decoration: none; }
   .col a:hover { color: var(--c-mint); }
-  .col a.brand { font-size: 22px; font-weight: 800; color: #ffffff; margin-bottom: 12px; padding: 0; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
-  .col a.brand:hover { color: var(--c-mint); }
-  .col a.brand .star { color: var(--c-mint); font-size: 26px; }
+
+  .brand-col a.brand { font-size: 22px; font-weight: 800; color: #ffffff; margin-bottom: 12px; padding: 0; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+  .brand-col a.brand:hover { color: var(--c-mint); }
+  .brand-col a.brand .star { color: var(--c-mint); font-size: 26px; }
+  .tagline { color: #aaaaaa; font-size: 14px; margin-bottom: 12px; line-height: 1.55; max-width: 280px; }
+  .aus { color: #777777; font-size: 12px; }
+
   .dot { margin-right: 6px; font-weight: 900; }
-  .tagline { color: #aaaaaa; font-size: 14px; margin-bottom: 10px; }
-  .aus { color: #777777; font-size: 12px; white-space: nowrap; }
-  .legal-strip { max-width: 1200px; margin: 0 auto; border-top: 1px solid #222222; padding-top: 24px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 12px; color: #777777; }
-  .legal-strip .meta { color: #555555; }
+
+  .sub-divider {
+    margin: 12px 0 8px;
+    border-top: 1px solid #222222;
+    width: 32px;
+  }
+
+  .parent-link { color: #cccccc !important; margin-top: 8px; border-top: 1px solid #222222; padding-top: 12px !important; }
+
+  .legal-strip {
+    max-width: 1280px;
+    margin: 0 auto;
+    border-top: 1px solid #222222;
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: #777777;
+  }
+  .legal-left p { margin: 0 0 4px; }
+  .legal-strip .meta { color: #555555; font-size: 11px; }
+  .legal-links {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .legal-links a { color: #999999; text-decoration: none; font-size: 12px; }
+  .legal-links a:hover { color: var(--c-mint); }
+  .legal-links .sep { color: #444444; }
+
   .parent-brand { color: #AA00FF; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
   .parent-brand:hover { color: #c633ff; }
-  @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+
+  @media (max-width: 1100px) {
+    .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
+    .brand-col { grid-column: 1 / -1; }
+  }
+  @media (max-width: 700px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .brand-col { grid-column: 1 / -1; }
+    .legal-strip { flex-direction: column; align-items: flex-start; }
+  }
 </style>
