@@ -7,31 +7,75 @@ import CompareBody from '../components/CompareBody.astro';
     rivalName="Easy Affiliate"
     rivalTagline="A WordPress affiliate plugin built by the MemberPress team. Designed to pair with MemberPress-based membership sites."
     rivalUrl="https://easyaffiliate.com"
-    intro="Easy Affiliate is built by the MemberPress team and integrates closely with MemberPress for membership-driven affiliate programs. Asteris Affiliates is a standalone self-hosted plugin with two-tier referrals included from $149/yr, no MemberPress dependency."
+    intro="Easy Affiliate is built by the MemberPress team and integrates closely with MemberPress for membership-driven affiliate programs. Asteris Affiliates is a standalone self-hosted plugin with WooCommerce, EDD and Surecart adapters in core, two-tier (MLM) referrals from Starter, AI swipe-copy, cloud-assist fraud detection and Stripe Connect direct payouts — included from $149/yr with no MemberPress dependency."
     whenRivalWins={[
-      'You already run MemberPress and want first-party integration',
-      'Your affiliate program is built around membership tiers and recurring billing',
+      'You already run MemberPress as your membership platform and want first-party affiliate integration',
+      'Your entire affiliate program is built around recurring membership-tier commissions',
+      'You\'re bundling Easy Affiliate as part of an existing MemberPress purchase and the marginal cost is low for you',
     ]}
     whenAsterisWins={[
       'Standalone — no MemberPress dependency',
-      'Two-tier referrals included from Starter',
-      'WooCommerce / EDD / Surecart adapters',
-      'AI swipe-copy generator built in',
-      'PayPal API auto-batch payout',
-      'Cloud-assist fraud detection (opt-in)',
-      'Vanity /go/ landing pages with tracking',
+      'WooCommerce / EDD / Surecart adapters in core (Easy Affiliate is WC via integration)',
+      'AI swipe-copy generator — no Easy Affiliate equivalent',
+      'Cloud-assist fraud detection (opt-in, SHA-256 hashed) — no Easy Affiliate equivalent',
+      'Stripe Connect Express direct payouts at 0.25%',
+      'PayPal API auto-batch payouts',
+      'Vanity /go/ landing pages with cookie + view tracking',
+      'A/B email testing on transactional emails',
+      'Real-time stats REST API (cursor-paginated, transient-cached)',
+      'Asteris Starter is $149/yr',
     ]}
     comparisonRows={[
-      { feature: 'MemberPress integration',      rival: 'Native',               asteris: 'No',                      win: 'rival' },
-      { feature: 'Standalone (no dependency)',   rival: 'No (needs WP)',        asteris: 'Yes',                     win: 'asteris' },
-      { feature: 'WooCommerce native',           rival: 'Via integration',      asteris: 'Direct',                  win: 'asteris' },
-      { feature: 'EDD + Surecart',               rival: 'Limited',              asteris: 'Yes (adapters)',          win: 'asteris' },
-      { feature: 'Two-tier referrals',           rival: 'Yes',                  asteris: 'Included from Starter',  win: 'tie' },
-      { feature: 'AI swipe-copy generator',      rival: 'No',                   asteris: 'Built in',                win: 'asteris' },
-      { feature: 'PayPal API auto-batch',        rival: 'Manual',               asteris: 'Built in',                win: 'asteris' },
-      { feature: 'Cloud-assist fraud detection', rival: 'No',                   asteris: 'Opt-in',                  win: 'asteris' },
-      { feature: 'A/B email testing',            rival: 'No',                   asteris: 'Built in',                win: 'asteris' },
-      { feature: 'Self-hosted',                  rival: 'Yes',                  asteris: 'Yes',                     win: 'tie' },
+      { feature: 'MemberPress-tight integration', rival: 'Native',               asteris: 'No (standalone)',         win: 'rival' },
+      { feature: 'Standalone (no other plugin)',  rival: 'Yes (no hard dep)',    asteris: 'Yes',                      win: 'tie' },
+      { feature: 'WooCommerce native',            rival: 'Via integration',      asteris: 'Direct hook-in',           win: 'asteris' },
+      { feature: 'EDD adapter',                   rival: 'Limited',              asteris: 'Included',                 win: 'asteris' },
+      { feature: 'Surecart adapter',              rival: 'Not available',        asteris: 'Included',                 win: 'asteris' },
+      { feature: 'Two-tier (MLM) referrals',      rival: 'Available',            asteris: 'Included from Starter',    win: 'tie' },
+      { feature: 'AI swipe-copy generator',       rival: 'Not available',        asteris: 'Included',                 win: 'asteris' },
+      { feature: 'Cloud-assist fraud detection',  rival: 'Not available',        asteris: 'Opt-in (hashed)',          win: 'asteris' },
+      { feature: 'Stripe Connect direct payouts', rival: 'Not available',        asteris: 'Included',                 win: 'asteris' },
+      { feature: 'PayPal API auto-batch',         rival: 'Manual / limited',     asteris: 'Included',                 win: 'asteris' },
+      { feature: 'Vanity /go/ landing pages',     rival: 'Not available',        asteris: 'Included',                 win: 'asteris' },
+      { feature: 'A/B email testing',             rival: 'Not available',        asteris: 'Included',                 win: 'asteris' },
+      { feature: 'WP-CLI commands',               rival: 'Limited',              asteris: 'Full suite',               win: 'asteris' },
+      { feature: 'Self-hosted',                   rival: 'Yes',                  asteris: 'Yes',                      win: 'tie' },
+      { feature: 'GPL-licensed code',             rival: 'Yes',                  asteris: 'Yes (GPL-2.0+)',           win: 'tie' },
     ]}
-  />
+  >
+    <section class="prose">
+      <div class="prose-inner">
+        <h2>Easy Affiliate is the MemberPress-bundle pick — Asteris is the standalone pick</h2>
+        <p>Easy Affiliate is genuinely the right answer if you already run MemberPress as your membership engine. The integration between the two products is tight, billing-event hooks fire commission credits cleanly, and you're buying from a team you already work with. If MemberPress is your stack, you can probably stop reading this comparison and just pick Easy Affiliate.</p>
+        <p>If MemberPress isn't your stack, the picture flips. Easy Affiliate's value proposition is the MemberPress relationship — strip that out and you're paying for a feature surface that lags behind both AffiliateWP and Asteris on every dimension that matters: no AI swipe-copy generator, no cloud-assist fraud detection, no Stripe Connect direct payouts, no Surecart adapter, no A/B email testing. It works, but you're paying for a tool optimised for a stack you don't run.</p>
+        <h3>When to switch away from Easy Affiliate</h3>
+        <p>The migration trigger we see most often: a store buys Easy Affiliate because it was bundled or cross-promoted with their MemberPress purchase, then realises 6 months in that they wanted standalone affiliate tooling all along. The MemberPress-specific hooks don't add value (you're not using membership tiers as the commission unit), and the standalone feature set is thinner than what's available from dedicated affiliate-first plugins.</p>
+        <h3>The cart-coverage gap</h3>
+        <p>If you sell anything outside MemberPress — products via WooCommerce, courses via EDD, digital products via Surecart — Asteris's cart adapters in core give you one affiliate ledger across all of it. Easy Affiliate's strength is in MemberPress; its weakness is in everything else. <a href="/features">All Asteris cart integrations →</a></p>
+      </div>
+    </section>
+
+    <section class="prose dark">
+      <div class="prose-inner">
+        <h2>Migrating from Easy Affiliate</h2>
+        <p>Easy Affiliate stores its data in WordPress tables, which makes migration relatively painless. The general migration path: install Asteris alongside Easy Affiliate (they won't conflict), run <code>wp asteris-aff import --source=easyaffiliate</code> to read Easy Affiliate's affiliate + commission tables and recreate matching records in Asteris's tables, verify balances, then switch your tracking to Asteris. See the <a href="/migrate">migration hub</a> for general steps; we'll publish a dedicated Easy Affiliate migration walkthrough as we get more customer migration data from this source.</p>
+
+        <h2>The honest case for staying on Easy Affiliate</h2>
+        <p>Stay on Easy Affiliate if MemberPress is the heart of your membership business and you genuinely use the membership-tier commission features. The integration won't be replicated by any standalone plugin — including ours — because we don't have MemberPress-specific hooks. If MemberPress is the centre of your stack, lean into the tight integration. If MemberPress is incidental or unused, <a href="/pricing">Asteris's $149/yr Starter</a> is the lower-friction answer with a larger feature surface and broader cart coverage.</p>
+      </div>
+    </section>
+  </CompareBody>
 </Layout>
+
+<style>
+  .prose { padding: 64px 24px; background: #fff; border-top: 1px solid var(--c-border); }
+  .prose.dark { background: var(--c-bg); }
+  .prose-inner { max-width: 820px; margin: 0 auto; }
+  .prose h2 { font-size: clamp(24px, 3vw, 32px); margin: 36px 0 18px; }
+  .prose h2:first-child { margin-top: 0; }
+  .prose h3 { font-size: 18px; margin: 24px 0 10px; color: var(--c-mint); }
+  .prose p { font-size: 16px; line-height: 1.65; color: var(--c-text); margin-bottom: 14px; }
+  .prose a { color: var(--c-mint); font-weight: 600; }
+  .prose code { background: rgba(0,0,0,0.06); padding: 1px 5px; border-radius: 3px; font-family: var(--font-mono); font-size: 13px; }
+  .prose strong { color: var(--c-text); font-weight: 700; }
+</style>

@@ -17,5 +17,55 @@ import MigrateBody from '../../components/MigrateBody.astro';
       'Multi-currency commissions: confirm your Asteris Affiliates Pro currency settings match Tapfiliate\'s configuration before importing balances.',
     ]}
     vsSlug="/tapfiliate-vs-asteris"
-  />
+  >
+    <section class="prose">
+      <div class="prose-inner">
+        <h2>The SaaS-to-self-hosted move, step by step</h2>
+        <p>Migrating from a SaaS tracker like Tapfiliate is structurally different from migrating between two WordPress plugins. There are three moving parts: (1) extracting your data from the SaaS in a format you can re-import elsewhere, (2) installing and configuring a WordPress-native tracker that picks up where the SaaS left off, and (3) cutting over the tracking pixel on your live storefront without losing referrals during the transition.</p>
+
+        <h2>Step 1 — Extract your data from Tapfiliate</h2>
+        <p>Tapfiliate's standard CSV export gives you affiliates, conversions (commissions), and clicks for the period your plan covers. Request it via Affiliates → Settings → Export. Tapfiliate emails the file when it's ready — usually within a few minutes for small accounts, up to a few hours for accounts with hundreds of thousands of clicks. Download all three files (affiliates, conversions, clicks).</p>
+
+        <h2>Step 2 — Install Asteris and import</h2>
+        <p>Install Asteris Affiliates on your WordPress site. Run the 4-step onboarding wizard to set base commission rate, payout-method defaults, and admin notification email. Then run <code>wp asteris-aff import --source=tapfiliate --affiliates=affs.csv --conversions=conv.csv --clicks=clicks.csv</code>. The import:</p>
+        <ul>
+          <li><strong>Affiliates</strong> are created with their Tapfiliate email as the primary key, custom commission rates preserved, payout-method preferences mapped (Tapfiliate's "wire transfer" → Asteris "bank transfer", "PayPal" → "PayPal", "manual" → "manual"). Tapfiliate "active" → Asteris "active". "Pending" affiliates become "pending" in Asteris awaiting your approval.</li>
+          <li><strong>Conversions (commissions)</strong> are created with status preserved. Tapfiliate "approved" → Asteris "unpaid". Tapfiliate "paid" → Asteris "paid". Tapfiliate "disapproved" / "chargeback" → Asteris "rejected". Outstanding balances roll forward correctly so your first Asteris payout settles what affiliates were already owed.</li>
+          <li><strong>Clicks</strong> are stored as visit records up to whatever window Tapfiliate's export covers (typically the last 12 months). Beyond that window, aggregate counts per affiliate are recorded so lifetime stats still look reasonable.</li>
+        </ul>
+
+        <h2>Step 3 — Cut over the tracking pixel</h2>
+        <p>This is the only delicate step in the entire migration and the reason we recommend running Asteris and Tapfiliate in parallel for at least a week before fully cutting Tapfiliate off. The goal: zero gap in tracking, zero double-counted referrals, zero broken affiliate links in the wild.</p>
+        <p>The mechanics:</p>
+        <ul>
+          <li><strong>Day 0:</strong> Asteris is installed and importing historical data. Tapfiliate is still the live tracker. Both systems are running; no double-counting because Asteris isn't tracking new orders yet.</li>
+          <li><strong>Day 1:</strong> Enable Asteris tracking on new orders (Settings → Tracking → Enabled). Leave the Tapfiliate JS snippet in place too — both systems will record the same order, but Asteris is now your source of truth.</li>
+          <li><strong>Day 1–7:</strong> Run shadow mode for a week. Each day, spot-check 3–5 new orders: did Asteris credit the right affiliate? Did Tapfiliate? Do they match? Fix any attribution discrepancies before going further.</li>
+          <li><strong>Day 8:</strong> Remove the Tapfiliate JS snippet from your theme. Tapfiliate stops tracking new orders. Asteris is now the only tracker.</li>
+          <li><strong>Day 8 onwards:</strong> Email affiliates their new vanity URL (<code>{`/go/{handle}`}</code>) and ask them to update their published links. Asteris registers a compatibility redirect for the most common SaaS-tracker URL patterns, so legacy Tapfiliate links from the wild continue to track and credit.</li>
+          <li><strong>End of current Tapfiliate billing cycle:</strong> cancel Tapfiliate. Your data is already in Asteris, your tracker is already running on Asteris, and you've had a clean cycle to confirm. Cancellation stops your recurring SaaS bill.</li>
+        </ul>
+
+        <h2>Common cutover questions</h2>
+        <h3>What about affiliates with payout balances still on Tapfiliate's side?</h3>
+        <p>Either pay them out from Tapfiliate before you cancel (clean break), or let Tapfiliate's final payout cycle complete naturally and pay the rest from Asteris (the imported "pending" balance covers what Asteris is now responsible for). Be explicit with affiliates about which system will pay them this month — a single email to your affiliate list clears up most confusion.</p>
+        <h3>What about historical reporting?</h3>
+        <p>Tapfiliate's historical reports stay in their dashboard until you cancel. Asteris's historical reports include everything imported (the last 12+ months of clicks, all conversions, all affiliates). If you need older reports for tax purposes, export them from Tapfiliate before you cancel and archive locally — Tapfiliate doesn't keep your data accessible after cancellation. <a href="/tapfiliate-vs-asteris">Tapfiliate vs Asteris full comparison →</a></p>
+      </div>
+    </section>
+  </MigrateBody>
 </Layout>
+
+<style>
+  .prose { padding: 64px 24px; background: #fff; border-top: 1px solid var(--c-border); }
+  .prose-inner { max-width: 820px; margin: 0 auto; }
+  .prose h2 { font-size: clamp(22px, 3vw, 28px); margin: 32px 0 16px; }
+  .prose h2:first-child { margin-top: 0; }
+  .prose h3 { font-size: 17px; margin: 22px 0 8px; color: var(--c-mint); }
+  .prose p { font-size: 15.5px; line-height: 1.65; color: var(--c-text); margin-bottom: 12px; }
+  .prose ul, .prose ol { padding-left: 24px; margin-bottom: 14px; }
+  .prose li { padding: 5px 0; line-height: 1.6; font-size: 15px; }
+  .prose a { color: var(--c-mint); font-weight: 600; }
+  .prose code { background: rgba(0,0,0,0.06); padding: 1px 5px; border-radius: 3px; font-family: var(--font-mono); font-size: 12.5px; }
+  .prose strong { color: var(--c-text); font-weight: 700; }
+</style>
