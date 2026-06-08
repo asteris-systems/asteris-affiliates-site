@@ -1,0 +1,59 @@
+---
+import { getCollection, render } from 'astro:content';
+import MarketingLayout from '../layouts/MarketingLayout.astro';
+
+// Routes EVERY marketing collection entry to the path declared in its `url`
+// frontmatter field. The home (`/`) is owned by `src/pages/index.astro` (rich
+// hand-built page) — we skip it here to avoid a build-time route collision.
+//
+// Future rich Astro overrides can be added to RICH_OVERRIDES below or by
+// setting `rich_override: true` on the source markdown frontmatter.
+
+export async function getStaticPaths() {
+  // RICH_OVERRIDES must live INSIDE this function — Astro evaluates
+  // getStaticPaths in an isolated context during build that does not see
+  // module-scope identifiers defined alongside the imports.
+  // URLs handled by hand-built rich Astro pages — skip in the dynamic route.
+  // Source markdown still lives in src/content/marketing/ for reference; the
+  // canonical render comes from src/pages/{name}.astro.
+  const RICH_OVERRIDES = new Set([
+    '/',
+    '/pricing',
+    '/lifetime',
+    '/free',
+    '/modules',
+    '/demo',
+  ]);
+  const all = await getCollection('marketing');
+  return all
+    .filter((entry) => {
+      const url = entry.data.url;
+      if (!url) return false;
+      if (RICH_OVERRIDES.has(url)) return false;
+      if (entry.data.rich_override) return false;
+      return true;
+    })
+    .map((entry) => {
+      // Strip leading slash; Astro re-applies one. Empty becomes home (filtered above).
+      const slug = entry.data.url.replace(/^\//, '');
+      return { params: { slug }, props: { entry } };
+    })
+    // Defensive: drop any entry that resolved to an empty slug (would collide with /).
+    .filter((p) => p.params.slug !== '');
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const data = entry.data;
+---
+
+<MarketingLayout
+  title={data.title}
+  description={data.meta_description ?? data.og_description}
+  noindex={data.noindex}
+  schemaType={data.schema_type}
+  modifiedDate={data.verified_date}
+  faqs={data.faqs}
+>
+  <Content />
+</MarketingLayout>

@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Asteris Affiliates demo via WordPress Playground.
+// Blueprint at /public/playground/blueprint.json — auto-installs the plugin + seeds
+// demo affiliates, commissions, and a sample WC store on a throwaway in-browser WP.
+const PLAYGROUND_URL = 'https://playground.wordpress.net/?blueprint-url=https://asterisaffiliates.com/playground/blueprint.json';
+---
+
+<Layout seoSlug="/demo">
+  <section class="hero">
+    <div class="eyebrow">★ TRY IT IN YOUR BROWSER · NO INSTALL</div>
+    <h1>Live demo. <span class="accent">No signup.</span></h1>
+    <p class="lead">
+      A real WordPress + WooCommerce install with Asteris Affiliates v1.1.0 pre-configured.
+      Browse the admin, walk through the affiliate portal, place a test order, see commissions calculated in real time. Runs entirely in your browser via WordPress Playground.
+    </p>
+    <a href={PLAYGROUND_URL} class="btn btn-pop btn-large" target="_blank" rel="noopener">Launch demo →</a>
+    <p class="note">Opens in a new tab · Takes ~20 seconds to boot · Demo data resets on close</p>
+  </section>
+
+  <section class="walkthrough">
+    <div class="walkthrough-inner">
+      <h2>What's in the demo</h2>
+      <div class="step-grid">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3>Admin dashboard</h3>
+          <p>5 sample affiliates with mixed approval states, 30 days of commission history, a few pending payouts. See the at-a-glance widget + reports.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3>Affiliate portal</h3>
+          <p>Log in as <code>affiliate@demo.test</code> / <code>demo</code>. See stats, commissions, swipe-copy library, payout history.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3>Place a test order</h3>
+          <p>Visit the storefront via <code>/go/sarah</code>, add a product, checkout. Watch the commission appear in Sarah's portal within 5 seconds.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h3>Try the MLM tier-2</h3>
+          <p>Enable MLM in Settings → toggle. Sarah's parent affiliate "Tom" now earns 25% of Sarah's commissions automatically.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Like what you see?</h2>
+      <p>$149/yr for 1 site. Install on your live store in 90 seconds.</p>
+      <a href="/pricing" class="btn btn-pop btn-large">See pricing →</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero { max-width: 760px; margin: 0 auto; padding: 96px 24px 64px; text-align: center; }
+  .eyebrow { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(40px, 6vw, 64px); font-weight: 900; line-height: 1.05; margin-bottom: 20px; }
+  .hero h1 .accent { color: var(--c-mint); }
+  .hero .lead { font-size: 18px; color: var(--c-text); line-height: 1.55; margin-bottom: 32px; }
+  .note { font-size: 13px; color: var(--c-muted); margin-top: 16px; }
+
+  .walkthrough { padding: 96px 24px; background: #fff; border-top: 1px solid var(--c-border); }
+  .walkthrough-inner { max-width: var(--max-w); margin: 0 auto; }
+  .walkthrough h2 { font-size: clamp(28px, 4vw, 40px); text-align: center; margin-bottom: 48px; }
+  .step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+  .step { padding: 28px; border-left: 4px solid var(--c-mint); background: var(--c-bg); border-radius: 4px; }
+  .step-num { font-size: 13px; color: var(--c-mint); font-weight: 800; letter-spacing: 0.12em; margin-bottom: 8px; }
+  .step h3 { font-size: 18px; margin-bottom: 8px; }
+  .step p { font-size: 14px; color: var(--c-muted); line-height: 1.6; }
+  .step code { background: rgba(0,0,0,0.06); padding: 2px 6px; border-radius: 3px; font-family: var(--font-mono); font-size: 12px; }
+
+  .cta-section { background: var(--c-black); color: #fff; padding: 96px 24px; }
+  .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+  .cta-section h2 { font-size: clamp(28px, 4vw, 40px); color: #fff; margin-bottom: 16px; }
+  .cta-section p { color: rgba(255,255,255,0.85); font-size: 17px; margin-bottom: 32px; line-height: 1.6; }
+</style>

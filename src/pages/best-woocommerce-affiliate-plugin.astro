@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const plugins = [
+  { name: 'AffiliateWP',     pricing: 'Annual licence', verdict: 'Established option. Mature reporting, large add-on ecosystem. Two-tier costs extra.', slug: '/affiliatewp-vs-asteris' },
+  { name: 'SliceWP Pro',     pricing: 'Annual licence', verdict: 'Lightweight and well-designed. No two-tier referrals at any tier.',                  slug: '/slicewp-vs-asteris' },
+  { name: 'Solid Affiliate', pricing: 'Annual licence', verdict: 'WooCommerce-only. Solid build but no EDD/Surecart, no MLM, no AI swipe.',          slug: '/solid-affiliate-vs-asteris' },
+  { name: 'Easy Affiliate',  pricing: 'Annual licence', verdict: 'MemberPress-adjacent. Good if you already run MemberPress; otherwise overkill.',    slug: '/easy-affiliate-vs-asteris' },
+  { name: 'YITH Affiliates', pricing: 'Annual licence', verdict: 'Bundled with YITH suite. Limited features; no MLM, no fraud detection.',           slug: null },
+  { name: 'Asteris Affiliates', pricing: 'From $149/yr', verdict: 'Self-hosted with MLM, AI swipe-copy, PayPal API auto-payout, fraud detection, EDD + Surecart adapters.', slug: '/pricing' },
+];
+---
+<Layout seoSlug="/best-woocommerce-affiliate-plugin">
+  <section class="hero">
+    <div class="eyebrow">★ COMPARISON · 2026 EDITION</div>
+    <h1>Best WooCommerce <span class="accent">affiliate plugin</span> — 2026</h1>
+    <p class="lead">There is no single "best" plugin — it depends on whether you need two-tier referrals, whether you also run EDD or Surecart, and whether you prefer SaaS or self-hosted. Here's a side-by-side comparison of the six options most WooCommerce stores actually choose between.</p>
+  </section>
+
+  <section class="grid">
+    <div class="grid-inner">
+      {plugins.map(p => (
+        <div class:list={['plug', { mine: p.name === 'Asteris Affiliates' }]}>
+          <h2>{p.name}</h2>
+          <p class="pricing">{p.pricing}</p>
+          <p class="verdict">{p.verdict}</p>
+          {p.slug && <a href={p.slug} class="link">{p.name === 'Asteris Affiliates' ? 'See pricing' : `${p.name} vs Asteris`} →</a>}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="how">
+    <div class="how-inner">
+      <h2>How to pick</h2>
+      <ol>
+        <li><strong>Self-hosted or SaaS?</strong> Self-hosted (the five WordPress plugins above) keeps your data on your server. SaaS (Tapfiliate, Rewardful) bills monthly forever and stores data with them.</li>
+        <li><strong>One cart or many?</strong> WooCommerce-only stores can pick any. EDD or Surecart stores narrow to AffiliateWP or Asteris Affiliates.</li>
+        <li><strong>Need two-tier referrals?</strong> Asteris Affiliates includes them from Starter. AffiliateWP requires an add-on. SliceWP and Solid Affiliate don't offer them.</li>
+        <li><strong>Care about AI swipe-copy or built-in fraud detection?</strong> Only Asteris Affiliates ships these in core.</li>
+        <li><strong>Budget for the year?</strong> Asteris Affiliates Starter is $149/yr — the cheapest serious option. Free tier covers up to 25 affiliates.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="faq-inner">
+      <h2>FAQ</h2>
+      <details><summary>What is the best WooCommerce affiliate plugin?</summary><p>It depends on budget and features: AffiliateWP is the established option, SliceWP is lightweight, Solid Affiliate is WooCommerce-only, and Asteris Affiliates includes two-tier and AI swipe-copy from $149/yr.</p></details>
+      <details><summary>Do any include two-tier referrals as standard?</summary><p>Asteris Affiliates includes two-tier from Starter; several rivals charge extra or omit it.</p></details>
+      <details><summary>What about free options?</summary><p>SliceWP has a free core, and Asteris Affiliates has a free tier for up to 25 affiliates. Both let you upgrade later when you outgrow them.</p></details>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Trying Asteris Affiliates?</h2>
+      <p>14-day money-back guarantee. Self-hosted. Two-tier referrals from $149/yr.</p>
+      <a href="/pricing" class="btn btn-pop btn-large">See pricing →</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero { max-width: 760px; margin: 0 auto; padding: 96px 24px 48px; text-align: center; }
+  .eyebrow { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(36px, 5vw, 52px); font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
+  .hero h1 .accent { color: var(--c-mint); }
+  .hero .lead { font-size: 18px; color: var(--c-text); line-height: 1.6; }
+  .grid { padding: 32px 24px 64px; }
+  .grid-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+  .plug { padding: 24px; background: #fff; border: 2px solid var(--c-border); border-radius: 10px; }
+  .plug.mine { border-color: var(--c-mint); box-shadow: 4px 4px 0 var(--c-mint); }
+  .plug h2 { font-size: 18px; margin-bottom: 4px; }
+  .plug .pricing { color: var(--c-mint); font-size: 13px; font-weight: 700; margin-bottom: 12px; }
+  .plug .verdict { color: var(--c-muted); font-size: 14px; line-height: 1.55; margin-bottom: 16px; }
+  .plug .link { font-size: 13px; color: var(--c-mint); font-weight: 700; }
+  .how { padding: 64px 24px; background: #fff; }
+  .how-inner { max-width: 760px; margin: 0 auto; }
+  .how h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 24px; text-align: center; }
+  .how ol { padding-left: 20px; }
+  .how li { padding: 8px 0; line-height: 1.6; }
+  .faq { padding: 64px 24px; background: var(--c-bg); }
+  .faq-inner { max-width: 760px; margin: 0 auto; }
+  .faq h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 24px; text-align: center; }
+  details { border: 1px solid var(--c-border); border-radius: 6px; margin-bottom: 8px; padding: 14px 18px; background: #fff; }
+  details[open] { border-color: var(--c-mint); }
+  summary { font-weight: 700; cursor: pointer; }
+  details p { margin-top: 10px; color: var(--c-muted); line-height: 1.6; }
+  .cta-section { background: var(--c-black); color: #fff; padding: 96px 24px; }
+  .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+  .cta-section h2 { font-size: clamp(28px, 4vw, 40px); color: #fff; margin-bottom: 16px; }
+  .cta-section p { color: rgba(255,255,255,0.85); font-size: 17px; margin-bottom: 32px; }
+</style>

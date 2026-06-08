@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import MigrateBody from '../../components/MigrateBody.astro';
+---
+<Layout seoSlug="/migrate/from-yith">
+  <MigrateBody
+    sourceName="YITH Affiliates"
+    sourceUrl="https://yithemes.com/themes/plugins/yith-woocommerce-affiliates/"
+    intro="YITH WooCommerce Affiliates is the affiliate module bundled in YITH's plugin suite. Moving to Asteris Affiliates gives you two-tier referrals, AI swipe-copy, and PayPal API auto-payout — features YITH doesn't include. The data migration takes about 10 minutes."
+    exportSteps={[
+      { name: 'Export from YITH', text: 'In WordPress admin, open YITH → Affiliates → Tools and export affiliates + commissions to CSV.' },
+    ]}
+    caveats={[
+      'YITH stores commission percentages per affiliate — these import to Asteris Affiliates as overrides, but the global default is set separately in Settings.',
+      'YITH\'s coupon-linked attribution maps cleanly into Asteris Affiliates\' coupon attribution — verify each existing coupon still links to the correct affiliate.',
+    ]}
+  />
+</Layout>

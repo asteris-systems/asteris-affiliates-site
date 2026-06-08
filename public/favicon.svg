@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Asteris Affiliates brand mark: mint star on rounded-black square -->
+  <rect width="64" height="64" rx="10" fill="#0a0a0a"/>
+  <path d="M32 8 L37.8 24.3 L55 25.5 L41.6 35.8 L46.5 52.4 L32 42.6 L17.5 52.4 L22.4 35.8 L9 25.5 L26.2 24.3 Z"
+        fill="#06D6A0"/>
+</svg>

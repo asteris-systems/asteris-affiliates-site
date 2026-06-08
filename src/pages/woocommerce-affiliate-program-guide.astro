@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout seoSlug="/woocommerce-affiliate-program-guide">
+  <section class="hero">
+    <div class="eyebrow">★ STEP-BY-STEP GUIDE · 2026</div>
+    <h1>How to start a <span class="accent">WooCommerce affiliate program</span></h1>
+    <p class="lead">Launching an affiliate program for your WooCommerce store takes 5 steps: install a plugin, set commission rates, create a sign-up page, recruit your first affiliates, and pay out. With a self-hosted approach you keep full control of your affiliate data; with a SaaS approach you pay monthly forever for someone else to host it.</p>
+  </section>
+
+  <section class="steps">
+    <div class="steps-inner">
+      <h2>The 5 steps</h2>
+      <ol>
+        <li><h3>1. Choose a plugin</h3><p>Self-hosted: AffiliateWP, SliceWP, Solid Affiliate, Asteris Affiliates. SaaS: Tapfiliate, Rewardful. <a href="/best-woocommerce-affiliate-plugin">Comparison →</a></p></li>
+        <li><h3>2. Set commission rates</h3><p>10–20% is standard for digital products; 5–10% for physical. Per-product overrides for high-margin items.</p></li>
+        <li><h3>3. Create a sign-up page</h3><p>Most plugins ship a [shortcode] or block that renders the sign-up form. Approve manually or auto-approve.</p></li>
+        <li><h3>4. Recruit affiliates</h3><p>Existing customers, niche bloggers, podcast hosts, micro-influencers. Provide swipe-copy, banners, vanity links.</p></li>
+        <li><h3>5. Pay out</h3><p>Monthly batch via PayPal API or bank transfer. Set a minimum threshold ($50 or $100 is common).</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="faq-inner">
+      <h2>FAQ</h2>
+      <details><summary>How do I start a WooCommerce affiliate program?</summary><p>Install an affiliate plugin, set your commission rate, create an affiliate sign-up page, approve affiliates and pay commissions on completed orders.</p></details>
+      <details><summary>Do I need a SaaS service?</summary><p>No. A self-hosted plugin keeps the program and data inside your own WordPress.</p></details>
+      <details><summary>What commission rate should I offer?</summary><p>10–20% on digital products, 5–10% on physical goods, depending on margin. Increase for top performers via per-product overrides.</p></details>
+      <details><summary>How do I avoid affiliate fraud?</summary><p>Per-IP throttling, cookie + IP attribution, and (in Asteris Affiliates) optional cloud-assist fraud signal sharing across stores.</p></details>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Run the program in your own WordPress</h2>
+      <p>Asteris Affiliates: self-hosted, two-tier included, $149/yr.</p>
+      <a href="/pricing" class="btn btn-pop btn-large">See pricing →</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero { max-width: 760px; margin: 0 auto; padding: 96px 24px 48px; text-align: center; }
+  .eyebrow { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(36px, 5vw, 52px); font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
+  .hero h1 .accent { color: var(--c-mint); }
+  .hero .lead { font-size: 18px; color: var(--c-text); line-height: 1.6; }
+  .steps { padding: 64px 24px; background: #fff; }
+  .steps-inner { max-width: 760px; margin: 0 auto; }
+  .steps h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 32px; text-align: center; }
+  .steps ol { list-style: none; padding: 0; }
+  .steps li { padding: 20px 0; border-bottom: 1px solid var(--c-border); }
+  .steps h3 { font-size: 18px; margin-bottom: 8px; color: var(--c-mint); }
+  .steps p { line-height: 1.6; color: var(--c-text); }
+  .steps a { color: var(--c-mint); font-weight: 600; }
+  .faq { padding: 64px 24px; background: var(--c-bg); }
+  .faq-inner { max-width: 760px; margin: 0 auto; }
+  .faq h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 24px; text-align: center; }
+  details { border: 1px solid var(--c-border); border-radius: 6px; margin-bottom: 8px; padding: 14px 18px; background: #fff; }
+  details[open] { border-color: var(--c-mint); }
+  summary { font-weight: 700; cursor: pointer; }
+  details p { margin-top: 10px; color: var(--c-muted); line-height: 1.6; }
+  .cta-section { background: var(--c-black); color: #fff; padding: 96px 24px; }
+  .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+  .cta-section h2 { font-size: clamp(28px, 4vw, 40px); color: #fff; margin-bottom: 16px; }
+  .cta-section p { color: rgba(255,255,255,0.85); font-size: 17px; margin-bottom: 32px; }
+</style>

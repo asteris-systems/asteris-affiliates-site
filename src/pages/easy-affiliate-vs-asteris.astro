@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CompareBody from '../components/CompareBody.astro';
+---
+<Layout seoSlug="/easy-affiliate-vs-asteris">
+  <CompareBody
+    rivalName="Easy Affiliate"
+    rivalTagline="A WordPress affiliate plugin built by the MemberPress team. Designed to pair with MemberPress-based membership sites."
+    rivalUrl="https://easyaffiliate.com"
+    intro="Easy Affiliate is built by the MemberPress team and integrates closely with MemberPress for membership-driven affiliate programs. Asteris Affiliates is a standalone self-hosted plugin with two-tier referrals included from $149/yr, no MemberPress dependency."
+    whenRivalWins={[
+      'You already run MemberPress and want first-party integration',
+      'Your affiliate program is built around membership tiers and recurring billing',
+    ]}
+    whenAsterisWins={[
+      'Standalone — no MemberPress dependency',
+      'Two-tier referrals included from Starter',
+      'WooCommerce / EDD / Surecart adapters',
+      'AI swipe-copy generator built in',
+      'PayPal API auto-batch payout',
+      'Cloud-assist fraud detection (opt-in)',
+      'Vanity /go/ landing pages with tracking',
+    ]}
+    comparisonRows={[
+      { feature: 'MemberPress integration',      rival: 'Native',               asteris: 'No',                      win: 'rival' },
+      { feature: 'Standalone (no dependency)',   rival: 'No (needs WP)',        asteris: 'Yes',                     win: 'asteris' },
+      { feature: 'WooCommerce native',           rival: 'Via integration',      asteris: 'Direct',                  win: 'asteris' },
+      { feature: 'EDD + Surecart',               rival: 'Limited',              asteris: 'Yes (adapters)',          win: 'asteris' },
+      { feature: 'Two-tier referrals',           rival: 'Yes',                  asteris: 'Included from Starter',  win: 'tie' },
+      { feature: 'AI swipe-copy generator',      rival: 'No',                   asteris: 'Built in',                win: 'asteris' },
+      { feature: 'PayPal API auto-batch',        rival: 'Manual',               asteris: 'Built in',                win: 'asteris' },
+      { feature: 'Cloud-assist fraud detection', rival: 'No',                   asteris: 'Opt-in',                  win: 'asteris' },
+      { feature: 'A/B email testing',            rival: 'No',                   asteris: 'Built in',                win: 'asteris' },
+      { feature: 'Self-hosted',                  rival: 'Yes',                  asteris: 'Yes',                     win: 'tie' },
+    ]}
+  />
+</Layout>

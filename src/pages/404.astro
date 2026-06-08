@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+// Branded 404. Mirrors index.astro's hero design language so it doesn't feel
+// like a fallback page. Lists the most-visited destinations so a 404 still
+// puts the visitor one click from where they were going.
+
+const popularLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/pricing', label: 'Pricing' },
+  { href: '/lifetime', label: 'Founder' },
+  { href: '/free', label: 'Asteris Free' },
+  { href: '/modules', label: 'All 22 modules' },
+  { href: '/demo', label: 'Live demo' },
+  { href: '/docs', label: 'Documentation' },
+  { href: '/support', label: 'Support' },
+];
+---
+
+<Layout
+  title="Page not found — Asteris Affiliates"
+  description="That page doesn't exist. Here are the popular Asteris Affiliates destinations."
+  noindex={true}
+>
+  <section class="four-oh">
+    <div class="container">
+      <div class="eyebrow">★ 404</div>
+      <h1>
+        That page <span class="accent">doesn't</span> exist.
+      </h1>
+      <p class="lead">
+        It may have moved, been renamed, or never been here. If you followed a link from somewhere, let us know at <a href="mailto:support@asterisaffiliates.com">support@asterisaffiliates.com</a> and we'll fix it.
+      </p>
+
+      <div class="grid">
+        {popularLinks.map(l => (
+          <a href={l.href} class="card">
+            <div class="label">{l.label}</div>
+            <div class="arrow">→</div>
+          </a>
+        ))}
+      </div>
+
+      <p class="footer-note">
+        Or jump back to <a href="/">the homepage</a>.
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 36px; }
+  .four-oh { padding: 96px 0 128px; }
+  .four-oh .eyebrow { margin-bottom: 22px; }
+  .four-oh h1 {
+    font-size: 88px;
+    line-height: 0.98;
+    letter-spacing: -3.5px;
+    font-weight: 900;
+    margin-bottom: 28px;
+  }
+  .four-oh .lead {
+    font-size: 19px;
+    color: #444;
+    max-width: 720px;
+    line-height: 1.5;
+    margin-bottom: 48px;
+  }
+  .four-oh .lead a { color: var(--c-mint); text-decoration: underline; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 48px;
+  }
+  .card {
+    background: var(--c-white);
+    border: 2px solid var(--c-black);
+    border-radius: var(--r-md);
+    padding: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: var(--c-black);
+    transition: transform .1s, box-shadow .1s;
+  }
+  .card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: var(--pop-shadow);
+  }
+  .card .label { font-weight: 700; font-size: 16px; }
+  .card .arrow { color: var(--c-mint); font-weight: 900; font-size: 22px; }
+
+  .footer-note { color: #555; font-size: 15px; }
+  .footer-note a { color: var(--c-mint); text-decoration: underline; }
+
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 700px) {
+    .four-oh h1 { font-size: 56px; letter-spacing: -2px; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>

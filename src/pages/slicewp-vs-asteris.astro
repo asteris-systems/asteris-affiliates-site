@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CompareBody from '../components/CompareBody.astro';
+---
+<Layout seoSlug="/slicewp-vs-asteris">
+  <CompareBody
+    rivalName="SliceWP"
+    rivalTagline="A lightweight WordPress affiliate plugin with a free core and Pro upgrade. Modern UI, focused on single-tier programs."
+    rivalUrl="https://slicewp.com"
+    intro="SliceWP Pro is a lightweight, well-designed affiliate plugin that suits stores running single-tier programs. Asteris Affiliates extends the same self-hosted model with two-tier referrals, AI swipe-copy, and PayPal API auto-payout, included from $149/yr."
+    whenRivalWins={[
+      'You want the simplest possible UI for a single-tier program',
+      'You value SliceWP\'s polish and design simplicity above feature breadth',
+    ]}
+    whenAsterisWins={[
+      'Two-tier referrals — SliceWP doesn\'t offer this at any tier',
+      'AI swipe-copy generator',
+      'PayPal API auto-payout (SliceWP has manual payouts only)',
+      'Cloud-assist fraud detection (opt-in)',
+      'EDD + Surecart adapters beyond WooCommerce',
+      'Real-time stats REST API with cursor pagination',
+    ]}
+    comparisonRows={[
+      { feature: 'Two-tier (MLM) referrals',     rival: 'Not available',        asteris: 'Included from Starter',  win: 'asteris' },
+      { feature: 'AI swipe-copy generator',      rival: 'No',                   asteris: 'Built in',                win: 'asteris' },
+      { feature: 'PayPal API auto-batch',        rival: 'Manual only',          asteris: 'Built in',                win: 'asteris' },
+      { feature: 'Cloud-assist fraud detection', rival: 'No',                   asteris: 'Opt-in (hashed)',         win: 'asteris' },
+      { feature: 'EDD + Surecart adapters',      rival: 'WooCommerce only',     asteris: 'WC + EDD + Surecart',    win: 'asteris' },
+      { feature: 'Vanity /go/ landing pages',    rival: 'No',                   asteris: 'Built in',                win: 'asteris' },
+      { feature: 'A/B email testing',            rival: 'No',                   asteris: 'Built in',                win: 'asteris' },
+      { feature: 'Free core tier',               rival: 'Yes',                  asteris: 'Yes (25 affiliates)',     win: 'tie' },
+      { feature: 'WP-CLI commands',              rival: 'Limited',              asteris: 'Full suite',              win: 'asteris' },
+      { feature: 'Self-hosted',                  rival: 'Yes',                  asteris: 'Yes',                     win: 'tie' },
+    ]}
+    migrateSlug="/migrate/from-slicewp"
+  />
+</Layout>

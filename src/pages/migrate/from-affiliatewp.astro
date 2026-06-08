@@ -1,0 +1,20 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import MigrateBody from '../../components/MigrateBody.astro';
+---
+<Layout seoSlug="/migrate/from-affiliatewp">
+  <MigrateBody
+    sourceName="AffiliateWP"
+    sourceUrl="https://affiliatewp.com"
+    intro="Migrating from AffiliateWP to Asteris Affiliates is a one-CLI-command import that preserves your affiliates, referral history, and balances. The two plugins use the same self-hosted model, so the move is data-only — no SaaS extraction, no DNS changes."
+    exportSteps={[
+      { name: 'Export from AffiliateWP', text: 'In WordPress admin, go to Affiliates → Tools → Export/Import and export affiliates and referrals as CSV.' },
+    ]}
+    caveats={[
+      'AffiliateWP\'s "Lifetime Commissions" add-on data is exported separately — re-enable in Asteris Affiliates settings after import.',
+      'Custom referral statuses (e.g. add-on "deferred" state) map to "pending" by default — review before paying out.',
+      'If you use AffiliateWP\'s recurring-referrals add-on, the recurring commission schedule needs to be re-set in Asteris Affiliates Pro.',
+    ]}
+    vsSlug="/affiliatewp-vs-asteris"
+  />
+</Layout>

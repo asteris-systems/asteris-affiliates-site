@@ -1,0 +1,165 @@
+/*
+ * Asteris sales site — global tokens + reset
+ * Brand: ★ orange star, black, yellow highlight, orange pop
+ * Aesthetic: "bold indie disruption" (per project_launch_marketing.md)
+ */
+
+:root {
+  /* Colors */
+  --c-black:   #0a0a0a;
+  --c-yellow:  #fff19a;
+  /* Asteris Affiliates brand colour — orange (LOCKED).
+     Brand-house map: Asteris Commerce parent = ultra-violet #AA00FF,
+     Asteris Affiliates = orange #06D6A0, Asteris for WordPress = indigo #3D5AFE. */
+  --c-mint:  #06D6A0;
+  --c-bg:      #fafafa;
+  --c-white:   #ffffff;
+  --c-text:    #0a0a0a;
+  --c-muted:   #555555;
+  --c-faint:   #888888;
+  --c-border:  #eeeeee;
+  --c-success: #2e7d32;
+  --c-warn:    #c0392b;
+
+  /* Typography */
+  --font: -apple-system, 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+
+  /* Layout */
+  --max-w: 1200px;
+  --gutter: 36px;
+
+  /* Radius */
+  --r-sm: 3px;
+  --r-md: 6px;
+  --r-lg: 8px;
+
+  /* Shadow (pop / brutalist) */
+  --pop-shadow: 4px 4px 0 var(--c-black);
+  --pop-shadow-lg: 8px 8px 0 var(--c-black);
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--c-bg);
+  color: var(--c-text);
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+/* ----- Components ----- */
+
+/* Button — base */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--c-black);
+  color: var(--c-white);
+  border: 2px solid var(--c-black);
+  border-radius: var(--r-sm);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform .1s, box-shadow .1s;
+}
+.btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--pop-shadow);
+}
+.btn-pop {
+  background: var(--c-mint);
+  border-color: var(--c-mint);
+}
+.btn-pop:hover {
+  box-shadow: 4px 4px 0 var(--c-black);
+}
+.btn-outline {
+  background: var(--c-white);
+  color: var(--c-black);
+}
+.btn-large {
+  padding: 16px 30px;
+  font-size: 15px;
+}
+
+/* Accent highlight (skewed yellow) — !important on color because the
+   element commonly sits inside h1/h2 on dark sections where the
+   parent's white color cascades through. Without !important, parent
+   color CAN win when a stylesheet applied later (or with higher
+   specificity in page-scoped overrides) resets it. The yellow bg is
+   only ever readable with black text, so the lock is correct. */
+.accent {
+  display: inline-block;
+  background: var(--c-yellow);
+  color: var(--c-black) !important;
+  padding: 0 8px;
+  transform: skew(-3deg);
+}
+
+/* Eyebrow (rotated orange tag) */
+.eyebrow {
+  display: inline-block;
+  background: var(--c-mint);
+  color: var(--c-white);
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  border-radius: var(--r-sm);
+  transform: rotate(-2deg);
+}
+
+/* Card */
+.card {
+  background: var(--c-white);
+  border: 2px solid var(--c-black);
+  border-radius: var(--r-md);
+  padding: 22px;
+}
+.card-pop:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--pop-shadow);
+}
+
+/* Section spacing */
+section {
+  padding-block: 64px;
+}
+
+/* Container */
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}

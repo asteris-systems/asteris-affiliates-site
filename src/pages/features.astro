@@ -1,0 +1,110 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Each module mapped to v1.1.0 source per project_asteris_affiliates_v1_1_shipped.md
+const sprints = [
+  {
+    name: 'Sprint 9A — Polish',
+    items: [
+      { t: 'Bulk operations', d: 'Approve / reject / suspend / reinstate affiliates; approve / reject commissions; mark-paid / failed on payouts.' },
+      { t: 'CSV export', d: 'Affiliates, commissions, payouts — honours all active filters.' },
+      { t: 'Sortable column headers', d: 'All admin list tables sort by any column, ascending or descending.' },
+      { t: 'Date-range picker', d: 'Reports + Commissions pages — narrow to any window.' },
+      { t: 'Dashboard widget', d: 'At-a-glance: 30-day commission total, pending count, top affiliate.' },
+    ],
+  },
+  {
+    name: 'Sprint 9B — Onboarding + UX',
+    items: [
+      { t: 'Affiliate onboarding wizard', d: '4-step guided signup. Captures payout details + tax info up-front.' },
+      { t: 'Admin impersonation', d: '"View as" any affiliate from admin. Yellow banner shows you\'re impersonating. Full audit log.' },
+      { t: 'Email throttling', d: 'Per-recipient per-template per-day cap (default 10, hard cap 50). Stops runaway sends.' },
+      { t: 'Per-product commission rates', d: 'WC product tab override. High-margin items pay higher commissions.' },
+      { t: 'i18n + WP-CLI', d: 'Translation-ready. Full CLI: list / approve / reject / payout / recompute / stats.' },
+      { t: 'Mobile-responsive portal', d: 'Affiliate portal works on phones. Public /go/{handle} pages mobile-first.' },
+    ],
+  },
+  {
+    name: 'Sprint 9C — Performance',
+    items: [
+      { t: 'Denormalised aggregates', d: 'Lifetime earnings / referrals / balances stored on affiliates table. No SUM() across thousands of commissions.' },
+      { t: 'Stats API optimisation', d: 'Cursor pagination + transient cache. Sub-50ms response on 50K-commission sites.' },
+    ],
+  },
+  {
+    name: 'Sprint 9D — Licensing',
+    items: [
+      { t: 'License client (HMAC-signed)', d: 'Activate / validate / deactivate against pay.asteriscommerce.com. Standard Asteris licence flow.' },
+    ],
+  },
+  {
+    name: 'Sprint 10+ — Differentiators (no other plugin has these in one package)',
+    items: [
+      { t: 'MLM / two-tier referrals', d: 'Optional. Affiliates earn commissions on their sub-affiliates\' sales. Configurable tier-2 rate per affiliate.', star: true },
+      { t: 'AI swipe-copy generator', d: '16 pre-written marketing snippets seeded. AI variants via Asteris AI module (Asteris for WordPress).', star: true },
+      { t: 'Vanity landing pages', d: '/go/{affiliate-handle} branded landing pages with built-in cookie + view counter.' },
+      { t: 'Cloud-assist fraud detection', d: 'Opt-in. SHA-256-hashed fraud signals shared across Asteris stores. Privacy-first — no PII ever leaves.', star: true },
+      { t: 'PayPal API auto-batch', d: 'OAuth2 + Payouts API. Schedule weekly batches. Bank transfer fallback for non-PayPal regions.' },
+      { t: 'Non-WC adapters', d: 'Drop-in EDD + Surecart support via Order_Source interface. Write your own adapter for any cart.' },
+      { t: 'A/B email tests', d: 'Variant routing on transactional emails. Open-pixel tracking. Pick the winning copy automatically.' },
+    ],
+  },
+];
+---
+
+<Layout seoSlug="/features">
+  <section class="features-hero">
+    <div class="eyebrow">★ v1.1.0 · 23 features · Self-hosted · GPL-2.0</div>
+    <h1>23 modules. <span class="accent">$149/yr.</span></h1>
+    <p class="lead">Affiliate program features that take AffiliateWP + 4 add-ons + Tapfiliate's SaaS to match. Self-hosted. Your data stays yours.</p>
+  </section>
+
+  {sprints.map(s => (
+    <section class="sprint">
+      <div class="sprint-inner">
+        <h2 class="sprint-name">{s.name}</h2>
+        <div class="sprint-grid">
+          {s.items.map(i => (
+            <div class:list={['feature-card', { star: i.star }]}>
+              <h3>{i.star && <span class="star">★</span>} {i.t}</h3>
+              <p>{i.d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Ready?</h2>
+      <p>$149/yr for 1 site. $299 for 3. $549 for 10. No founder gimmicks. No SaaS subscription.</p>
+      <a href="/pricing" class="btn btn-pop btn-large">See pricing →</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .features-hero { max-width: 760px; margin: 0 auto; padding: 96px 24px 48px; text-align: center; }
+  .eyebrow { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 16px; }
+  .features-hero h1 { font-size: clamp(40px, 6vw, 64px); font-weight: 900; line-height: 1.05; margin-bottom: 16px; }
+  .features-hero h1 .accent { color: var(--c-mint); }
+  .features-hero .lead { font-size: 18px; color: var(--c-text); line-height: 1.55; }
+
+  .sprint { padding: 48px 24px; }
+  .sprint:nth-of-type(even) { background: #fff; }
+  .sprint-inner { max-width: var(--max-w); margin: 0 auto; }
+  .sprint-name { font-size: clamp(22px, 3vw, 32px); margin-bottom: 24px; }
+  .sprint-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .feature-card { padding: 24px; background: var(--c-bg); border-radius: 8px; border: 1px solid var(--c-border); }
+  .sprint:nth-of-type(even) .feature-card { background: var(--c-bg); }
+  .feature-card.star { border-color: var(--c-mint); border-width: 2px; }
+  .feature-card h3 { font-size: 16px; margin-bottom: 8px; }
+  .feature-card .star { color: var(--c-mint); }
+  .feature-card p { font-size: 14px; color: var(--c-muted); line-height: 1.55; }
+
+  .cta-section { background: var(--c-black); color: #fff; padding: 96px 24px; }
+  .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+  .cta-section h2 { font-size: clamp(28px, 4vw, 40px); color: #fff; margin-bottom: 16px; }
+  .cta-section p { color: rgba(255,255,255,0.85); font-size: 17px; margin-bottom: 32px; line-height: 1.6; }
+</style>

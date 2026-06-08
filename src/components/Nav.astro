@@ -1,0 +1,91 @@
+---
+// Main site navigation — appears on every non-Starlight page
+interface Props {
+  currentPath?: string;
+}
+const { currentPath = '' } = Astro.props;
+
+const navLinks = [
+  { href: '/#vs',                  label: 'vs AffiliateWP' },
+  { href: '/features',             label: 'Features' },
+  { href: '/pricing',              label: 'Pricing' },
+  { href: '/free',                 label: 'Free' },
+  { href: '/docs/getting-started', label: 'Docs' },
+];
+---
+
+<div class="site-nav-wrap">
+  <nav class="site-nav">
+    <a href="/" class="logo" aria-label="Asteris Affiliates home">
+      <span class="star" aria-hidden="true">★</span> Asteris Affiliates
+    </a>
+    <div class="nav-links">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class:list={['nav-link', { active: currentPath.startsWith(link.href) }]}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a href="/pricing" class="btn btn-pop">Get it — $149/yr →</a>
+    </div>
+  </nav>
+  <div class="site-nav-accent" aria-hidden="true"></div>
+</div>
+
+<style>
+  .site-nav-wrap {
+    /* Wraps nav + brand-accent bar so every page gets the orange header line. */
+    width: 100%;
+  }
+  .site-nav-accent {
+    /* WC brand-house accent — full-bleed orange strip directly under the nav. */
+    height: 6px;
+    background: var(--c-mint);
+  }
+  .site-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 36px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .logo {
+    font-size: 19px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--c-black);
+  }
+  .logo .star {
+    color: var(--c-mint);
+    font-size: 32px;
+    line-height: 1;
+  }
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    font-size: 14px;
+    align-items: center;
+  }
+  .nav-link {
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--c-text);
+  }
+  .nav-link.active {
+    color: var(--c-mint);
+    font-weight: 700;
+  }
+  .nav-link:hover {
+    color: var(--c-mint);
+  }
+  @media (max-width: 768px) {
+    .nav-links { gap: 14px; font-size: 13px; }
+    .nav-links .btn { display: none; }
+  }
+</style>

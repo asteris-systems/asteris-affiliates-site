@@ -1,0 +1,157 @@
+---
+/**
+ * Shared body template for /{rival}-vs-asteris pages.
+ * Each comparison page passes its rival name + key trade-offs.
+ *
+ * IMPORTANT — competitor pricing must be verified live before any rival $
+ * appears on this page. Standing publish gate per SEO build Phase 3.5.
+ */
+interface Row {
+  feature: string;
+  rival: string;       // What rival does
+  asteris: string;     // What Asteris does
+  win: 'rival' | 'asteris' | 'tie';
+}
+
+interface Props {
+  rivalName: string;
+  rivalTagline: string;          // 1-line who the rival is
+  rivalUrl: string;
+  intro: string;                 // 2-3 sentences for AIO eligibility (answerable)
+  whenRivalWins: string[];       // Bullet list of rival's strengths (we concede)
+  whenAsterisWins: string[];     // Bullet list of our differentiators
+  comparisonRows: Row[];
+  migrateSlug?: string;          // e.g. "/migrate/from-affiliatewp"
+}
+const { rivalName, rivalTagline, rivalUrl, intro, whenRivalWins, whenAsterisWins, comparisonRows, migrateSlug } = Astro.props;
+---
+
+<section class="hero">
+  <div class="eyebrow">★ COMPARISON · UPDATED 8 JUN 2026</div>
+  <h1>{rivalName} vs <span class="accent">Asteris Affiliates</span></h1>
+  <p class="lead">{intro}</p>
+  <div class="hero-actions">
+    <a href="/pricing" class="btn btn-pop btn-large">Get Asteris — $149/yr</a>
+    {migrateSlug && <a href={migrateSlug} class="btn btn-outline btn-large">Migration guide →</a>}
+  </div>
+</section>
+
+<section class="who">
+  <div class="who-inner">
+    <div class="who-card">
+      <h2>{rivalName}</h2>
+      <p>{rivalTagline}</p>
+      <a href={rivalUrl} rel="nofollow noopener" target="_blank" class="external">Visit {rivalName} →</a>
+    </div>
+    <div class="who-card asteris">
+      <h2>Asteris Affiliates</h2>
+      <p>Self-hosted WordPress affiliate plugin. Two-tier referrals + AI swipe-copy + PayPal API auto-payout, included from Starter ($149/yr).</p>
+      <a href="/pricing" class="external">See pricing →</a>
+    </div>
+  </div>
+</section>
+
+<section class="when">
+  <div class="when-inner">
+    <h2>When {rivalName} wins</h2>
+    <ul>{whenRivalWins.map(p => <li>{p}</li>)}</ul>
+    <h2>When Asteris Affiliates wins</h2>
+    <ul class="asteris-wins">{whenAsterisWins.map(p => <li>{p}</li>)}</ul>
+  </div>
+</section>
+
+<section class="table">
+  <div class="table-inner">
+    <h2>Side-by-side</h2>
+    <table>
+      <thead>
+        <tr><th>Feature</th><th>{rivalName}</th><th>Asteris Affiliates</th></tr>
+      </thead>
+      <tbody>
+        {comparisonRows.map(r => (
+          <tr class:list={[`win-${r.win}`]}>
+            <td>{r.feature}</td>
+            <td>{r.rival}</td>
+            <td><strong>{r.asteris}</strong></td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    <p class="footnote">Competitor capabilities sourced from public documentation as of 8 Jun 2026. Verify against the current published features before purchase.</p>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="faq-inner">
+    <h2>FAQ</h2>
+    <details>
+      <summary>How much does Asteris Affiliates cost?</summary>
+      <p>Asteris Affiliates starts at $149/yr with two-tier referrals included, and runs self-hosted so your data stays in your own WordPress.</p>
+    </details>
+    <details>
+      <summary>Is two-tier included?</summary>
+      <p>Yes, two-tier referrals are included from the Starter tier, where some rivals charge extra or omit it.</p>
+    </details>
+    <details>
+      <summary>Can I migrate from {rivalName}?</summary>
+      <p>Yes. {migrateSlug ? <>Follow the <a href={migrateSlug}>step-by-step migration guide</a>.</> : <>See the <a href="/migrate">migration hub</a> for general steps.</>}</p>
+    </details>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>Try Asteris Affiliates risk-free</h2>
+    <p>14-day money-back guarantee. Self-hosted. No SaaS subscription.</p>
+    <a href="/pricing" class="btn btn-pop btn-large">Get Asteris — $149/yr →</a>
+  </div>
+</section>
+
+<style>
+  .hero { max-width: 880px; margin: 0 auto; padding: 96px 24px 48px; text-align: center; }
+  .eyebrow { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(36px, 5vw, 56px); font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
+  .hero h1 .accent { color: var(--c-mint); }
+  .hero .lead { font-size: 18px; color: var(--c-text); line-height: 1.6; margin-bottom: 32px; max-width: 720px; margin-left: auto; margin-right: auto; }
+  .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  .who { padding: 32px 24px 64px; }
+  .who-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 768px) { .who-inner { grid-template-columns: 1fr; } }
+  .who-card { padding: 32px; background: #fff; border: 2px solid var(--c-border); border-radius: 12px; }
+  .who-card.asteris { border-color: var(--c-mint); box-shadow: 4px 4px 0 var(--c-mint); }
+  .who-card h2 { font-size: 22px; margin-bottom: 8px; }
+  .who-card p { color: var(--c-muted); line-height: 1.6; margin-bottom: 16px; }
+  .who-card .external { color: var(--c-mint); font-weight: 700; font-size: 14px; }
+
+  .when { padding: 64px 24px; background: #fff; }
+  .when-inner { max-width: 760px; margin: 0 auto; }
+  .when h2 { font-size: 22px; margin: 24px 0 12px; }
+  .when h2:first-child { margin-top: 0; }
+  .when ul { padding-left: 24px; }
+  .when li { padding: 6px 0; line-height: 1.6; }
+  .when .asteris-wins li { font-weight: 600; }
+
+  .table { padding: 64px 24px; }
+  .table-inner { max-width: var(--max-w); margin: 0 auto; }
+  .table h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 24px; text-align: center; }
+  table { width: 100%; border-collapse: collapse; background: #fff; }
+  th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--c-border); font-size: 14px; }
+  th { background: var(--c-bg); font-weight: 700; }
+  tr.win-asteris td:last-child { background: rgba(6, 214, 160, 0.08); }
+  .footnote { font-size: 12px; color: var(--c-muted); margin-top: 12px; text-align: center; }
+
+  .faq { padding: 64px 24px; background: var(--c-bg); }
+  .faq-inner { max-width: 760px; margin: 0 auto; }
+  .faq h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 24px; text-align: center; }
+  details { border: 1px solid var(--c-border); border-radius: 6px; margin-bottom: 8px; padding: 14px 18px; background: #fff; }
+  details[open] { border-color: var(--c-mint); }
+  summary { font-weight: 700; cursor: pointer; font-size: 16px; }
+  details p { margin-top: 10px; color: var(--c-muted); line-height: 1.6; }
+  details a { color: var(--c-mint); font-weight: 600; }
+
+  .cta-section { background: var(--c-black); color: #fff; padding: 96px 24px; }
+  .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+  .cta-section h2 { font-size: clamp(28px, 4vw, 40px); color: #fff; margin-bottom: 16px; }
+  .cta-section p { color: rgba(255,255,255,0.85); font-size: 17px; margin-bottom: 32px; }
+</style>

@@ -1,0 +1,125 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const targets = [
+  {
+    slug: 'from-affiliatewp',
+    name: 'AffiliateWP',
+    price: 599,
+    note: 'Industry standard. Most users migrating to Asteris come from here.',
+    diff: 'AffiliateWP charges $199/yr extra for MLM via add-on; Asteris includes it in core.',
+    time: '~15 min',
+  },
+  {
+    slug: 'from-slicewp',
+    name: 'SliceWP',
+    price: 299,
+    note: 'Most affordable major rival. Free core + Pro upgrade pattern.',
+    diff: 'SliceWP has no MLM, no AI swipe-copy, no cloud fraud detection. Asteris adds all three.',
+    time: '~10 min',
+  },
+  {
+    slug: 'from-tapfiliate',
+    name: 'Tapfiliate',
+    price: 890,
+    note: 'SaaS — your affiliate data lives on their servers, billed forever.',
+    diff: 'Tapfiliate is $890/yr SaaS. Asteris is $149/yr self-hosted. ~6× cheaper, data stays yours.',
+    time: '~30 min (CSV export + import)',
+  },
+  {
+    slug: 'from-yith',
+    name: 'YITH Affiliates',
+    price: 80,
+    note: 'Bundled with YITH. Limited features.',
+    diff: 'YITH has no MLM, no fraud detection, no PayPal API. Asteris adds all three for $69 more/yr.',
+    time: '~10 min',
+  },
+];
+---
+
+<Layout seoSlug="/migrate">
+  <section class="hero">
+    <div class="eyebrow">★ ONE CLI COMMAND · AFFILIATES + COMMISSIONS + HISTORY PRESERVED</div>
+    <h1>Migrate from anywhere. <span class="accent">10-30 minutes.</span></h1>
+    <p class="lead">
+      Asteris Affiliates ships with importers for the 4 major rivals. Your affiliates, their commission history, and pending payouts all come across.
+      One CLI command, or run via Tools → Migration in admin.
+    </p>
+  </section>
+
+  <section class="targets">
+    <div class="targets-inner">
+      <h2>Pick your source</h2>
+      <div class="target-grid">
+        {targets.map(t => (
+          <a class="target-card" href={`/migrate/${t.slug}`}>
+            <h3>{t.name}</h3>
+            <div class="target-price">${t.price}/yr → <strong>$149/yr</strong></div>
+            <p class="target-note">{t.note}</p>
+            <p class="target-diff"><strong>Key difference:</strong> {t.diff}</p>
+            <p class="target-time">⏱ {t.time}</p>
+            <span class="link">Read the migration guide →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="general">
+    <div class="general-inner">
+      <h2>General migration steps</h2>
+      <ol>
+        <li><strong>Install Asteris Affiliates</strong> alongside your existing plugin — they won't conflict.</li>
+        <li><strong>Run the importer</strong>: <code>wp asteris-aff import --source=affiliatewp</code> (or any source slug above).</li>
+        <li><strong>Verify the import</strong> in admin → Affiliates list. Spot-check 5-10 affiliates have correct balances + commission history.</li>
+        <li><strong>Switch your store</strong> to track new commissions via Asteris (deactivate old plugin's tracking but leave the plugin installed for 30 days as a safety net).</li>
+        <li><strong>After 30 days</strong> of clean operation, uninstall the old plugin + drop its tables.</li>
+      </ol>
+      <p class="general-note">Stuck? Email <a href="mailto:support@asterisaffiliates.com">support@asterisaffiliates.com</a> — migration assistance is included for Pro + Agency tiers.</p>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Ready to move?</h2>
+      <p>$149/yr for 1 site. Migration takes 10-30 minutes. Money-back guarantee for 14 days.</p>
+      <a href="/pricing" class="btn btn-pop btn-large">Get Asteris Affiliates →</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero { max-width: 760px; margin: 0 auto; padding: 96px 24px 64px; text-align: center; }
+  .eyebrow { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(40px, 6vw, 64px); font-weight: 900; line-height: 1.05; margin-bottom: 20px; }
+  .hero h1 .accent { color: var(--c-mint); }
+  .hero .lead { font-size: 18px; color: var(--c-text); line-height: 1.55; }
+
+  .targets { padding: 64px 24px; background: #fff; border-top: 1px solid var(--c-border); }
+  .targets-inner { max-width: var(--max-w); margin: 0 auto; }
+  .targets h2 { font-size: clamp(28px, 4vw, 40px); text-align: center; margin-bottom: 48px; }
+  .target-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .target-card { display: block; padding: 28px; background: var(--c-bg); border: 2px solid var(--c-border); border-radius: 10px; text-decoration: none; color: inherit; transition: border-color 0.15s, transform 0.15s; }
+  .target-card:hover { border-color: var(--c-mint); transform: translateY(-2px); }
+  .target-card h3 { font-size: 22px; margin-bottom: 8px; }
+  .target-price { font-size: 15px; color: var(--c-muted); margin-bottom: 12px; }
+  .target-price strong { color: var(--c-mint); }
+  .target-note { font-size: 14px; color: var(--c-text); margin-bottom: 12px; line-height: 1.55; }
+  .target-diff { font-size: 13px; color: var(--c-muted); margin-bottom: 12px; line-height: 1.55; }
+  .target-time { font-size: 13px; color: var(--c-muted); margin-bottom: 16px; }
+  .target-card .link { font-size: 14px; color: var(--c-mint); font-weight: 700; }
+
+  .general { padding: 96px 24px; background: var(--c-bg); }
+  .general-inner { max-width: 760px; margin: 0 auto; }
+  .general h2 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 32px; text-align: center; }
+  .general ol { padding-left: 24px; }
+  .general li { padding: 12px 0; line-height: 1.6; }
+  .general li code { background: rgba(0,0,0,0.06); padding: 2px 8px; border-radius: 3px; font-family: var(--font-mono); font-size: 14px; }
+  .general-note { margin-top: 24px; padding: 20px; background: #fff; border-left: 4px solid var(--c-mint); border-radius: 4px; color: var(--c-text); line-height: 1.6; }
+  .general-note a { color: var(--c-mint); font-weight: 700; }
+
+  .cta-section { background: var(--c-black); color: #fff; padding: 96px 24px; }
+  .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+  .cta-section h2 { font-size: clamp(28px, 4vw, 40px); color: #fff; margin-bottom: 16px; }
+  .cta-section p { color: rgba(255,255,255,0.85); font-size: 17px; margin-bottom: 32px; line-height: 1.6; }
+</style>

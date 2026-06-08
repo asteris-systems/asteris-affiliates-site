@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Asteris Affiliates Free tier — what's in vs what's paid
+// Per Asteris Affiliates v1.1.1 free-tier feature gates (Sprint 9B)
+const freeIncluded = [
+  { t: 'Up to 25 active affiliates', d: 'Hard cap. Hit 25 and new signups are blocked until you upgrade or remove inactive ones.' },
+  { t: 'Core commission tracking',   d: 'Track sales, calculate commissions, store them in WP database. Standard percentage or flat-rate.' },
+  { t: 'Affiliate registration + portal', d: 'Affiliates sign up, get a dashboard showing referrals + earnings + payout history.' },
+  { t: 'Manual payouts',              d: 'Mark commissions paid manually. Export to CSV. Pay via your existing process.' },
+  { t: 'Basic email notifications',   d: 'Welcome, approval, commission earned, payout sent. No A/B testing in free.' },
+  { t: 'WooCommerce integration',     d: 'Free tier supports WC only. EDD + Surecart adapters are paid.' },
+];
+
+const paidOnly = [
+  { t: 'Unlimited affiliates',           d: 'No 25-affiliate cap.' },
+  { t: 'MLM / two-tier referrals',       d: 'Tier-2 commissions on sub-affiliate sales.', star: true },
+  { t: 'AI swipe-copy generator',        d: '16 pre-written snippets + AI variants.', star: true },
+  { t: 'Cloud-assist fraud detection',   d: 'SHA-256-hashed signal sharing across Asteris stores.', star: true },
+  { t: 'PayPal API auto-payout',         d: 'OAuth2 + Payouts API. Schedule batches.' },
+  { t: 'Per-product commission rates',   d: 'Override rates per WC product.' },
+  { t: 'A/B email testing',              d: 'Variant routing on transactional emails.' },
+  { t: 'Vanity /go/ landing pages',      d: 'Branded affiliate landing pages.' },
+  { t: 'EDD + Surecart adapters',        d: 'Drop-in support for non-WC carts.' },
+  { t: 'Stats REST API',                 d: 'Cursor-paginated, transient-cached.' },
+  { t: 'WP-CLI commands',                d: 'Full CLI: list / approve / reject / payout / recompute.' },
+  { t: 'Bulk operations + CSV export',   d: 'Admin list table bulk actions on every entity.' },
+  { t: 'Admin impersonation',            d: '"View as" any affiliate with audit log.' },
+  { t: 'Date-range reports',             d: 'Narrow Reports + Commissions to any window.' },
+  { t: 'Onboarding wizard',              d: '4-step guided signup. Captures payout + tax info up-front.' },
+  { t: 'Email throttling',               d: 'Per-recipient per-template per-day cap.' },
+  { t: 'Mobile-responsive portal',       d: 'Affiliate portal works on phones.' },
+];
+
+const faqs = [
+  { q: 'Is the free tier really free, forever?',          a: 'Yes. GPL-2.0 on WordPress.org. We will never paywall what is currently free. We may add new features to free; we will not remove existing ones.' },
+  { q: 'What happens at 25 affiliates?',                  a: 'New signups are blocked. Existing affiliates keep working. To accept more, upgrade to Starter ($149/yr) for unlimited affiliates.' },
+  { q: 'Do I need an account on asterisaffiliates.com?',  a: 'No. Install from WordPress.org. No signup required.' },
+  { q: 'Will the free tier get security updates?',        a: 'Yes. Security patches apply across all tiers including free.' },
+  { q: 'How does support work for free users?',           a: 'WordPress.org plugin forum is the primary channel. Email is fallback (2–3 business days). Paid tiers get priority email.' },
+  { q: 'Can I use it on a client site?',                  a: 'Yes. GPL — use anywhere. If they need paid features, they (or you) buy a Starter / Pro / Agency licence.' },
+];
+---
+
+<Layout seoSlug="/free">
+  <section class="hero">
+    <div class="eyebrow">★ ON WORDPRESS.ORG · GPL-2.0 · FREE FOREVER</div>
+    <h1>Free for under <span class="accent">25 affiliates.</span></h1>
+    <p class="lead">Core affiliate program for WooCommerce stores small enough not to need MLM, AI swipe-copy, or PayPal API auto-payout. Upgrade when you outgrow it.</p>
+    <a href="https://wordpress.org/plugins/asteris-affiliates" class="btn btn-pop btn-large">Get it on WordPress.org →</a>
+  </section>
+
+  <section class="tier-grid-section">
+    <div class="tier-grid-inner">
+      <h2>What's in free vs paid</h2>
+      <div class="tier-grid">
+        <div class="tier-col free">
+          <div class="tier-head"><h3>Free · $0/yr</h3><span class="tier-cap">Up to 25 affiliates</span></div>
+          <ul>
+            {freeIncluded.map(i => (
+              <li><strong>{i.t}</strong><span>{i.d}</span></li>
+            ))}
+          </ul>
+        </div>
+        <div class="tier-col paid">
+          <div class="tier-head"><h3>Starter+ · from $149/yr</h3><span class="tier-cap">Unlimited affiliates</span></div>
+          <ul>
+            {paidOnly.map(i => (
+              <li class:list={[{ star: i.star }]}>
+                <strong>{i.star && <span class="star">★</span>} {i.t}</strong><span>{i.d}</span>
+              </li>
+            ))}
+          </ul>
+          <a href="/pricing" class="btn btn-outline btn-large">See paid pricing →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="faq-inner">
+      <h2>FAQ</h2>
+      {faqs.map(f => (
+        <details>
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Start free, upgrade when you outgrow it</h2>
+      <p>Install from WordPress.org. No account. No card. No email gate.</p>
+      <a href="https://wordpress.org/plugins/asteris-affiliates" class="btn btn-pop btn-large">Download free →</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero { max-width: 760px; margin: 0 auto; padding: 96px 24px 64px; text-align: center; }
+  .eyebrow { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(40px, 6vw, 64px); font-weight: 900; line-height: 1.05; margin-bottom: 20px; }
+  .hero h1 .accent { color: var(--c-mint); }
+  .hero .lead { font-size: 18px; color: var(--c-text); line-height: 1.55; margin-bottom: 32px; }
+
+  .tier-grid-section { padding: 64px 24px; background: #fff; border-top: 1px solid var(--c-border); }
+  .tier-grid-inner { max-width: var(--max-w); margin: 0 auto; }
+  .tier-grid-section h2 { font-size: clamp(28px, 4vw, 40px); text-align: center; margin-bottom: 48px; }
+  .tier-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  @media (max-width: 768px) { .tier-grid { grid-template-columns: 1fr; } }
+  .tier-col { padding: 32px; border: 2px solid var(--c-border); border-radius: 12px; background: var(--c-bg); }
+  .tier-col.paid { border-color: var(--c-mint); background: #fff; box-shadow: 6px 6px 0 var(--c-mint); }
+  .tier-head { margin-bottom: 24px; }
+  .tier-head h3 { font-size: 22px; margin-bottom: 4px; }
+  .tier-cap { color: var(--c-muted); font-size: 14px; }
+  .tier-col ul { list-style: none; padding: 0; margin-bottom: 24px; }
+  .tier-col li { padding: 12px 0; border-bottom: 1px solid var(--c-border); }
+  .tier-col li:last-child { border-bottom: 0; }
+  .tier-col li strong { display: block; margin-bottom: 4px; font-size: 14px; }
+  .tier-col li.star strong { color: var(--c-mint); }
+  .tier-col li span { font-size: 13px; color: var(--c-muted); line-height: 1.5; display: block; }
+  .star { color: var(--c-mint); }
+
+  .faq { padding: 96px 24px; background: var(--c-bg); }
+  .faq-inner { max-width: 760px; margin: 0 auto; }
+  .faq h2 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 32px; text-align: center; }
+  details { border: 1px solid var(--c-border); border-radius: 6px; margin-bottom: 10px; padding: 16px 20px; background: #fff; }
+  details[open] { border-color: var(--c-mint); }
+  summary { font-weight: 700; cursor: pointer; font-size: 16px; }
+  details p { margin-top: 12px; color: var(--c-muted); line-height: 1.6; }
+
+  .cta-section { background: var(--c-black); color: #fff; padding: 96px 24px; }
+  .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+  .cta-section h2 { font-size: clamp(28px, 4vw, 40px); color: #fff; margin-bottom: 16px; }
+  .cta-section p { color: rgba(255,255,255,0.85); font-size: 17px; margin-bottom: 32px; line-height: 1.6; }
+</style>

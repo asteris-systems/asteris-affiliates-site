@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout seoSlug="/contact">
+  <section class="hero">
+    <div class="eyebrow">★ A SMALL AUSTRALIAN TEAM · AU BUSINESS HOURS</div>
+    <h1>Get in <span class="accent">touch</span></h1>
+    <p class="lead">Pre-sales questions, support, migration help, partnerships — email us. We respond within 1 business day.</p>
+  </section>
+
+  <section class="contact">
+    <div class="contact-inner">
+      <a href="mailto:support@asterisaffiliates.com" class="contact-card">
+        <h2>Support</h2>
+        <p>For bugs, account, technical questions</p>
+        <span class="email">support@asterisaffiliates.com</span>
+      </a>
+      <a href="mailto:hello@asterisaffiliates.com" class="contact-card">
+        <h2>Sales / pre-sales</h2>
+        <p>Pricing questions, agency tier, evaluation</p>
+        <span class="email">hello@asterisaffiliates.com</span>
+      </a>
+      <a href="mailto:nick@asterisaffiliates.com" class="contact-card">
+        <h2>Founder</h2>
+        <p>Anything strategic, partnerships, press</p>
+        <span class="email">nick@asterisaffiliates.com</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="legal-strip">
+    <div class="legal-inner">
+      <p>My Cosmic Message Pty Ltd t/a Asteris Commerce · ABN 30 652 358 159 · Sydney, Australia</p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero { max-width: 760px; margin: 0 auto; padding: 96px 24px 48px; text-align: center; }
+  .eyebrow { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(36px, 5vw, 52px); font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
+  .hero h1 .accent { color: var(--c-mint); }
+  .hero .lead { font-size: 18px; color: var(--c-text); line-height: 1.6; }
+  .contact { padding: 32px 24px 64px; }
+  .contact-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+  .contact-card { display: block; padding: 32px 24px; background: #fff; border: 2px solid var(--c-border); border-radius: 10px; text-decoration: none; color: inherit; transition: border-color 0.15s; }
+  .contact-card:hover { border-color: var(--c-mint); }
+  .contact-card h2 { font-size: 18px; margin-bottom: 6px; }
+  .contact-card p { color: var(--c-muted); margin-bottom: 16px; font-size: 14px; line-height: 1.5; }
+  .contact-card .email { color: var(--c-mint); font-weight: 700; font-size: 15px; }
+  .legal-strip { padding: 48px 24px; background: var(--c-bg); text-align: center; color: var(--c-muted); font-size: 13px; }
+</style>

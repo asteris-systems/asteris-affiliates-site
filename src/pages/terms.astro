@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout seoSlug="/terms">
+  <article class="legal">
+    <h1>Terms of Service</h1>
+    <p class="meta">Last updated: 8 June 2026 · My Cosmic Message Pty Ltd t/a Asteris Commerce · ABN 30 652 358 159</p>
+    <p class="placeholder">[Legal copy pending — pulling from canonical legal pack at <code>memory/project_legal_pack.md</code> in next pass. Until then, contact <a href="mailto:legal@asterisaffiliates.com">legal@asterisaffiliates.com</a> for the current terms.]</p>
+    <h2>Summary (non-binding)</h2>
+    <ul>
+      <li>Annual licence subscription, billed yearly.</li>
+      <li>Plugin code is GPL-2.0+; your subscription pays for updates, support, and the licence key.</li>
+      <li>Cancel anytime — plugin keeps working forever on the last installed version.</li>
+      <li>14-day money-back guarantee on new subscriptions (see <a href="/refund-policy">Refund Policy</a>).</li>
+      <li>Governing law: New South Wales, Australia.</li>
+    </ul>
+    <p><a href="/privacy">Privacy Policy →</a> · <a href="/refund-policy">Refund Policy →</a> · <a href="/license">Licence (EULA) →</a></p>
+  </article>
+</Layout>
+<style>
+  .legal { max-width: 720px; margin: 0 auto; padding: 96px 24px 64px; font-size: 16px; line-height: 1.65; }
+  .legal h1 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 12px; }
+  .legal .meta { color: var(--c-muted); font-size: 13px; margin-bottom: 32px; }
+  .legal .placeholder { padding: 16px; background: #fff8e1; border-left: 4px solid #FFC107; border-radius: 4px; margin-bottom: 32px; }
+  .legal h2 { font-size: 22px; margin: 24px 0 12px; }
+  .legal ul { padding-left: 22px; }
+  .legal li { padding: 6px 0; }
+  .legal a { color: var(--c-mint); font-weight: 600; }
+  .legal code { background: rgba(0,0,0,0.06); padding: 2px 6px; border-radius: 3px; font-family: var(--font-mono); font-size: 14px; }
+</style>

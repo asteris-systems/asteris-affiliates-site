@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import MigrateBody from '../../components/MigrateBody.astro';
+---
+<Layout seoSlug="/migrate/from-tapfiliate">
+  <MigrateBody
+    sourceName="Tapfiliate"
+    sourceUrl="https://tapfiliate.com"
+    intro="Leaving Tapfiliate's SaaS and moving to a self-hosted plugin means exporting your affiliate data from their dashboard and importing it into your own WordPress. Once done, your data lives on your server, your billing stops climbing, and you keep full control."
+    exportSteps={[
+      { name: 'Export from Tapfiliate', text: 'In your Tapfiliate SaaS dashboard, open Affiliates → Settings → Export and request a CSV of affiliates + commissions. Tapfiliate emails the file when ready.' },
+      { name: 'Cancel future billing (after migration confirmed)', text: 'Only cancel Tapfiliate after you have run a full week with Asteris Affiliates tracking new commissions correctly — keep the SaaS active as a fallback during the cutover.' },
+    ]}
+    caveats={[
+      'Tapfiliate tracks via a JavaScript snippet on your storefront — remove the Tapfiliate snippet from your theme AFTER you have verified Asteris Affiliates is tracking new commissions.',
+      'Tapfiliate\'s "click ID" tracking is replaced by Asteris Affiliates\' WordPress-native cookie + IP attribution — re-validate one or two test orders before going live.',
+      'Multi-currency commissions: confirm your Asteris Affiliates Pro currency settings match Tapfiliate\'s configuration before importing balances.',
+    ]}
+    vsSlug="/tapfiliate-vs-asteris"
+  />
+</Layout>

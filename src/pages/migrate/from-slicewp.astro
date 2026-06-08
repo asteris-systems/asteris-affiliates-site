@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import MigrateBody from '../../components/MigrateBody.astro';
+---
+<Layout seoSlug="/migrate/from-slicewp">
+  <MigrateBody
+    sourceName="SliceWP"
+    sourceUrl="https://slicewp.com"
+    intro="Switching from SliceWP to Asteris Affiliates takes about 15 minutes and preserves your affiliates, commissions, and payout history. Both plugins run self-hosted, so the migration is purely a data transfer."
+    exportSteps={[
+      { name: 'Export from SliceWP', text: 'In WordPress admin, open SliceWP → Affiliates and export affiliates and commissions to CSV.' },
+    ]}
+    caveats={[
+      'SliceWP Pro\'s coupon-tracking is handled by Asteris Affiliates\' built-in coupon attribution — re-link coupons to affiliates after import.',
+      'If you used SliceWP add-ons (e.g. recurring commissions), the recurring schedule needs to be re-set in Asteris Affiliates Pro.',
+    ]}
+    vsSlug="/slicewp-vs-asteris"
+  />
+</Layout>

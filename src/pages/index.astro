@@ -1,0 +1,210 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Asteris Affiliates competitor benchmarks (annual cost, billed yearly, 1 site)
+const competitors = [
+  { name: 'AffiliateWP',     price: 599, url: 'https://affiliatewp.com',     note: 'Industry standard. Same parent as Easy Digital Downloads.' },
+  { name: 'SliceWP Pro',     price: 299, url: 'https://slicewp.com',         note: 'Free core + Pro upgrade. Most affordable major rival.' },
+  { name: 'Tapfiliate',      price: 890, url: 'https://tapfiliate.com',      note: 'SaaS — recurring forever, your data lives on their servers.' },
+  { name: 'YITH Affiliates', price:  80, url: 'https://yithemes.com',        note: 'Bundled with YITH. Limited features; no MLM, no fraud detection.' },
+];
+
+const features = [
+  { icon: '👥', title: 'Unlimited affiliates',          text: 'No per-affiliate fee. Onboard 10 or 10,000 — same price.' },
+  { icon: '🔗', title: 'Vanity /go/ landing pages',     text: 'Affiliates get branded /go/their-handle URLs. Cookie + view tracking built-in.' },
+  { icon: '🌳', title: 'MLM / two-tier referrals',      text: 'Optional tier-2 commissions. Affiliates earn from sub-affiliates they recruit.' },
+  { icon: '🤖', title: 'AI swipe-copy generator',       text: '16 pre-written marketing snippets + AI variants. Affiliates copy-paste into emails/socials.' },
+  { icon: '🛡️', title: 'Fraud detection',               text: 'Per-IP throttling + optional cloud-assist signal sharing across Asteris stores (opt-in, SHA-256 hashed).' },
+  { icon: '💳', title: 'PayPal API auto-payout',        text: 'OAuth2 + Payouts API. Schedule weekly/monthly batches. Bank transfer fallback for non-PayPal regions.' },
+  { icon: '🛒', title: 'Per-product commission rates',  text: 'Override rates per WC product. High-margin items pay higher commissions.' },
+  { icon: '📊', title: 'Real-time stats API',           text: 'Affiliate portal + REST API for headless dashboards. Cursor-pagination, transient-cached.' },
+  { icon: '🌐', title: 'EDD + Surecart adapters',       text: 'Not just WooCommerce. Drop-in adapters for Easy Digital Downloads and Surecart.' },
+  { icon: '🧪', title: 'A/B email testing',             text: 'Variant routing on welcome / approval / payout emails. Open-pixel tracking.' },
+  { icon: '🌍', title: 'i18n + WP-CLI',                 text: 'Translation-ready. Full WP-CLI: list / approve / reject / payout / recompute.' },
+  { icon: '🔒', title: 'Self-hosted. Your data.',       text: 'No SaaS subscription forever. No data leaves your server unless YOU enable cloud-assist.' },
+];
+---
+
+<Layout seoSlug="/">
+  <slot name="head" slot="head">
+    <meta property="og:image" content="/og-home.png" />
+  </slot>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="eyebrow">★ Launched 8 Jun 2026 · v1.1.0 · GPL-2.0</div>
+    <h1>
+      AffiliateWP-grade features.<br />
+      <span class="accent">SliceWP</span> pricing. Forever.
+    </h1>
+    <p class="lead">
+      <strong>Self-hosted affiliate program for WooCommerce, EDD, and Surecart.</strong>
+      Unlimited affiliates. MLM tier-2. AI swipe-copy. PayPal auto-payout. Cloud-assist fraud detection.
+      <strong>$149/yr for 1 site, $299 for 3, $549 for 10.</strong> No SaaS subscription.
+    </p>
+    <div class="hero-actions">
+      <a href="/pricing" class="btn btn-pop btn-large">Get Asteris Affiliates — $149/yr</a>
+      <a href="#vs" class="btn btn-outline btn-large">See vs AffiliateWP →</a>
+    </div>
+    <p class="no-cc">14-day money-back guarantee · Migrate from AffiliateWP/SliceWP in one CLI command · GPL-2.0 — fork it if you want</p>
+  </section>
+
+  <!-- VS comparison -->
+  <section id="vs" class="vs-section">
+    <div class="vs-inner">
+      <div class="vs-eyebrow">3–9× cheaper than every major rival</div>
+      <h2>The price <span class="vs-accent">is</span> the discount.<br />No founder gimmicks. No "limited time."</h2>
+      <p class="vs-sub">Tapfiliate is $890/yr SaaS. AffiliateWP is $599/yr. Our regular price is $149/yr for one site. That's the deal — there's no cheaper-now-then-more-later gotcha.</p>
+      <div class="vs-grid">
+        <div class="vs-card bad">
+          <h3>The status quo</h3>
+          <div class="subhead">What most WooCommerce stores pay for an affiliate program today.</div>
+          <div class="big">$599<span class="big-suffix">+ /year</span></div>
+          <ul class="vs-list">
+            {competitors.map(c => (
+              <li>
+                <strong>{c.name}</strong> · ${c.price}/yr · <span class="vs-note">{c.note}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="vs-card good">
+          <h3>Asteris Affiliates · $149/yr</h3>
+          <div class="subhead">Same feature set. No SaaS subscription. Your data stays on your server.</div>
+          <div class="big">$149<span class="big-suffix"> /year · 1 site</span></div>
+          <ul class="vs-list">
+            <li>✅ Unlimited affiliates</li>
+            <li>✅ MLM / two-tier referrals</li>
+            <li>✅ AI swipe-copy generator</li>
+            <li>✅ Vanity /go/ landing pages</li>
+            <li>✅ PayPal API auto-batch + bank transfer</li>
+            <li>✅ Cloud-assist fraud detection (opt-in)</li>
+            <li>✅ EDD + Surecart adapters (not just WC)</li>
+            <li>✅ Real-time stats API + WP-CLI</li>
+            <li>✅ Self-hosted forever — no SaaS bill</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature grid -->
+  <section class="features">
+    <div class="features-inner">
+      <h2 class="features-heading">Everything in v1.1.0</h2>
+      <p class="features-sub">12 modules covering affiliate onboarding, commission tracking, payouts, fraud, growth — and a few things no one else has.</p>
+      <div class="features-grid">
+        {features.map(f => (
+          <div class="feature">
+            <div class="feature-icon">{f.icon}</div>
+            <h3 class="feature-title">{f.title}</h3>
+            <p class="feature-text">{f.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why differentiator -->
+  <section class="why-section">
+    <div class="why-inner">
+      <h2>Three things no one else has</h2>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-num">01</div>
+          <h3>MLM / two-tier referrals</h3>
+          <p>Optional. Toggle on, affiliates earn from sub-affiliates they recruit. AffiliateWP charges $199/yr extra for this via an add-on. SliceWP doesn't have it.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">02</div>
+          <h3>AI swipe-copy generator</h3>
+          <p>16 pre-written marketing snippets seeded out of the box, plus AI variants generated via the Asteris AI module (from Asteris for WordPress). Affiliates copy-paste into emails / socials / blog posts.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-num">03</div>
+          <h3>Cloud-assist fraud detection</h3>
+          <p>Opt-in. SHA-256-hashed fraud signals shared across all Asteris stores. New Asteris store benefits from every prior store's blacklist. Privacy-first: no PII ever leaves your site.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Free tier teaser -->
+  <section class="free-section">
+    <div class="free-inner">
+      <h2>There's a free tier too</h2>
+      <p>If you have under 25 affiliates and don't need MLM / AI swipe / cloud fraud / PayPal API auto-payout, the <strong>free version</strong> covers core affiliate tracking + commissions + manual payouts. <a href="/free">See what's in free →</a></p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Ready to stop paying SaaS rent?</h2>
+      <p>One-time licence for the year. No per-affiliate fees. No data lock-in. Migrate from AffiliateWP / SliceWP / Tapfiliate in one CLI command.</p>
+      <a href="/pricing" class="btn btn-pop btn-large">Get Asteris Affiliates →</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Banner removed — no founder mechanic for Affiliates */
+
+  .hero { max-width: var(--max-w); margin: 0 auto; padding: 96px 24px 64px; text-align: center; }
+  .eyebrow { font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 24px; }
+  .hero h1 { font-size: clamp(40px, 6vw, 72px); font-weight: 900; line-height: 1.05; margin-bottom: 24px; letter-spacing: -0.02em; }
+  .hero h1 .accent { color: var(--c-mint); }
+  .hero .lead { font-size: 19px; max-width: 760px; margin: 0 auto 32px; color: var(--c-text); line-height: 1.55; }
+  .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+  .no-cc { font-size: 13px; color: var(--c-muted); }
+
+  .vs-section { background: #fff; padding: 96px 24px; border-top: 1px solid var(--c-border); }
+  .vs-inner { max-width: var(--max-w); margin: 0 auto; }
+  .vs-eyebrow { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-mint); margin-bottom: 16px; font-weight: 700; text-align: center; }
+  .vs-section h2 { font-size: clamp(28px, 4vw, 44px); text-align: center; margin-bottom: 16px; line-height: 1.15; }
+  .vs-section h2 .vs-accent { color: var(--c-mint); }
+  .vs-sub { text-align: center; color: var(--c-muted); max-width: 720px; margin: 0 auto 48px; font-size: 17px; }
+  .vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  @media (max-width: 768px) { .vs-grid { grid-template-columns: 1fr; } }
+  .vs-card { padding: 40px 32px; border-radius: 12px; border: 2px solid var(--c-border); }
+  .vs-card.bad { background: #fafafa; }
+  .vs-card.good { background: #fff; border-color: var(--c-mint); box-shadow: 6px 6px 0 var(--c-mint); }
+  .vs-card h3 { font-size: 22px; margin-bottom: 6px; }
+  .vs-card .subhead { color: var(--c-muted); font-size: 14px; margin-bottom: 16px; }
+  .vs-card .big { font-size: 56px; font-weight: 900; margin-bottom: 24px; line-height: 1; }
+  .vs-card .big-suffix { font-size: 18px; color: var(--c-muted); font-weight: 600; }
+  .vs-list { list-style: none; padding: 0; }
+  .vs-list li { padding: 10px 0; border-bottom: 1px solid var(--c-border); font-size: 15px; }
+  .vs-list li:last-child { border-bottom: 0; }
+  .vs-note { color: var(--c-muted); font-size: 13px; }
+
+  .features { padding: 96px 24px; background: var(--c-bg); }
+  .features-inner { max-width: var(--max-w); margin: 0 auto; }
+  .features-heading { font-size: clamp(28px, 4vw, 40px); text-align: center; margin-bottom: 12px; }
+  .features-sub { text-align: center; color: var(--c-muted); max-width: 680px; margin: 0 auto 56px; font-size: 17px; }
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .feature { background: #fff; border: 1px solid var(--c-border); border-radius: 10px; padding: 28px 24px; }
+  .feature-icon { font-size: 32px; margin-bottom: 12px; }
+  .feature-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+  .feature-text { font-size: 14px; color: var(--c-muted); line-height: 1.5; }
+
+  .why-section { padding: 96px 24px; background: #fff; }
+  .why-inner { max-width: var(--max-w); margin: 0 auto; }
+  .why-section h2 { font-size: clamp(28px, 4vw, 40px); text-align: center; margin-bottom: 56px; }
+  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+  .why-card { padding: 32px; border-left: 4px solid var(--c-mint); background: var(--c-bg); border-radius: 4px; }
+  .why-num { font-size: 14px; color: var(--c-mint); font-weight: 800; letter-spacing: 0.12em; margin-bottom: 8px; }
+  .why-card h3 { font-size: 22px; margin-bottom: 12px; }
+  .why-card p { color: var(--c-text); line-height: 1.6; }
+
+  .free-section { padding: 64px 24px; background: var(--c-bg); }
+  .free-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+  .free-section h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 16px; }
+  .free-section p { font-size: 17px; color: var(--c-text); line-height: 1.6; }
+  .free-section a { color: var(--c-mint); font-weight: 700; }
+
+  .cta-section { background: var(--c-black); color: #fff; padding: 96px 24px; }
+  .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+  .cta-section h2 { font-size: clamp(28px, 4vw, 44px); color: #fff; margin-bottom: 16px; }
+  .cta-section p { color: rgba(255,255,255,0.85); font-size: 17px; margin-bottom: 32px; line-height: 1.6; }
+</style>

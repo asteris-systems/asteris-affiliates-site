@@ -1,0 +1,70 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout seoSlug="/docs/getting-started">
+  <section class="hero">
+    <div class="eyebrow">★ DOCS</div>
+    <h1>Getting started with <span class="accent">Asteris Affiliates</span></h1>
+    <p class="lead">Install, run the onboarding wizard, set commission rates, approve your first affiliate. Most stores are running in 15 minutes.</p>
+  </section>
+
+  <article class="doc">
+    <h2>Requirements</h2>
+    <ul><li>WordPress 6.4 or later</li><li>PHP 8.1 or later</li><li>WooCommerce, EDD, or Surecart (optional — for cart attribution)</li></ul>
+
+    <h2>1. Install the plugin</h2>
+    <ol>
+      <li>Download Asteris Affiliates from your account at <a href="https://pay.asteriscommerce.com/account">pay.asteriscommerce.com/account</a>.</li>
+      <li>In WordPress admin: Plugins → Add New → Upload Plugin → choose the .zip.</li>
+      <li>Activate.</li>
+    </ol>
+
+    <h2>2. Run the onboarding wizard</h2>
+    <p>On activation, Asteris Affiliates redirects to <code>Affiliates → Onboarding</code>. The wizard captures:</p>
+    <ul>
+      <li>Business details (name, ABN/EIN, default currency)</li>
+      <li>Default commission rate (10% is the typical starting point)</li>
+      <li>Payout method (PayPal API, manual PayPal, bank transfer)</li>
+      <li>Cookie duration (30 / 60 / 90 days — 60 is standard)</li>
+    </ul>
+
+    <h2>3. Approve your first affiliate</h2>
+    <p>Affiliates sign up at <code>/affiliate-portal</code> (or wherever you set the registration page). Approve from <code>Affiliates → Pending → Approve</code>.</p>
+
+    <h2>4. Pay out</h2>
+    <p>Commissions accrue per completed order. Run payouts manually from <code>Affiliates → Payouts → Run Batch</code>, or schedule via WP-CLI: <code>wp asteris-aff run-payouts</code>.</p>
+
+    <h2>FAQ</h2>
+    <details><summary>Do I need anything before installing?</summary><p>WordPress 6.4+ and PHP 8.1+. WooCommerce, EDD or Surecart for the cart adapter if you want commission tracking on orders.</p></details>
+    <details><summary>How long does setup take?</summary><p>Most stores are running in 15 minutes from install to first affiliate approved.</p></details>
+  </article>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Need help?</h2>
+      <p>Email <a href="mailto:support@asterisaffiliates.com">support@asterisaffiliates.com</a> — 1 business day response.</p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero { max-width: 760px; margin: 0 auto; padding: 96px 24px 48px; text-align: center; }
+  .eyebrow { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(32px, 4vw, 44px); font-weight: 900; line-height: 1.15; margin-bottom: 20px; }
+  .hero h1 .accent { color: var(--c-mint); }
+  .hero .lead { font-size: 17px; color: var(--c-text); line-height: 1.6; }
+  .doc { max-width: 720px; margin: 0 auto; padding: 32px 24px 64px; font-size: 16px; line-height: 1.65; }
+  .doc h2 { font-size: 22px; margin: 32px 0 12px; }
+  .doc ol, .doc ul { padding-left: 22px; }
+  .doc li { padding: 4px 0; }
+  .doc code { background: rgba(0,0,0,0.06); padding: 2px 6px; border-radius: 3px; font-family: var(--font-mono); font-size: 14px; }
+  .doc a { color: var(--c-mint); font-weight: 600; }
+  details { border: 1px solid var(--c-border); border-radius: 6px; margin-top: 8px; padding: 12px 16px; }
+  details[open] { border-color: var(--c-mint); }
+  summary { font-weight: 700; cursor: pointer; }
+  details p { margin-top: 10px; color: var(--c-muted); }
+  .cta-section { background: var(--c-bg); padding: 48px 24px; text-align: center; }
+  .cta-inner { max-width: 720px; margin: 0 auto; }
+  .cta-section h2 { font-size: 24px; margin-bottom: 8px; }
+  .cta-section a { color: var(--c-mint); font-weight: 700; }
+</style>

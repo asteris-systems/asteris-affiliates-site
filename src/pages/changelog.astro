@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout seoSlug="/changelog">
+  <section class="hero">
+    <div class="eyebrow">★ EVERY RELEASE, VERSION BY VERSION</div>
+    <h1>Asteris Affiliates <span class="accent">changelog</span></h1>
+  </section>
+
+  <article class="log">
+    <h2>v1.1.0 — 8 June 2026</h2>
+    <p class="tag">Major release · 23 features across 9 sprints</p>
+    <h3>Sprint 9A — Polish</h3>
+    <ul><li>Bulk operations (approve/reject/suspend) on affiliates, commissions, payouts</li><li>CSV export across all admin list tables</li><li>Sortable column headers</li><li>Date-range picker on Reports + Commissions</li><li>WP admin dashboard widget</li></ul>
+    <h3>Sprint 9B — Onboarding + UX</h3>
+    <ul><li>Affiliate onboarding wizard (4 steps)</li><li>Admin impersonation ("View as" with audit log)</li><li>Email throttling per-recipient per-template per-day</li><li>Per-product commission rates (WC product tab)</li><li>i18n + WP-CLI</li><li>Mobile-responsive portal</li></ul>
+    <h3>Sprint 9C — Performance</h3>
+    <ul><li>Denormalised aggregates (lifetime balances on affiliates table)</li><li>Stats API: cursor pagination + transient cache</li></ul>
+    <h3>Sprint 9D — Licensing</h3>
+    <ul><li>HMAC-signed licence client (activate / validate / deactivate)</li></ul>
+    <h3>Sprint 10+ — Differentiators</h3>
+    <ul><li>Two-tier (MLM) referrals</li><li>AI swipe-copy generator</li><li>Vanity /go/ landing pages</li><li>Cloud-assist fraud detection (opt-in, SHA-256 hashed)</li><li>PayPal API auto-batch</li><li>EDD + Surecart adapters</li><li>A/B email testing</li></ul>
+
+    <h2 class="next">v1.2 — In progress</h2>
+    <p>See <a href="/roadmap">roadmap</a> for what's queued.</p>
+  </article>
+</Layout>
+
+<style>
+  .hero { max-width: 760px; margin: 0 auto; padding: 96px 24px 32px; text-align: center; }
+  .eyebrow { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(36px, 5vw, 52px); font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
+  .hero h1 .accent { color: var(--c-mint); }
+  .log { max-width: 720px; margin: 0 auto; padding: 32px 24px 96px; }
+  .log h2 { font-size: 28px; margin: 32px 0 8px; padding-top: 24px; border-top: 1px solid var(--c-border); }
+  .log h2:first-child { padding-top: 0; border-top: 0; }
+  .log h2.next { color: var(--c-muted); }
+  .log .tag { color: var(--c-mint); font-weight: 700; font-size: 14px; margin-bottom: 16px; }
+  .log h3 { font-size: 16px; margin: 20px 0 8px; }
+  .log ul { padding-left: 22px; }
+  .log li { padding: 4px 0; line-height: 1.5; font-size: 14px; color: var(--c-text); }
+  .log a { color: var(--c-mint); font-weight: 600; }
+</style>

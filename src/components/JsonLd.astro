@@ -1,0 +1,110 @@
+---
+// Emits a <script type="application/ld+json"> with the right schema for each page.
+// Reads frontmatter.schema_type and builds the appropriate Schema.org JSON-LD.
+// Supported types: Article, FAQPage, Article + FAQPage, Event + FAQPage,
+//                  SoftwareApplication + FAQPage, WebPage, AboutPage + Person.
+interface FAQ { q: string; a: string }
+interface Props {
+  schemaType?: string;
+  title: string;
+  description?: string;
+  url: string;
+  publishedDate?: string;
+  modifiedDate?: string;
+  /** Optional FAQ Q+A pairs. When present and schemaType includes FAQPage,
+   *  they're emitted as the mainEntity array (otherwise FAQPage is an empty
+   *  shell — fine syntactically but useless for search engines). */
+  faqs?: FAQ[];
+}
+const { schemaType = 'WebPage', title, description, url, publishedDate, modifiedDate, faqs } = Astro.props;
+
+const ORG = {
+  '@type': 'Organization',
+  name: 'Asteris Commerce',
+  legalName: 'My Cosmic Message Pty Ltd t/a Asteris Commerce',
+  url: 'https://asterisaffiliates.com',
+  // No logo yet — visual asset manifest pending. Add when /og-default.png ships.
+  // logo: 'https://asterisaffiliates.com/logo.png',
+};
+
+const types = schemaType.split('+').map((t) => t.trim());
+
+// Auto-include FAQPage whenever frontmatter populates `faqs`, even if the
+// schema_type field forgot to list it. Avoids the silent-empty-shell bug
+// where a page has FAQ content but the schema does not carry it.
+if (faqs && faqs.length > 0 && !types.includes('FAQPage')) {
+  types.push('FAQPage');
+}
+
+const graph: any[] = [];
+
+for (const t of types) {
+  if (t === 'Article') {
+    graph.push({
+      '@type': 'Article',
+      headline: title,
+      description,
+      url,
+      author: { '@type': 'Person', name: 'Nick Lord' },
+      publisher: ORG,
+      datePublished: publishedDate ?? '2026-06-01',
+      dateModified: modifiedDate ?? publishedDate ?? '2026-06-01',
+    });
+  } else if (t === 'FAQPage') {
+    // FAQ pairs come from the page's frontmatter `faqs:` array (populated by
+    // the faq-schema-aio-audit-15 workflow). Each Q+A becomes a Question
+    // schema with an Answer. If no faqs are passed we still emit the
+    // FAQPage shell so the type assertion holds, but search engines need
+    // mainEntity populated to actually use it.
+    graph.push({
+      '@type': 'FAQPage',
+      url,
+      mainEntity: (faqs ?? []).map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: f.a,
+        },
+      })),
+    });
+  } else if (t === 'SoftwareApplication') {
+    graph.push({
+      '@type': 'SoftwareApplication',
+      name: 'Asteris Affiliates',
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'WordPress 6.7+, WooCommerce 9.0+',
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      publisher: ORG,
+    });
+  } else if (t === 'Event') {
+    graph.push({
+      '@type': 'Event',
+      name: title,
+      description,
+      url,
+      organizer: ORG,
+      eventStatus: 'https://schema.org/EventScheduled',
+      eventAttendanceMode: 'https://schema.org/OnlineEventAttendanceMode',
+    });
+  } else if (t === 'AboutPage') {
+    graph.push({ '@type': 'AboutPage', url, name: title, description });
+  } else if (t === 'Person') {
+    graph.push({
+      '@type': 'Person',
+      name: 'Nick Lord',
+      jobTitle: 'Founder, Asteris Commerce',
+      worksFor: ORG,
+    });
+  } else {
+    // Default: WebPage
+    graph.push({ '@type': 'WebPage', url, name: title, description, publisher: ORG });
+  }
+}
+
+const jsonLd = graph.length === 1
+  ? { '@context': 'https://schema.org', ...graph[0] }
+  : { '@context': 'https://schema.org', '@graph': graph };
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

@@ -1,0 +1,75 @@
+---
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import SEOHead from '../components/SEOHead.astro';
+import { SEO_DATA } from '../data/seo';
+import '../styles/global.css';
+
+interface Props {
+  /** Canonical: pass the page slug (e.g. "/", "/pricing") and Layout will
+   *  emit the full per-page SEO bundle (meta + OG + Twitter + JSON-LD)
+   *  from src/data/seo.ts via SEOHead. Preferred path. */
+  seoSlug?: string;
+  /** Legacy: standalone title/description. Use only if seoSlug isn't registered yet. */
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const {
+  seoSlug,
+  title,
+  description = 'Asteris Affiliates — self-hosted affiliate program for WordPress, WooCommerce, EDD and Surecart. From $149/yr.',
+  ogImage = '/og-home.png',
+  noindex = false,
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
+const hasCanonicalSeo = seoSlug !== undefined && SEO_DATA[seoSlug] !== undefined;
+const fallbackTitle = title ?? (hasCanonicalSeo ? SEO_DATA[seoSlug!].title : 'Asteris Affiliates');
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <script src="/time-localise.js" defer></script>
+  <script src="/partners-tracker.js" defer></script>
+
+  {hasCanonicalSeo ? (
+    <SEOHead slug={seoSlug!} />
+  ) : (
+    <>
+      <title>{fallbackTitle}</title>
+      <meta name="description" content={description} />
+      <link rel="canonical" href={canonicalURL} />
+      {noindex && <meta name="robots" content="noindex,nofollow" />}
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={fallbackTitle} />
+      <meta property="og:description" content={description} />
+      <meta property="og:url" content={canonicalURL} />
+      <meta property="og:image" content={new URL(ogImage, Astro.site).href} />
+      <meta property="og:site_name" content="Asteris Affiliates" />
+      <meta name="twitter:card" content="summary_large_image" />
+    </>
+  )}
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+
+  <slot name="head" />
+</head>
+<body>
+  <Nav currentPath={currentPath} />
+  <main>
+    <slot />
+  </main>
+  <Footer />
+  <CookieBanner />
+</body>
+</html>

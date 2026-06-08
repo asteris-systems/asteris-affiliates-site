@@ -1,0 +1,194 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Locked pricing per memory/project_asteris_affiliates_locked.md (7 Jun 2026)
+// NO founder pricing. NO bundle. Regular only.
+const tiers = [
+  {
+    name: 'Starter',
+    sites: '1 site',
+    price: 149,
+    features: [
+      'Unlimited affiliates',
+      'All v1.1.0 features unlocked',
+      'MLM / two-tier referrals',
+      'AI swipe-copy generator',
+      'PayPal API auto-payout',
+      'Cloud-assist fraud detection',
+      'EDD + Surecart adapters',
+      '1 year of updates + support',
+    ],
+    cta: 'Get Starter',
+    ctaUrl: 'https://pay.asteriscommerce.com/buy/aff-starter',
+  },
+  {
+    name: 'Pro',
+    sites: '3 sites',
+    price: 299,
+    highlighted: true,
+    features: [
+      'Everything in Starter',
+      '3-site licence',
+      'Priority email support',
+      '1 year of updates + support',
+      'Per-product commission rates',
+      'A/B email testing',
+      'WP-CLI commands',
+      'Real-time stats REST API',
+    ],
+    cta: 'Get Pro',
+    ctaUrl: 'https://pay.asteriscommerce.com/buy/aff-pro',
+  },
+  {
+    name: 'Agency',
+    sites: '10 sites',
+    price: 549,
+    features: [
+      'Everything in Pro',
+      '10-site licence',
+      'White-label affiliate portal CSS',
+      'Priority support + Slack channel',
+      'Migration assistance from AffiliateWP / SliceWP',
+      '1 year of updates + support',
+    ],
+    cta: 'Get Agency',
+    ctaUrl: 'https://pay.asteriscommerce.com/buy/aff-agency',
+  },
+];
+---
+
+<Layout seoSlug="/pricing">
+  <section class="pricing-hero">
+    <div class="eyebrow">★ Regular pricing · no founder gimmicks · annual licence</div>
+    <h1>3–9× cheaper than every major rival.</h1>
+    <p class="lead">
+      Tapfiliate is $890/yr SaaS. AffiliateWP is $599/yr.
+      Our regular price is <strong>$149/yr for 1 site</strong>.
+      The price IS the discount — there's no "founder rate" or "lifetime deal" trick.
+    </p>
+  </section>
+
+  <section class="tiers">
+    <div class="tiers-grid">
+      {tiers.map(t => (
+        <div class:list={['tier', { highlighted: t.highlighted }]}>
+          {t.highlighted && <div class="badge">MOST POPULAR</div>}
+          <h2 class="tier-name">{t.name}</h2>
+          <p class="tier-sites">{t.sites}</p>
+          <div class="tier-price">
+            <span class="dollar">$</span><span class="amount">{t.price}</span>
+            <span class="per">/yr</span>
+          </div>
+          <ul class="tier-features">
+            {t.features.map(f => <li>✅ {f}</li>)}
+          </ul>
+          <a href={t.ctaUrl} class:list={['btn', 'btn-large', t.highlighted ? 'btn-pop' : 'btn-outline']}>
+            {t.cta} →
+          </a>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="renewal">
+    <div class="renewal-inner">
+      <h2>What happens after year 1?</h2>
+      <div class="renewal-grid">
+        <div class="renewal-item">
+          <h3>You keep using it</h3>
+          <p>Plugin keeps working forever. Last-installed-version stays active. No "killswitch" if you don't renew.</p>
+        </div>
+        <div class="renewal-item">
+          <h3>You stop getting updates</h3>
+          <p>No security patches, no new features, no support tickets. Recommended: renew before licence expires.</p>
+        </div>
+        <div class="renewal-item">
+          <h3>Renewal = same price</h3>
+          <p>No price hike at year 2. You pay the same $149/$299/$549. If we ever raise prices, renewals stay at the rate you joined at.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="guarantee">
+    <div class="guarantee-inner">
+      <h2>14-day money-back guarantee</h2>
+      <p>Try it for two weeks. If it doesn't replace your AffiliateWP / SliceWP / Tapfiliate install, email us — full refund, no questions.</p>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="faq-inner">
+      <h2>FAQ</h2>
+      <details>
+        <summary>Why no founder pricing?</summary>
+        <p>Because our regular price is already 3–9× cheaper than every competitor. A "founder discount" off $149/yr would be a marketing trick, not a real saving. We'd rather you trust the sticker price.</p>
+      </details>
+      <details>
+        <summary>Can I upgrade between tiers later?</summary>
+        <p>Yes. Prorated upgrade from Starter→Pro→Agency at any time. Email us with your licence key.</p>
+      </details>
+      <details>
+        <summary>Is there a free tier?</summary>
+        <p>Yes — under 25 affiliates and no MLM / AI swipe / cloud fraud / PayPal-API features. <a href="/free">See the free tier</a>.</p>
+      </details>
+      <details>
+        <summary>Does this work with EDD / Surecart / WooCommerce only?</summary>
+        <p>All three. WC is native; EDD + Surecart via adapters in <code>src/Adapters/</code>. Other carts: write your own adapter against the <code>Order_Source</code> interface — single file.</p>
+      </details>
+      <details>
+        <summary>Where is my data?</summary>
+        <p>On your server. No SaaS, no calls to our servers (except the optional cloud-assist fraud signal sharing, which sends only SHA-256 hashes — no PII). Disable cloud-assist and there's literally zero outbound traffic.</p>
+      </details>
+      <details>
+        <summary>Refund policy?</summary>
+        <p>14 days, no questions asked.</p>
+      </details>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .pricing-hero { max-width: 760px; margin: 0 auto; padding: 96px 24px 48px; text-align: center; }
+  .eyebrow { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 16px; }
+  .pricing-hero h1 { font-size: clamp(32px, 5vw, 56px); font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
+  .pricing-hero .lead { font-size: 18px; color: var(--c-text); line-height: 1.55; }
+
+  .tiers { padding: 32px 24px 96px; }
+  .tiers-grid { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 900px) { .tiers-grid { grid-template-columns: 1fr; } }
+  .tier { background: #fff; border: 2px solid var(--c-border); border-radius: 12px; padding: 40px 32px; position: relative; }
+  .tier.highlighted { border-color: var(--c-mint); box-shadow: 6px 6px 0 var(--c-mint); }
+  .badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--c-mint); color: #fff; font-size: 11px; font-weight: 800; padding: 6px 14px; border-radius: 999px; letter-spacing: 0.12em; }
+  .tier-name { font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 4px; }
+  .tier-sites { color: var(--c-muted); margin-bottom: 16px; font-size: 14px; }
+  .tier-price { font-size: 56px; font-weight: 900; line-height: 1; margin-bottom: 24px; }
+  .tier-price .dollar { font-size: 28px; vertical-align: top; margin-right: 4px; }
+  .tier-price .per { font-size: 18px; color: var(--c-muted); font-weight: 600; margin-left: 4px; }
+  .tier-features { list-style: none; padding: 0; margin: 0 0 32px; }
+  .tier-features li { padding: 10px 0; border-bottom: 1px solid var(--c-border); font-size: 14px; }
+  .tier-features li:last-child { border-bottom: 0; }
+  .tier .btn { width: 100%; text-align: center; }
+
+  .renewal { background: #fff; padding: 96px 24px; border-top: 1px solid var(--c-border); }
+  .renewal-inner { max-width: var(--max-w); margin: 0 auto; }
+  .renewal h2 { font-size: clamp(28px, 4vw, 40px); text-align: center; margin-bottom: 48px; }
+  .renewal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 32px; }
+  .renewal-item { padding: 24px; border-left: 4px solid var(--c-mint); background: var(--c-bg); border-radius: 4px; }
+  .renewal-item h3 { font-size: 18px; margin-bottom: 8px; }
+  .renewal-item p { color: var(--c-muted); line-height: 1.6; font-size: 14px; }
+
+  .guarantee { padding: 64px 24px; background: var(--c-bg); text-align: center; }
+  .guarantee-inner { max-width: 680px; margin: 0 auto; }
+  .guarantee h2 { font-size: 28px; margin-bottom: 12px; }
+  .guarantee p { font-size: 16px; color: var(--c-text); line-height: 1.6; }
+
+  .faq { padding: 96px 24px; background: #fff; }
+  .faq-inner { max-width: 760px; margin: 0 auto; }
+  .faq h2 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 32px; text-align: center; }
+  details { border: 1px solid var(--c-border); border-radius: 6px; margin-bottom: 10px; padding: 16px 20px; }
+  details[open] { border-color: var(--c-mint); }
+  summary { font-weight: 700; cursor: pointer; font-size: 16px; }
+  details p { margin-top: 12px; color: var(--c-muted); line-height: 1.6; }
+  details a { color: var(--c-mint); font-weight: 600; }
+</style>

@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CompareBody from '../components/CompareBody.astro';
+---
+<Layout seoSlug="/solid-affiliate-vs-asteris">
+  <CompareBody
+    rivalName="Solid Affiliate"
+    rivalTagline="A WooCommerce-only affiliate plugin focused exclusively on WC stores. Direct, modern, no SaaS layer."
+    rivalUrl="https://solidaffiliate.com"
+    intro="Solid Affiliate is a WooCommerce-only affiliate plugin — well-built for WC stores that want a focused tool. Asteris Affiliates extends the same self-hosted model with two-tier referrals, EDD + Surecart support, AI swipe-copy, and cloud-assist fraud detection, included from $149/yr."
+    whenRivalWins={[
+      'You\'re committed exclusively to WooCommerce and want a single-purpose tool',
+      'You value Solid Affiliate\'s narrower focus and simpler admin',
+    ]}
+    whenAsterisWins={[
+      'EDD + Surecart adapters — Solid Affiliate is WC-only',
+      'Two-tier (MLM) referrals included from Starter',
+      'AI swipe-copy generator built in',
+      'Cloud-assist fraud detection (opt-in, SHA-256 hashed)',
+      'PayPal API auto-batch payout',
+      'Vanity /go/ landing pages with cookie + view tracking',
+      'A/B email testing on transactional emails',
+    ]}
+    comparisonRows={[
+      { feature: 'WooCommerce support',          rival: 'Yes (native)',         asteris: 'Yes (native)',           win: 'tie' },
+      { feature: 'EDD support',                  rival: 'No',                   asteris: 'Yes (adapter)',          win: 'asteris' },
+      { feature: 'Surecart support',             rival: 'No',                   asteris: 'Yes (adapter)',          win: 'asteris' },
+      { feature: 'Two-tier referrals',           rival: 'No',                   asteris: 'Included from Starter',  win: 'asteris' },
+      { feature: 'AI swipe-copy generator',      rival: 'No',                   asteris: 'Built in',                win: 'asteris' },
+      { feature: 'PayPal API auto-batch',        rival: 'Limited',              asteris: 'Built in',                win: 'asteris' },
+      { feature: 'Cloud-assist fraud detection', rival: 'No',                   asteris: 'Opt-in (hashed)',         win: 'asteris' },
+      { feature: 'Vanity /go/ landing pages',    rival: 'No',                   asteris: 'Built in',                win: 'asteris' },
+      { feature: 'A/B email testing',            rival: 'No',                   asteris: 'Built in',                win: 'asteris' },
+      { feature: 'Self-hosted',                  rival: 'Yes',                  asteris: 'Yes',                     win: 'tie' },
+    ]}
+    migrateSlug="/migrate/from-solid-affiliate"
+  />
+</Layout>

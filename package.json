@@ -1,0 +1,26 @@
+{
+  "name": "asteris-affiliates-site",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sales site for Asteris Affiliates — asterisaffiliates.com",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/starlight": "^0.30.6",
+    "astro": "^5.1.5",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CompareBody from '../components/CompareBody.astro';
+---
+<Layout seoSlug="/tapfiliate-vs-asteris">
+  <CompareBody
+    rivalName="Tapfiliate"
+    rivalTagline="SaaS affiliate-tracking platform. Cross-platform, hosted, billed monthly forever. Targets enterprise multi-cart deployments."
+    rivalUrl="https://tapfiliate.com"
+    intro="Tapfiliate is a SaaS affiliate tracker — your affiliate data lives on Tapfiliate's servers, billed monthly forever. Asteris Affiliates is a self-hosted WordPress plugin at $149/yr, so your affiliate data stays in your own database and the cost stops climbing."
+    whenRivalWins={[
+      'You need cross-platform tracking across non-WordPress sites (Shopify + custom carts simultaneously)',
+      'You prefer SaaS reliability and outsourced infrastructure',
+      'You have an enterprise compliance need for a dedicated SOC-2 SaaS vendor',
+    ]}
+    whenAsterisWins={[
+      'Annual licence vs monthly SaaS — total cost stops climbing',
+      'Your affiliate data stays on your WordPress server (not theirs)',
+      'No per-affiliate fees, no usage caps',
+      'Two-tier referrals included from $149/yr',
+      'AI swipe-copy generator built in',
+      'GPL code — fork it if you ever want to',
+    ]}
+    comparisonRows={[
+      { feature: 'Hosting model',                rival: 'SaaS (their servers)', asteris: 'Self-hosted (your WP)',  win: 'asteris' },
+      { feature: 'Data ownership',               rival: 'On Tapfiliate',        asteris: 'On your server',          win: 'asteris' },
+      { feature: 'Billing',                      rival: 'Monthly SaaS',         asteris: 'Annual licence',          win: 'asteris' },
+      { feature: 'Two-tier referrals',           rival: 'Available',            asteris: 'Included from Starter',  win: 'tie' },
+      { feature: 'AI swipe-copy generator',      rival: 'No',                   asteris: 'Built in',                win: 'asteris' },
+      { feature: 'WordPress-native',             rival: 'No (JS snippet)',      asteris: 'Yes',                     win: 'asteris' },
+      { feature: 'WooCommerce-native',           rival: 'Via integration',      asteris: 'Direct',                  win: 'asteris' },
+      { feature: 'GPL code',                     rival: 'Proprietary SaaS',     asteris: 'GPL-2.0',                 win: 'asteris' },
+      { feature: 'Cross-platform tracking',      rival: 'Strong',               asteris: 'WP-only',                 win: 'rival' },
+      { feature: 'Cloud infrastructure',         rival: 'Managed for you',      asteris: 'Your hosting',            win: 'rival' },
+    ]}
+    migrateSlug="/migrate/from-tapfiliate"
+  />
+</Layout>

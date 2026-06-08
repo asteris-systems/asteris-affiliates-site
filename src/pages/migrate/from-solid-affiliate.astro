@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import MigrateBody from '../../components/MigrateBody.astro';
+---
+<Layout seoSlug="/migrate/from-solid-affiliate">
+  <MigrateBody
+    sourceName="Solid Affiliate"
+    sourceUrl="https://solidaffiliate.com"
+    intro="Migrating from Solid Affiliate is straightforward — both plugins are self-hosted and WooCommerce-native. The move gives you two-tier referrals, AI swipe-copy, EDD + Surecart adapters, and cloud-assist fraud detection that Solid Affiliate doesn't offer."
+    exportSteps={[
+      { name: 'Export from Solid Affiliate', text: 'In WordPress admin, open Solid Affiliate → Tools → Export and export affiliates + commissions as CSV.' },
+    ]}
+    caveats={[
+      'Solid Affiliate is WooCommerce-only — if you also have EDD or Surecart stores, set up the relevant adapters in Asteris Affiliates settings after import.',
+      'Solid Affiliate uses WordPress users as the affiliate identity — Asteris Affiliates preserves the same WP-user mapping, so existing affiliate logins work unchanged.',
+    ]}
+    vsSlug="/solid-affiliate-vs-asteris"
+  />
+</Layout>

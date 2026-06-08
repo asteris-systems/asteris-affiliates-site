@@ -1,0 +1,69 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "meta": {
+    "title": "Asteris Affiliates — live demo",
+    "description": "WordPress + WooCommerce + Storefront + Asteris Affiliates (all 20 modules pre-activated). In your browser, no install.",
+    "author": "Asteris Commerce"
+  },
+  "landingPage": "/wp-admin/admin.php?page=asteris",
+  "preferredVersions": {
+    "php": "8.2",
+    "wp": "latest"
+  },
+  "phpExtensionBundles": ["kitchen-sink"],
+  "features": {
+    "networking": true
+  },
+  "login": {
+    "username": "admin",
+    "password": "password"
+  },
+  "steps": [
+    {
+      "step": "defineWpConfigConsts",
+      "consts": {
+        "WP_DEBUG": false,
+        "ASTERIS_DEV_MODE": true
+      }
+    },
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "wordpress.org/plugins",
+        "slug": "woocommerce"
+      },
+      "options": { "activate": true }
+    },
+    {
+      "step": "installTheme",
+      "themeData": {
+        "resource": "wordpress.org/themes",
+        "slug": "storefront"
+      },
+      "options": { "activate": true }
+    },
+    {
+      "step": "runWpInstallationWizard",
+      "options": {
+        "adminUsername": "admin",
+        "adminPassword": "password"
+      }
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require_once '/wordpress/wp-load.php'; update_option('blogname', 'Asteris Demo Store'); update_option('blogdescription', 'Try Asteris Affiliates — all 20 modules, in your browser'); update_option('woocommerce_store_address', 'Sample St'); update_option('woocommerce_store_city', 'Sydney'); update_option('woocommerce_default_country', 'AU:NSW'); update_option('woocommerce_currency', 'USD'); update_option('woocommerce_onboarding_profile', ['completed' => true, 'skipped' => true]);"
+    },
+    {
+      "step": "unzip",
+      "zipFile": {
+        "resource": "url",
+        "url": "https://asterisaffiliates.com/playground/asteris-affiliates.zip"
+      },
+      "extractToPath": "/wordpress/wp-content/plugins"
+    },
+    {
+      "step": "activatePlugin",
+      "pluginPath": "asteris-affiliates/asteris-affiliates.php"
+    }
+  ]
+}

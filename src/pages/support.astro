@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout seoSlug="/support">
+  <section class="hero">
+    <div class="eyebrow">★ SMALL AUSTRALIAN TEAM · BUSINESS HOURS</div>
+    <h1>Get <span class="accent">help</span> with Asteris Affiliates</h1>
+    <p class="lead">We're a small team. We respond within 1 business day during AU business hours (Sydney/Melbourne time). For self-serve, start with the docs.</p>
+  </section>
+
+  <section class="channels">
+    <div class="channels-inner">
+      <div class="ch">
+        <h2>1. Documentation</h2>
+        <p>Step-by-step guides covering install, setup, every feature.</p>
+        <a href="/docs/getting-started" class="link">Open the docs →</a>
+      </div>
+      <div class="ch">
+        <h2>2. Email support</h2>
+        <p>For account questions, bugs, or anything not covered in docs.</p>
+        <a href="mailto:support@asterisaffiliates.com" class="link">support@asterisaffiliates.com →</a>
+      </div>
+      <div class="ch">
+        <h2>3. Migration help</h2>
+        <p>Pro + Agency tiers get hands-on migration assistance.</p>
+        <a href="/contact" class="link">Contact us →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sla">
+    <div class="sla-inner">
+      <h2>Response times</h2>
+      <ul>
+        <li><strong>Starter:</strong> 1–2 business days, AU hours</li>
+        <li><strong>Pro:</strong> Priority queue, same business day where possible</li>
+        <li><strong>Agency:</strong> Same business day + dedicated Slack channel</li>
+      </ul>
+      <p class="note">We're not 24/7. We're not a chatbot. We're a small team that reads every email and responds personally.</p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero { max-width: 760px; margin: 0 auto; padding: 96px 24px 48px; text-align: center; }
+  .eyebrow { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(36px, 5vw, 52px); font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
+  .hero h1 .accent { color: var(--c-mint); }
+  .hero .lead { font-size: 18px; color: var(--c-text); line-height: 1.6; }
+  .channels { padding: 32px 24px 64px; }
+  .channels-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+  .ch { padding: 24px; background: #fff; border-left: 4px solid var(--c-mint); border-radius: 4px; }
+  .ch h2 { font-size: 18px; margin-bottom: 8px; }
+  .ch p { color: var(--c-muted); margin-bottom: 12px; line-height: 1.5; }
+  .ch .link { color: var(--c-mint); font-weight: 700; }
+  .sla { padding: 64px 24px; background: var(--c-bg); }
+  .sla-inner { max-width: 720px; margin: 0 auto; }
+  .sla h2 { font-size: 24px; margin-bottom: 16px; text-align: center; }
+  .sla ul { list-style: none; padding: 0; }
+  .sla li { padding: 12px 0; border-bottom: 1px solid var(--c-border); }
+  .sla .note { margin-top: 24px; padding: 16px; background: #fff; border-radius: 6px; color: var(--c-muted); font-size: 14px; text-align: center; }
+</style>

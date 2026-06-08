@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout seoSlug="/license">
+  <article class="legal">
+    <h1>Licence (EULA)</h1>
+    <p class="meta">Last updated: 8 June 2026 · My Cosmic Message Pty Ltd t/a Asteris Commerce</p>
+    <h2>Plugin code: GPL-2.0+</h2>
+    <p>Asteris Affiliates is licensed under the GNU General Public License v2.0 or later (GPL-2.0+). You can use, modify, and redistribute the code under those terms. Full GPL text at <a href="https://www.gnu.org/licenses/old-licenses/gpl-2.0.html" target="_blank" rel="noopener">gnu.org/licenses/gpl-2.0.html</a>.</p>
+    <h2>Your subscription buys</h2>
+    <ul>
+      <li>Updates — security patches, new features, version upgrades</li>
+      <li>Support — 1 business day response from a small Australian team</li>
+      <li>Licence key — valid across the sites in your tier (Starter 1 / Pro 3 / Agency 10)</li>
+    </ul>
+    <h2>If you cancel</h2>
+    <ul>
+      <li>The plugin keeps working forever on the last installed version.</li>
+      <li>You stop getting updates and support.</li>
+      <li>You keep all the GPL rights to the code as it stood at the time.</li>
+    </ul>
+    <p><a href="/terms">Terms →</a></p>
+  </article>
+</Layout>
+<style>
+  .legal { max-width: 720px; margin: 0 auto; padding: 96px 24px 64px; font-size: 16px; line-height: 1.65; }
+  .legal h1 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 12px; }
+  .legal .meta { color: var(--c-muted); font-size: 13px; margin-bottom: 32px; }
+  .legal h2 { font-size: 22px; margin: 24px 0 12px; }
+  .legal ul { padding-left: 22px; }
+  .legal li { padding: 6px 0; }
+  .legal a { color: var(--c-mint); font-weight: 600; }
+</style>

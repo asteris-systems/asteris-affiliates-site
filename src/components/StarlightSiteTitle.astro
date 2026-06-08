@@ -1,0 +1,32 @@
+---
+/**
+ * Override of Starlight's default SiteTitle.
+ *
+ * Default behaviour: site title links to `/`.
+ * Our marketing homepage lives at `/`, so the docs title should land users
+ * at the docs home (`/docs`) — not bounce them out to the marketing site.
+ * (A separate "← Back to site" link in the sidebar handles the marketing
+ * navigation cleanly.)
+ *
+ * Starlight passes config + entry props but we only need the title string.
+ */
+import config from 'virtual:starlight/user-config';
+const href = '/docs';
+---
+
+<a {href} class="site-title sl-flex">
+  <span class="brand"><span class="star">★</span> {config.title.en ?? config.title}</span>
+</a>
+
+<style>
+  .site-title {
+    align-items: center;
+    color: var(--sl-color-text-accent);
+    font-weight: 700;
+    overflow: hidden;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .brand { display: inline-flex; align-items: center; gap: 8px; }
+  .star { color: #06D6A0; font-size: 22px; line-height: 1; }
+</style>

@@ -1,0 +1,75 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout seoSlug="/roadmap">
+  <section class="hero">
+    <div class="eyebrow">★ NO FIXED DATES · VELOCITY-DECIDED</div>
+    <h1>Asteris Affiliates <span class="accent">roadmap</span></h1>
+    <p class="lead">What's shipped (v1.1.0, June 2026) and what's queued. No fixed dates — we ship when each item is ready. <a href="/changelog">Changelog</a> tracks what's actually landed.</p>
+  </section>
+
+  <section class="rm">
+    <div class="rm-inner">
+      <div class="lane done">
+        <h2>✅ Shipped — v1.1.0</h2>
+        <ul>
+          <li>23 features across 9 sprints</li>
+          <li>Two-tier referrals (MLM)</li>
+          <li>AI swipe-copy generator</li>
+          <li>Cloud-assist fraud detection (opt-in)</li>
+          <li>PayPal API auto-payout</li>
+          <li>EDD + Surecart adapters</li>
+          <li>Affiliate onboarding wizard (4 steps)</li>
+          <li>Vanity /go/ landing pages</li>
+        </ul>
+      </div>
+      <div class="lane next">
+        <h2>🟡 Next — v1.2</h2>
+        <ul>
+          <li>Affiliate ranking-system reporting (tiered rewards by performance)</li>
+          <li>PayPal webhook listener (PAYMENT.PAYOUTS-ITEM.SUCCEEDED handler)</li>
+          <li>A/B email click tracking (currently only opens)</li>
+          <li>Admin UI for Swipe Copy / A/B Tests / Landing Pages / Product Rates</li>
+          <li>Per-line-item commission splits</li>
+        </ul>
+      </div>
+      <div class="lane later">
+        <h2>🔵 Later — v1.3+</h2>
+        <ul>
+          <li>Stripe Connect direct payouts</li>
+          <li>Bonus / spiff campaigns (one-off uplift on specific products / dates)</li>
+          <li>Affiliate-side mobile app (PWA, not native)</li>
+          <li>Coupon-code attribution v2 (multi-coupon stacking)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Start with v1.1.0</h2>
+      <p>23 features, $149/yr. Roadmap items ship as included updates.</p>
+      <a href="/pricing" class="btn btn-pop btn-large">See pricing →</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero { max-width: 760px; margin: 0 auto; padding: 96px 24px 48px; text-align: center; }
+  .eyebrow { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(36px, 5vw, 52px); font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
+  .hero h1 .accent { color: var(--c-mint); }
+  .hero .lead { font-size: 18px; color: var(--c-text); line-height: 1.6; }
+  .hero .lead a { color: var(--c-mint); font-weight: 600; }
+  .rm { padding: 32px 24px 96px; }
+  .rm-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .lane { padding: 24px; background: #fff; border-radius: 10px; border: 2px solid var(--c-border); }
+  .lane.done { border-color: var(--c-mint); }
+  .lane h2 { font-size: 18px; margin-bottom: 16px; }
+  .lane ul { padding-left: 22px; }
+  .lane li { padding: 6px 0; line-height: 1.55; font-size: 14px; }
+  .cta-section { background: var(--c-black); color: #fff; padding: 96px 24px; }
+  .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+  .cta-section h2 { font-size: clamp(28px, 4vw, 40px); color: #fff; margin-bottom: 16px; }
+  .cta-section p { color: rgba(255,255,255,0.85); font-size: 17px; margin-bottom: 32px; }
+</style>

@@ -1,0 +1,40 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CompareBody from '../components/CompareBody.astro';
+---
+<Layout seoSlug="/affiliatewp-vs-asteris">
+  <CompareBody
+    rivalName="AffiliateWP"
+    rivalTagline="The established affiliate plugin for WordPress, owned by the same team as Easy Digital Downloads. Mature, battle-tested feature set."
+    rivalUrl="https://affiliatewp.com"
+    intro="AffiliateWP is the most established WordPress affiliate plugin and works well for stores that want only first-tier referrals. Asteris Affiliates includes two-tier referrals (MLM) from $149/yr, where AffiliateWP requires a paid add-on for the same feature."
+    whenRivalWins={[
+      'You need a 10-year track record and a vast third-party integrations ecosystem',
+      'You have an existing AffiliateWP-add-on stack you do not want to replace',
+      'You prefer a mature reporting layer with multi-year historical data',
+    ]}
+    whenAsterisWins={[
+      'Two-tier (MLM) referrals included from Starter — no add-on cost',
+      'AI swipe-copy generator built in (no rival has this)',
+      'Cloud-assist fraud detection (opt-in, SHA-256 hashed)',
+      'PayPal API auto-batch payout out of the box',
+      'EDD + Surecart adapters (not just WC)',
+    ]}
+    comparisonRows={[
+      { feature: 'Two-tier (MLM) referrals',     rival: 'Paid add-on',         asteris: 'Included from Starter',  win: 'asteris' },
+      { feature: 'AI swipe-copy generator',      rival: 'No',                   asteris: 'Built in',                win: 'asteris' },
+      { feature: 'Cloud-assist fraud detection', rival: 'No',                   asteris: 'Opt-in (hashed)',         win: 'asteris' },
+      { feature: 'PayPal API auto-batch',        rival: 'Add-on / manual',      asteris: 'Built in',                win: 'asteris' },
+      { feature: 'EDD adapter',                  rival: 'Yes',                  asteris: 'Yes',                     win: 'tie' },
+      { feature: 'Surecart adapter',             rival: 'No',                   asteris: 'Yes',                     win: 'asteris' },
+      { feature: 'Vanity /go/ landing pages',    rival: 'No',                   asteris: 'Built in',                win: 'asteris' },
+      { feature: 'Stats REST API',               rival: 'Limited',              asteris: 'Cursor-paginated + cached', win: 'asteris' },
+      { feature: 'A/B email testing',            rival: 'No',                   asteris: 'Built in',                win: 'asteris' },
+      { feature: 'WP-CLI commands',              rival: 'Limited',              asteris: 'Full suite',              win: 'asteris' },
+      { feature: 'Self-hosted',                  rival: 'Yes',                  asteris: 'Yes',                     win: 'tie' },
+      { feature: 'Per-affiliate fees',           rival: 'None',                 asteris: 'None',                    win: 'tie' },
+      { feature: '10+ years in market',          rival: 'Yes',                  asteris: 'Launched Jun 2026',       win: 'rival' },
+    ]}
+    migrateSlug="/migrate/from-affiliatewp"
+  />
+</Layout>

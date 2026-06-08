@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout seoSlug="/privacy">
+  <article class="legal">
+    <h1>Privacy Policy</h1>
+    <p class="meta">Last updated: 8 June 2026 · My Cosmic Message Pty Ltd t/a Asteris Commerce · ABN 30 652 358 159</p>
+    <p class="placeholder">[Legal copy pending — pulling from canonical legal pack in next pass.]</p>
+    <h2>What we collect</h2>
+    <ul>
+      <li><strong>Account data:</strong> name, email, billing address, licence key. Stored at pay.asteriscommerce.com (Stripe + our own DB).</li>
+      <li><strong>Site usage:</strong> activation pings (URL + plugin version) for licence validation. No content, no customer data, no affiliate data.</li>
+      <li><strong>Cloud-assist fraud:</strong> opt-in only. SHA-256-hashed signal data (no PII) shared across Asteris stores.</li>
+    </ul>
+    <h2>What we don't collect</h2>
+    <ul>
+      <li>Your affiliate data — it stays in your WordPress database, not ours.</li>
+      <li>Your customers' data — same.</li>
+      <li>Any analytics, telemetry, or tracking beyond licence validation.</li>
+    </ul>
+    <h2>Your rights</h2>
+    <ul>
+      <li>Request a copy of your data: <a href="mailto:privacy@asterisaffiliates.com">privacy@asterisaffiliates.com</a></li>
+      <li>Delete your account: email the same address. We delete within 30 days (Stripe records retained per AU tax law).</li>
+    </ul>
+    <p><a href="/terms">Terms of Service →</a></p>
+  </article>
+</Layout>
+<style>
+  .legal { max-width: 720px; margin: 0 auto; padding: 96px 24px 64px; font-size: 16px; line-height: 1.65; }
+  .legal h1 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 12px; }
+  .legal .meta { color: var(--c-muted); font-size: 13px; margin-bottom: 32px; }
+  .legal .placeholder { padding: 16px; background: #fff8e1; border-left: 4px solid #FFC107; border-radius: 4px; margin-bottom: 32px; }
+  .legal h2 { font-size: 22px; margin: 24px 0 12px; }
+  .legal ul { padding-left: 22px; }
+  .legal li { padding: 6px 0; }
+  .legal a { color: var(--c-mint); font-weight: 600; }
+</style>

@@ -1,0 +1,29 @@
+/*
+ * Starlight brand-token bridge.
+ *
+ * Aligns Starlight's --sl-color-* variables to the marketing brand orange
+ * (#06D6A0) so the docs match the front-of-site. Affects:
+ *   - Active sidebar item background tint (--sl-color-accent-low)
+ *   - Inline content links + active sidebar item text (--sl-color-accent)
+ *   - Link hover + active sidebar item text-on-tint (--sl-color-accent-high)
+ *   - In-page accent text (--sl-color-text-accent)
+ *
+ * Starlight CSS variable reference:
+ *   https://starlight.astro.build/guides/css-and-tailwind/#styling-starlight
+ */
+
+:root {
+  /* Light theme — soft orange tint background, full orange accent */
+  --sl-color-accent-low:  #ffe5df;
+  --sl-color-accent:      #06D6A0;
+  --sl-color-accent-high: #d33b1f;
+  --sl-color-text-accent: #06D6A0;
+}
+
+:root[data-theme='dark'] {
+  /* Dark theme — deeper orange tint background, lighter orange foreground for contrast */
+  --sl-color-accent-low:  #4d1810;
+  --sl-color-accent:      #06D6A0;
+  --sl-color-accent-high: #ffb8ab;
+  --sl-color-text-accent: #ff7a63;
+}

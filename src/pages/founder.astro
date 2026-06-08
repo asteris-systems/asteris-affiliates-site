@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout seoSlug="/founder">
+  <section class="hero">
+    <div class="eyebrow">★ FOUNDER STORY</div>
+    <h1>Why I built <span class="accent">Asteris Affiliates</span></h1>
+    <p class="byline">By Nick Lord · Founder, Asteris Commerce</p>
+  </section>
+
+  <article class="story">
+    <p>I'd been running affiliate programs for clients on AffiliateWP for years. It's a good plugin. The team behind it is solid. But I kept hitting the same wall: two-tier referrals — the thing every serious affiliate program eventually wants — was a paid add-on that doubled the annual cost. AI swipe-copy didn't exist anywhere. Cloud-assist fraud signals — sharing hashes across stores so a new store benefits from every prior store's blacklist — didn't exist either.</p>
+    <p>I thought: someone should build this. Self-hosted. Two-tier in core. AI swipe-copy out of the box. WooCommerce, EDD, and Surecart adapters in one plugin. Priced at the SliceWP level so small stores can actually afford it.</p>
+    <p>So we did. Asteris Affiliates is what I would have wanted to install five years ago.</p>
+
+    <h2>The pricing decision</h2>
+    <p>$149/yr for one site. $299 for three. $549 for ten. No founder discount, no lifetime deal, no bundle gymnastics. The regular price is already 3–9× cheaper than every major rival — that's the deal. There's nothing to "lock in".</p>
+
+    <h2>The architecture decision</h2>
+    <p>Self-hosted, no cloud calls (except the opt-in fraud signal sharing, which sends only SHA-256 hashes — no PII). Your affiliate data stays on your server. If you cancel your subscription, the plugin keeps working forever — you just stop getting updates.</p>
+
+    <h2>What's next</h2>
+    <p>v1.2 adds a deeper affiliate ranking-system reporting layer (the one differentiator AffiliateWP still has on us). v1.3 adds Stripe Connect direct payouts. Beyond that, the <a href="/roadmap">roadmap</a> tracks what's queued.</p>
+
+    <p class="closing">— Nick. <a href="mailto:nick@asterisaffiliates.com">nick@asterisaffiliates.com</a></p>
+  </article>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Try it for two weeks risk-free</h2>
+      <p>14-day money-back guarantee. Self-hosted. $149/yr for one site.</p>
+      <a href="/pricing" class="btn btn-pop btn-large">See pricing →</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero { max-width: 760px; margin: 0 auto; padding: 96px 24px 48px; text-align: center; }
+  .eyebrow { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(36px, 5vw, 52px); font-weight: 900; line-height: 1.1; margin-bottom: 12px; }
+  .hero h1 .accent { color: var(--c-mint); }
+  .byline { color: var(--c-muted); font-size: 15px; }
+  .story { max-width: 720px; margin: 0 auto; padding: 32px 24px 64px; font-size: 17px; line-height: 1.7; }
+  .story p { margin-bottom: 20px; color: var(--c-text); }
+  .story h2 { font-size: 24px; margin: 32px 0 12px; }
+  .story a { color: var(--c-mint); font-weight: 600; }
+  .closing { color: var(--c-muted); font-size: 15px; padding-top: 24px; border-top: 1px solid var(--c-border); }
+  .cta-section { background: var(--c-black); color: #fff; padding: 96px 24px; }
+  .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+  .cta-section h2 { font-size: clamp(28px, 4vw, 40px); color: #fff; margin-bottom: 16px; }
+  .cta-section p { color: rgba(255,255,255,0.85); font-size: 17px; margin-bottom: 32px; }
+</style>

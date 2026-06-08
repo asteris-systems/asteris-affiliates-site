@@ -1,0 +1,128 @@
+---
+/**
+ * Shared body template for /migrate/from-{source} pages.
+ * Each migration page passes source-specific export steps + caveats.
+ */
+interface Step {
+  name: string;
+  text: string;
+}
+
+interface Props {
+  sourceName: string;
+  sourceUrl: string;
+  intro: string;
+  exportSteps: Step[];          // source-specific
+  caveats: string[];            // gotchas particular to this source
+  vsSlug?: string;              // e.g. "/affiliatewp-vs-asteris"
+}
+const { sourceName, sourceUrl, intro, exportSteps, caveats, vsSlug } = Astro.props;
+
+const allSteps: Step[] = [
+  ...exportSteps,
+  { name: 'Install Asteris Affiliates', text: 'Install and activate Asteris Affiliates, then run the 4-step onboarding wizard.' },
+  { name: 'Map and import', text: `Use the importer to map ${sourceName} fields to Asteris Affiliates. Affiliates, referral history and balances are preserved.` },
+  { name: 'Reconcile and pay out', text: `Confirm balances against ${sourceName}, set commission rates, then run the first payout via PayPal or bank transfer.` },
+];
+---
+
+<section class="hero">
+  <div class="eyebrow">★ MIGRATION GUIDE · 8 JUN 2026</div>
+  <h1>Migrate from <span class="accent">{sourceName}</span> to Asteris Affiliates</h1>
+  <p class="lead">{intro}</p>
+  <div class="hero-actions">
+    <a href="/pricing" class="btn btn-pop btn-large">Get Asteris — $149/yr</a>
+    {vsSlug && <a href={vsSlug} class="btn btn-outline btn-large">{sourceName} vs Asteris →</a>}
+  </div>
+</section>
+
+<section class="steps">
+  <div class="steps-inner">
+    <h2>Step-by-step migration</h2>
+    <ol class="step-list">
+      {allSteps.map((s, i) => (
+        <li>
+          <div class="step-num">{String(i + 1).padStart(2, '0')}</div>
+          <div class="step-body">
+            <h3>{s.name}</h3>
+            <p>{s.text}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+{caveats.length > 0 && (
+  <section class="caveats">
+    <div class="caveats-inner">
+      <h2>Watch out for</h2>
+      <ul>{caveats.map(c => <li>{c}</li>)}</ul>
+    </div>
+  </section>
+)}
+
+<section class="faq">
+  <div class="faq-inner">
+    <h2>FAQ</h2>
+    <details>
+      <summary>Will I lose my affiliates or history?</summary>
+      <p>No. You export affiliates and referral history and import them into Asteris Affiliates, preserving balances.</p>
+    </details>
+    <details>
+      <summary>How long does migration take?</summary>
+      <p>Most stores migrate in well under a day; the steps above cover the whole flow.</p>
+    </details>
+    <details>
+      <summary>What if I get stuck?</summary>
+      <p>Pro + Agency tier customers get migration assistance from us. Email <a href="mailto:support@asterisaffiliates.com">support@asterisaffiliates.com</a> with your licence key.</p>
+    </details>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2>Ready to migrate?</h2>
+    <p>14-day money-back guarantee. If migration doesn't fit your store, refund — no questions.</p>
+    <a href="/pricing" class="btn btn-pop btn-large">Get Asteris Affiliates →</a>
+  </div>
+</section>
+
+<style>
+  .hero { max-width: 880px; margin: 0 auto; padding: 96px 24px 48px; text-align: center; }
+  .eyebrow { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(36px, 5vw, 52px); font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
+  .hero h1 .accent { color: var(--c-mint); }
+  .hero .lead { font-size: 18px; color: var(--c-text); line-height: 1.6; margin-bottom: 32px; max-width: 720px; margin-left: auto; margin-right: auto; }
+  .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  .steps { padding: 64px 24px; background: #fff; border-top: 1px solid var(--c-border); }
+  .steps-inner { max-width: 760px; margin: 0 auto; }
+  .steps h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 32px; text-align: center; }
+  .step-list { list-style: none; padding: 0; }
+  .step-list li { display: grid; grid-template-columns: 60px 1fr; gap: 20px; padding: 16px 0; border-bottom: 1px solid var(--c-border); }
+  .step-list li:last-child { border-bottom: 0; }
+  .step-num { font-size: 18px; font-weight: 900; color: var(--c-mint); }
+  .step-body h3 { font-size: 17px; margin-bottom: 6px; }
+  .step-body p { color: var(--c-muted); line-height: 1.6; font-size: 15px; }
+
+  .caveats { padding: 48px 24px; background: var(--c-bg); }
+  .caveats-inner { max-width: 760px; margin: 0 auto; padding: 24px; border-left: 4px solid var(--c-mint); background: #fff; border-radius: 4px; }
+  .caveats h2 { font-size: 20px; margin-bottom: 12px; }
+  .caveats ul { padding-left: 22px; }
+  .caveats li { padding: 4px 0; line-height: 1.6; }
+
+  .faq { padding: 64px 24px; }
+  .faq-inner { max-width: 760px; margin: 0 auto; }
+  .faq h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 24px; text-align: center; }
+  details { border: 1px solid var(--c-border); border-radius: 6px; margin-bottom: 8px; padding: 14px 18px; background: #fff; }
+  details[open] { border-color: var(--c-mint); }
+  summary { font-weight: 700; cursor: pointer; font-size: 16px; }
+  details p { margin-top: 10px; color: var(--c-muted); line-height: 1.6; }
+  details a { color: var(--c-mint); font-weight: 600; }
+
+  .cta-section { background: var(--c-black); color: #fff; padding: 96px 24px; }
+  .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+  .cta-section h2 { font-size: clamp(28px, 4vw, 40px); color: #fff; margin-bottom: 16px; }
+  .cta-section p { color: rgba(255,255,255,0.85); font-size: 17px; margin-bottom: 32px; }
+</style>

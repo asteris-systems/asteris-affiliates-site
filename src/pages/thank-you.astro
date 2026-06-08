@@ -1,0 +1,174 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Post-purchase landing page.
+// Stripe Checkout redirects here with ?session_id=cs_live_xxx.
+// Client-side JS calls /api/checkout-info (Pages Function) which proxies to
+// the licence server with an HMAC-signed GET. The signing secret never
+// reaches the browser.
+//
+// The licence is ALREADY issued by the webhook before the customer lands here.
+// This page just displays what was issued. If the lookup fails for any reason
+// (env var missing, network blip), the licence is in the customer's email — so
+// we show an honest fallback rather than implying the purchase failed.
+---
+
+<Layout
+  title="Thanks for your purchase — Asteris Affiliates"
+  description="Your Asteris Affiliates licence is ready. Download the plugin and activate it on your store."
+>
+  <section class="ty">
+    <div class="ty-inner">
+      <div class="ty-state" id="ty-loading">
+        <div class="ty-spinner"></div>
+        <p>Loading your licence…</p>
+      </div>
+
+      <div class="ty-state ty-success" id="ty-success" hidden>
+        <div class="ty-eyebrow">★ Welcome to Asteris</div>
+        <h1>Thanks for your purchase.</h1>
+        <p class="ty-lead" id="ty-lead">Your <strong id="ty-tier">—</strong> licence is active.</p>
+
+        <div class="ty-cohort" id="ty-cohort" hidden>
+          <span class="ty-badge">★ Founder #<span id="ty-cohort-n">—</span></span>
+          <span class="ty-cohort-text">of 120 Founder slots locked in. Launch price locked for life as long as your subscription stays active.</span>
+        </div>
+
+        <div class="ty-licence">
+          <label>Your licence key</label>
+          <div class="ty-key-row">
+            <code id="ty-key" class="ty-key">ASTW-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX-XXXX</code>
+            <button type="button" class="ty-copy" id="ty-copy" aria-label="Copy licence key">Copy</button>
+          </div>
+          <p class="ty-key-note">We've also emailed it to <strong id="ty-email">—</strong>. Save it somewhere safe.</p>
+        </div>
+
+        <div class="ty-steps">
+          <h2>Activate in 3 steps</h2>
+          <ol>
+            <li>Download the plugin ZIP using the button below.</li>
+            <li>Upload via <strong>Plugins → Add New → Upload Plugin</strong> in your WordPress admin. Activate it.</li>
+            <li>Go to <strong>★ Asteris → Licence</strong>, paste your licence key, click <strong>Activate</strong>. All <span id="ty-sites">—</span>-site activations unlock automatically.</li>
+          </ol>
+        </div>
+
+        <div class="ty-actions">
+          <a href="https://pay.asteriscommerce.com/wp-content/uploads/asteris-releases/asteris-affiliates.zip" class="btn btn-pop btn-large" id="ty-download">↓ Download Asteris Affiliates</a>
+          <a href="https://pay.asteriscommerce.com/account" class="btn btn-outline btn-large">Manage your subscription →</a>
+        </div>
+
+        <p class="ty-support">Questions? Email <a href="mailto:support@asterisaffiliates.com">support@asterisaffiliates.com</a>.</p>
+      </div>
+
+      <div class="ty-state ty-fallback" id="ty-fallback" hidden>
+        <div class="ty-eyebrow">★ Welcome to Asteris</div>
+        <h1>Thanks for your purchase.</h1>
+        <p class="ty-lead">We couldn't load your licence details automatically — but <strong>your purchase succeeded and your licence has been emailed to you</strong>. Check your inbox (and spam folder) for an email from <code>support@asterisaffiliates.com</code>.</p>
+        <div class="ty-actions">
+          <a href="https://pay.asteriscommerce.com/account" class="btn btn-pop btn-large">Open your account →</a>
+        </div>
+        <p class="ty-support">Need help? Email <a href="mailto:support@asterisaffiliates.com">support@asterisaffiliates.com</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (async function () {
+      const qs = new URLSearchParams(window.location.search);
+      const sessionId = qs.get('session_id');
+      const loading = document.getElementById('ty-loading');
+      const success = document.getElementById('ty-success');
+      const fallback = document.getElementById('ty-fallback');
+
+      function showFallback() {
+        loading.hidden = true;
+        success.hidden = true;
+        fallback.hidden = false;
+      }
+      function showSuccess() {
+        loading.hidden = true;
+        fallback.hidden = true;
+        success.hidden = false;
+      }
+
+      if (!sessionId || !/^cs_(test|live)_[A-Za-z0-9]+$/.test(sessionId)) {
+        return showFallback();
+      }
+
+      try {
+        const r = await fetch('/api/checkout-info?session_id=' + encodeURIComponent(sessionId));
+        if (!r.ok) return showFallback();
+        const d = await r.json();
+        if (!d.found || !d.licence_key) return showFallback();
+
+        document.getElementById('ty-key').textContent = d.licence_key;
+        document.getElementById('ty-tier').textContent = (d.tier || 'starter').charAt(0).toUpperCase() + (d.tier || 'starter').slice(1);
+        document.getElementById('ty-email').textContent = d.customer_email || 'your email';
+        document.getElementById('ty-sites').textContent = d.max_sites || '1';
+
+        if (d.is_founder && d.cohort_n) {
+          document.getElementById('ty-cohort-n').textContent = d.cohort_n;
+          document.getElementById('ty-cohort').hidden = false;
+        }
+
+        showSuccess();
+      } catch (e) {
+        showFallback();
+      }
+
+      // Copy-to-clipboard
+      const copyBtn = document.getElementById('ty-copy');
+      copyBtn.addEventListener('click', () => {
+        const k = document.getElementById('ty-key').textContent;
+        navigator.clipboard.writeText(k).then(() => {
+          copyBtn.textContent = '✓ Copied';
+          setTimeout(() => { copyBtn.textContent = 'Copy'; }, 2000);
+        });
+      });
+    })();
+  </script>
+</Layout>
+
+<style>
+  .ty { background: var(--c-bg, #fafafa); min-height: 70vh; padding: 80px 0; }
+  .ty-inner { max-width: 720px; margin: 0 auto; padding: 0 32px; }
+  .ty-state { background: var(--c-white, #fff); border: 1px solid var(--c-border, #e5e5e5); border-radius: 14px; padding: 48px 40px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+  .ty-eyebrow { color: var(--c-mint, #06D6A0); font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 18px; }
+  .ty h1 { font-size: 38px; line-height: 1.1; margin: 0 0 16px; font-weight: 800; letter-spacing: -0.02em; color: var(--c-black, #0a0a0a); }
+  .ty-lead { font-size: 18px; color: #444; margin: 0 0 28px; line-height: 1.5; }
+
+  .ty-cohort { background: linear-gradient(135deg, rgba(255,91,63,0.08), rgba(255,241,154,0.4)); border: 1px solid rgba(255,91,63,0.25); border-radius: 10px; padding: 18px 22px; margin-bottom: 32px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .ty-badge { background: var(--c-black, #0a0a0a); color: var(--c-white, #fff); padding: 8px 14px; border-radius: 999px; font-weight: 700; font-size: 14px; white-space: nowrap; }
+  .ty-cohort-text { font-size: 14.5px; color: #333; line-height: 1.45; }
+
+  .ty-licence { background: #f5f5f5; border: 1px solid #ddd; border-radius: 10px; padding: 22px 22px 18px; margin-bottom: 32px; }
+  .ty-licence label { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #666; margin-bottom: 10px; }
+  .ty-key-row { display: flex; gap: 10px; align-items: stretch; }
+  .ty-key { flex: 1; background: var(--c-white, #fff); border: 1px solid #ccc; border-radius: 6px; padding: 14px 16px; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 14px; word-break: break-all; user-select: all; }
+  .ty-copy { background: var(--c-black, #0a0a0a); color: var(--c-white, #fff); border: none; border-radius: 6px; padding: 0 18px; font-weight: 700; font-size: 14px; cursor: pointer; transition: background 0.15s; white-space: nowrap; }
+  .ty-copy:hover { background: var(--c-mint, #06D6A0); }
+  .ty-key-note { font-size: 13px; color: #666; margin: 12px 0 0; }
+
+  .ty-steps { margin-bottom: 32px; }
+  .ty-steps h2 { font-size: 22px; font-weight: 700; margin: 0 0 14px; color: var(--c-black, #0a0a0a); }
+  .ty-steps ol { margin: 0; padding-left: 22px; }
+  .ty-steps li { font-size: 15.5px; line-height: 1.6; color: #333; margin-bottom: 10px; }
+
+  .ty-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
+  .ty-actions .btn { flex: 1; min-width: 240px; text-align: center; }
+
+  .ty-support { font-size: 14px; color: #666; margin: 0; text-align: center; padding-top: 18px; border-top: 1px solid #eee; }
+  .ty-support a { color: var(--c-mint, #06D6A0); text-decoration: none; }
+  .ty-support a:hover { text-decoration: underline; }
+
+  .ty-spinner { width: 32px; height: 32px; border: 3px solid #eee; border-top-color: var(--c-mint, #06D6A0); border-radius: 50%; margin: 0 auto 20px; animation: ty-spin 0.8s linear infinite; }
+  @keyframes ty-spin { to { transform: rotate(360deg); } }
+  #ty-loading { text-align: center; padding: 80px 40px; color: #666; }
+
+  @media (max-width: 560px) {
+    .ty-state { padding: 32px 24px; }
+    .ty h1 { font-size: 28px; }
+    .ty-key-row { flex-direction: column; }
+    .ty-copy { padding: 12px; }
+  }
+</style>

@@ -1,0 +1,75 @@
+---
+// Global footer — appears on every non-Starlight page
+const year = 2026; // bump manually
+---
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="col">
+      <a href="/" class="brand" aria-label="Asteris Affiliates home"><span class="star">★</span> Asteris Affiliates</a>
+      <p class="tagline">Self-hosted affiliate program for WooCommerce, EDD, and Surecart. AffiliateWP-grade features. SliceWP pricing. Forever.</p>
+      <p class="aus">Made in Australia · ABN 30 652 358 159</p>
+    </div>
+    <div class="col">
+      <h4>Product</h4>
+      <a href="/features">All features</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/free">Free tier</a>
+      <a href="/demo">Live demo</a>
+      <a href="/docs/getting-started">Docs</a>
+    </div>
+    <div class="col">
+      <h4>Migrate</h4>
+      <a href="/migrate">Migration hub</a>
+      <a href="/migrate/from-affiliatewp">From AffiliateWP</a>
+      <a href="/migrate/from-slicewp">From SliceWP</a>
+      <a href="/migrate/from-tapfiliate">From Tapfiliate</a>
+      <a href="/migrate/from-yith">From YITH Affiliates</a>
+    </div>
+    <div class="col">
+      <h4>Compare</h4>
+      <a href="/#vs">vs AffiliateWP</a>
+      <a href="/#vs">vs SliceWP</a>
+      <a href="/#vs">vs Tapfiliate</a>
+      <a href="/#vs">vs YITH</a>
+    </div>
+    <div class="col">
+      <h4>More from Asteris</h4>
+      <a href="https://asterisforwoocommerce.com" target="_blank" rel="noopener"><span class="dot" style="color:#FF5B3F">●</span> Asteris for WooCommerce</a>
+      <a href="https://asterisforwordpress.com" target="_blank" rel="noopener"><span class="dot" style="color:#3D5AFE">●</span> Asteris for WordPress</a>
+      <a href="https://asteriscart.com" target="_blank" rel="noopener"><span class="dot" style="color:#00C853">●</span> Asteris Cart</a>
+      <a href="https://asterisblocks.com" target="_blank" rel="noopener"><span class="dot" style="color:#FFC107">●</span> Asteris Blocks (free)</a>
+    </div>
+    <div class="col">
+      <h4>Legal</h4>
+      <a href="/terms">Terms</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/license">EULA</a>
+      <a href="/refund-policy">Refund policy</a>
+      <a href="mailto:support@asterisaffiliates.com">support@</a>
+    </div>
+  </div>
+  <div class="legal-strip">
+    <p>© {year} My Cosmic Message Pty Ltd t/a <a href="https://asteriscommerce.com" class="parent-brand" target="_blank" rel="noopener">Asteris Commerce</a>. All rights reserved.</p>
+    <p class="meta">WooCommerce, EDD, and Surecart are trademarks of their respective owners. Asteris is not affiliated.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer { background: var(--c-black); color: #cccccc; padding: 64px 36px 32px; }
+  .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr repeat(5, 1fr); gap: 36px; padding-bottom: 48px; }
+  .col h4 { color: var(--c-white); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px; }
+  .col a { display: block; color: #999999; font-size: 13px; padding: 4px 0; text-decoration: none; }
+  .col a:hover { color: var(--c-mint); }
+  .col a.brand { font-size: 22px; font-weight: 800; color: #ffffff; margin-bottom: 12px; padding: 0; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+  .col a.brand:hover { color: var(--c-mint); }
+  .col a.brand .star { color: var(--c-mint); font-size: 26px; }
+  .dot { margin-right: 6px; font-weight: 900; }
+  .tagline { color: #aaaaaa; font-size: 14px; margin-bottom: 10px; }
+  .aus { color: #777777; font-size: 12px; white-space: nowrap; }
+  .legal-strip { max-width: 1200px; margin: 0 auto; border-top: 1px solid #222222; padding-top: 24px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 12px; color: #777777; }
+  .legal-strip .meta { color: #555555; }
+  .parent-brand { color: #AA00FF; font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+  .parent-brand:hover { color: #c633ff; }
+  @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+</style>

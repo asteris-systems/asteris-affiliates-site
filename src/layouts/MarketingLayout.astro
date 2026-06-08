@@ -1,0 +1,171 @@
+---
+import Layout from './Layout.astro';
+import JsonLd from '../components/JsonLd.astro';
+
+interface FAQ { q: string; a: string }
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  noindex?: boolean;
+  schemaType?: string;
+  publishedDate?: string;
+  modifiedDate?: string;
+  url?: string;
+  /** FAQ pairs from page frontmatter — passed through to JsonLd for proper
+   *  FAQPage mainEntity emission when schemaType contains FAQPage. */
+  faqs?: FAQ[];
+  /**
+   * When true (default), the slot is wrapped in `<article class="content-page">`
+   * with 760px max-width — right for long-form prose (markdown pages).
+   * Set to false for rich hand-built pages that ship their own full-width
+   * sections (home, pricing, lifetime, free, modules, demo).
+   */
+  wrap?: boolean;
+}
+
+const {
+  title,
+  description,
+  ogImage,
+  noindex,
+  schemaType,
+  publishedDate,
+  modifiedDate,
+  faqs,
+  wrap = true,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<Layout title={title} description={description} ogImage={ogImage} noindex={noindex}>
+  <JsonLd
+    slot="head"
+    schemaType={schemaType}
+    title={title}
+    description={description}
+    url={canonicalURL}
+    publishedDate={publishedDate}
+    modifiedDate={modifiedDate}
+    faqs={faqs}
+  />
+  {wrap ? (
+    <article class="content-page">
+      <slot />
+    </article>
+  ) : (
+    <slot />
+  )}
+</Layout>
+
+<style is:global>
+  /* Long-form content pages — applies to body rendered from markdown collection */
+  .content-page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 64px 36px 96px;
+  }
+  .content-page h1 {
+    font-size: 48px;
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    font-weight: 900;
+    margin-bottom: 32px;
+  }
+  .content-page h2 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin: 48px 0 16px;
+    line-height: 1.2;
+  }
+  .content-page h3 {
+    font-size: 20px;
+    font-weight: 800;
+    margin: 36px 0 12px;
+  }
+  .content-page p {
+    font-size: 17px;
+    line-height: 1.65;
+    color: #222;
+    margin-bottom: 18px;
+  }
+  .content-page ul,
+  .content-page ol {
+    margin: 18px 0 18px 22px;
+    font-size: 17px;
+    line-height: 1.65;
+    color: #222;
+  }
+  .content-page li {
+    margin-bottom: 8px;
+  }
+  .content-page a {
+    color: var(--c-mint);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .content-page a:hover {
+    color: var(--c-black);
+  }
+  .content-page strong {
+    color: var(--c-black);
+    font-weight: 700;
+  }
+  .content-page hr {
+    border: 0;
+    border-top: 1px solid var(--c-border);
+    margin: 48px 0;
+  }
+  .content-page blockquote {
+    border-left: 3px solid var(--c-mint);
+    padding: 8px 0 8px 20px;
+    margin: 24px 0;
+    color: #444;
+    font-style: italic;
+  }
+  .content-page code {
+    background: #f5f5f5;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: var(--font-mono);
+    font-size: 14px;
+  }
+  .content-page pre {
+    background: var(--c-black);
+    color: #f5f5f5;
+    padding: 18px;
+    border-radius: var(--r-md);
+    overflow-x: auto;
+    font-size: 14px;
+    margin: 18px 0;
+  }
+  .content-page pre code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+  }
+  .content-page table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 15px;
+  }
+  .content-page table th,
+  .content-page table td {
+    border: 1px solid var(--c-border);
+    padding: 10px 14px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .content-page table th {
+    background: #fafafa;
+    font-weight: 700;
+  }
+  @media (max-width: 700px) {
+    .content-page { padding: 36px 22px 64px; }
+    .content-page h1 { font-size: 34px; }
+    .content-page h2 { font-size: 22px; }
+  }
+</style>
