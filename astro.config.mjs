@@ -28,73 +28,89 @@ export default defineConfig({
         SiteTitle: './src/components/StarlightSiteTitle.astro',
       },
       sidebar: [
-        // First entry — visible "back to marketing site" affordance at top of every docs page.
         { label: '← Back to asterisaffiliates.com', link: '/' },
         {
           label: 'Start here',
           items: [
             { label: 'Docs home', link: '/docs' },
             { label: 'Getting started', link: '/docs/getting-started' },
+            { label: 'Onboarding wizard', link: '/docs/onboarding-wizard' },
             { label: 'Free vs paid', link: '/docs/free-vs-paid' },
-            { label: 'Free + paid together', link: '/docs/free-and-paid-together' },
             { label: 'Licensing', link: '/docs/licensing' },
-            { label: 'Troubleshooting', link: '/docs/troubleshooting' },
-            { label: 'Conflicts', link: '/docs/conflicts' },
             { label: 'Changelog', link: '/docs/changelog' },
           ],
         },
         {
-          label: 'Modules',
-          // Explicit list (was autogenerate) so order is by display title, not filename.
-          // Includes Live Monitor (added 2026-06-07 — Module 26 ship).
+          label: 'Affiliate management',
           items: [
-            { label: 'AI Suite',                       link: '/docs/modules/ai-suite' },
-            { label: 'Analytics',                      link: '/docs/modules/analytics' },
-            { label: 'Asteris Coupons',                link: '/docs/modules/coupons' },
-            { label: 'Asteris Links',                  link: '/docs/modules/links' },
-            { label: 'Back in Stock',                  link: '/docs/modules/back-in-stock' },
-            { label: 'Delivery Timeline',              link: '/docs/modules/delivery-timeline' },
-            { label: 'Feature Labels',                 link: '/docs/modules/feature-labels' },
-            { label: 'Free Shipping Bar',              link: '/docs/modules/free-shipping-bar' },
-            { label: 'Live Monitor',                   link: '/docs/modules/live-monitor' },
-            { label: 'Min/Max Quantity',               link: '/docs/modules/min-max-quantity' },
-            { label: 'PDF Invoices and Packing Slips', link: '/docs/modules/pdf-invoices' },
-            { label: 'Product Badges',                 link: '/docs/modules/product-badges' },
-            { label: 'Product Filtering',              link: '/docs/modules/product-filtering' },
-            { label: 'Quote / Enquiry',                link: '/docs/modules/quote' },
-            { label: 'SEO',                            link: '/docs/modules/seo' },
-            { label: 'Sequential Order Numbers',       link: '/docs/modules/sequential-order-numbers' },
-            { label: 'Side Cart',                      link: '/docs/modules/side-cart' },
-            { label: 'Stock Urgency',                  link: '/docs/modules/stock-urgency' },
-            { label: 'Trust Badges',                   link: '/docs/modules/trust-badges' },
-            { label: 'Variation Swatches',             link: '/docs/modules/variation-swatches' },
-            { label: 'Wishlist',                       link: '/docs/modules/wishlist' },
+            { label: 'Approving + rejecting', link: '/docs/affiliates/manage' },
+            { label: 'Suspension + reinstatement', link: '/docs/affiliates/suspension' },
+            { label: 'Admin impersonation ("View as")', link: '/docs/affiliates/impersonation' },
+            { label: 'Bulk actions + CSV export', link: '/docs/affiliates/bulk-actions' },
+            { label: 'Affiliate portal (front-end)', link: '/docs/affiliates/portal' },
+          ],
+        },
+        {
+          label: 'Commissions',
+          items: [
+            { label: 'Default commission rates', link: '/docs/commissions/rates' },
+            { label: 'Per-product overrides', link: '/docs/commissions/per-product' },
+            { label: 'Two-tier (MLM) referrals', link: '/docs/commissions/two-tier' },
+            { label: 'Refunds + chargebacks', link: '/docs/commissions/refunds' },
+          ],
+        },
+        {
+          label: 'Payouts',
+          items: [
+            { label: 'PayPal API auto-batch', link: '/docs/payouts/paypal-api' },
+            { label: 'Bank transfer', link: '/docs/payouts/bank-transfer' },
+            { label: 'Manual payouts', link: '/docs/payouts/manual' },
+            { label: 'Thresholds + schedules', link: '/docs/payouts/thresholds' },
+          ],
+        },
+        {
+          label: 'Growth + marketing',
+          items: [
+            { label: 'AI swipe-copy generator', link: '/docs/growth/ai-swipe-copy' },
+            { label: 'Vanity /go/ landing pages', link: '/docs/growth/landing-pages' },
+            { label: 'A/B email testing', link: '/docs/growth/ab-email-testing' },
+            { label: 'Email throttling', link: '/docs/growth/email-throttling' },
+          ],
+        },
+        {
+          label: 'Fraud + security',
+          items: [
+            { label: 'Cloud-assist fraud detection', link: '/docs/fraud/cloud-assist' },
+            { label: 'Self-referral prevention', link: '/docs/fraud/self-referral' },
+            { label: 'IP throttling', link: '/docs/fraud/ip-throttling' },
+          ],
+        },
+        {
+          label: 'Integrations',
+          items: [
+            { label: 'WooCommerce (native)', link: '/docs/integrations/woocommerce' },
+            { label: 'Easy Digital Downloads', link: '/docs/integrations/edd' },
+            { label: 'Surecart', link: '/docs/integrations/surecart' },
+            { label: 'Custom cart adapter', link: '/docs/integrations/custom-adapter' },
+          ],
+        },
+        {
+          label: 'For developers',
+          items: [
+            { label: 'REST API', link: '/docs/dev/rest-api' },
+            { label: 'WP-CLI commands', link: '/docs/dev/wp-cli' },
+            { label: 'Hooks + filters', link: '/docs/dev/hooks-filters' },
           ],
           collapsed: true,
         },
         {
-          label: 'Security + privacy',
+          label: 'Troubleshooting',
           items: [
-            { label: 'Security architecture', link: '/docs/security' },
-            { label: 'Data handling (GDPR)', link: '/docs/data-handling' },
-            { label: 'Cookie compliance', link: '/docs/cookie-compliance' },
+            { label: 'License issues', link: '/docs/troubleshooting/license' },
+            { label: 'Tracking issues', link: '/docs/troubleshooting/tracking' },
+            { label: 'Payout issues', link: '/docs/troubleshooting/payouts' },
           ],
         },
-        {
-          label: 'For developers + agencies',
-          items: [
-            { label: 'API reference (hooks + filters)', link: '/docs/api-reference' },
-            { label: 'WP-CLI commands (v1.1)', link: '/docs/wp-cli' },
-            { label: 'WordPress Multisite (v1.1)', link: '/docs/multisite' },
-            { label: 'Account portal (v1.1)', link: '/docs/account-portal' },
-          ],
-          collapsed: true,
-        },
-        // Migrations sidebar omitted from /docs by design — migration walkthroughs
-        // live in marketing (content/marketing/migrate__from-*.md) and render at
-        // /migrate/from-*, which is the user-facing migration story for v1.0.
-        // If/when migration content moves into /docs (post-launch), re-add a
-        // group here pointing at src/content/docs/docs/migrations/.
       ],
     }),
   ],

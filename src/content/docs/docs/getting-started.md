@@ -1,63 +1,44 @@
 ---
-title: "Getting started with Asteris Affiliates"
-description: "How to install and configure Asteris Affiliates. From download to first module active in under 10 minutes."
+title: Getting started
+description: Install Asteris Affiliates, run the onboarding wizard, and approve your first affiliate in 15 minutes.
 ---
-# Getting started with Asteris Affiliates
 
-Asteris Affiliates installs like any other WordPress plugin. Free version: directly from WordPress.org. Paid tiers: download from your asterisaffiliates.com account after purchase.
-
----
+Most stores are running in **15 minutes** from download to first affiliate approved.
 
 ## Requirements
 
-- WordPress 6.7 or later
-- WooCommerce 9.0 or later
-- PHP 8.1 or later
-- Minimum 128MB PHP memory limit (256MB recommended for stores with 5,000+ products)
+- WordPress **6.4** or later
+- PHP **8.1** or later
+- One of: **WooCommerce**, **Easy Digital Downloads**, or **Surecart** (for cart-side commission tracking)
+- HTTPS (recommended; required for PayPal API auto-payout)
 
----
+## 1. Download the plugin
 
-## Installing Asteris Affiliates Free
+Sign in to [pay.asteriscommerce.com/account](https://pay.asteriscommerce.com/account) → **Download Asteris Affiliates** → save the `.zip`.
 
-1. In your WordPress admin, go to **Plugins → Add New**
-2. Search "Asteris Affiliates"
-3. Click **Install Now**, then **Activate**
-4. The Asteris Affiliates menu item appears in your WP admin sidebar
+No account yet? [Pick a plan](/pricing) or [start with the free tier on WordPress.org](/free).
 
-No licence key needed for Asteris Free.
+## 2. Install
 
----
+**Plugins → Add New → Upload Plugin** → choose the `.zip` → **Install Now → Activate**.
 
-## Installing a paid tier (Starter, Pro, Agency, Founder)
+The plugin redirects to the onboarding wizard.
 
-1. After purchase, download the plugin ZIP from your asterisaffiliates.com account dashboard
-2. In your WordPress admin, go to **Plugins → Add New → Upload Plugin**
-3. Upload the ZIP and activate
-4. Go to **Asteris Affiliates → Licence** in your WP admin sidebar
-5. Enter your licence key (sent by email on purchase)
-6. Click **Activate Licence**
+## 3. Run the onboarding wizard
 
-If Asteris Free is already installed, installing the paid tier upgrades it automatically. You don't need to deactivate Asteris Free first.
+4 steps: business details, default commission rate, payout method, cookie duration. See **[Onboarding wizard →](/docs/onboarding-wizard)** for screenshots.
 
----
+## 4. Activate your licence
 
-## Enabling modules
+**Affiliates → Settings → Licence** → paste your key → **Activate**. Plugin works without a licence but updates and support require activation.
 
-After activation, go to **Asteris Affiliates → Modules** in your WP admin.
+## 5. Approve your first affiliate
 
-All 21 modules (or 6, if on Free) are listed. Toggle the ones you want active. Modules activate immediately — no save button.
+Send your sign-up page URL (`/affiliate-portal` by default — see **[Affiliate portal →](/docs/affiliates/portal)**) to a candidate. When they register, they appear in **Affiliates → Pending** → **Approve**. They get an email with their login and tracking URL.
 
-Start with the modules you know you need. Add more as required. Performance impact is minimal when modules are disabled.
+## Where to next
 
----
-
-## First steps per module
-
-- **SEO module:** go to Asteris Affiliates → SEO → Settings. Set your title and meta description templates for products and categories.
-- **PDF Invoices:** go to Asteris Affiliates → PDF Invoices → Settings. Configure the invoice template and which order statuses trigger invoice generation.
-- **Variation Swatches:** no configuration needed — activating the module replaces dropdowns with swatches on all variable products automatically.
-- **Product Filtering:** go to Asteris Affiliates → Filtering → Settings. Add the filter widget to your shop sidebar.
-- **Analytics:** go to Asteris Affiliates → Analytics → Settings. Enter your GA4 Measurement ID.
-- **Coupons:** create a coupon under Marketing → Coupons (standard WooCommerce flow). Scroll to the new "Asteris Coupons — Advanced Rules" metabox to pick a coupon type (BOGO / Tiered / URL auto-apply / Scheduled / Segmented) and configure rules per type. Use the Preview tab to simulate against a synthetic cart before publishing.
-
-[Docs index →](/docs) · [Troubleshooting →](/docs/troubleshooting) · [Licensing →](/docs/licensing)
+- **[Approve, reject, suspend affiliates →](/docs/affiliates/manage)**
+- **[Set per-product commission rates →](/docs/commissions/per-product)**
+- **[Configure PayPal API auto-payout →](/docs/payouts/paypal-api)**
+- **[Enable two-tier (MLM) referrals →](/docs/commissions/two-tier)**

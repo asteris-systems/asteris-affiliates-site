@@ -1,58 +1,29 @@
 ---
-title: Asteris Affiliates — Documentation
-description: Documentation for Asteris Affiliates. Getting started, module guides, migration walkthroughs, troubleshooting, and licensing.
+title: Asteris Affiliates documentation
+description: Full documentation for Asteris Affiliates — self-hosted WordPress affiliate-program plugin for WooCommerce, EDD, and Surecart.
 ---
 
-## Getting started
+Asteris Affiliates is a self-hosted WordPress plugin that runs a full affiliate program inside your own site. Your affiliate data lives in your WordPress database — no SaaS, no cloud calls (unless you opt in to fraud signal sharing).
 
-- [Installation and first setup](/docs/getting-started)
-- [Asteris Free vs paid tiers](/docs/free-vs-paid)
-- [Using Asteris Free and paid together](/docs/free-and-paid-together)
-- [Licensing and site limits](/docs/licensing)
-- [Troubleshooting](/docs/troubleshooting)
-- [Plugin conflicts](/docs/conflicts)
+## What you'll find here
 
----
+- **[Getting started](/docs/getting-started)** — install, run the onboarding wizard, approve your first affiliate.
+- **Affiliate management** — approve/reject, suspend, impersonate, bulk actions, the front-end portal.
+- **Commissions** — default rates, per-product overrides, two-tier (MLM) referrals, refund handling.
+- **Payouts** — PayPal API auto-batch, bank transfer, manual, thresholds + schedules.
+- **Growth + marketing** — AI swipe-copy generator, vanity `/go/` landing pages, A/B email testing.
+- **Fraud + security** — cloud-assist signal sharing, self-referral prevention, IP throttling.
+- **Integrations** — WooCommerce (native), Easy Digital Downloads, Surecart, custom adapter.
+- **For developers** — REST API, WP-CLI, hooks + filters.
+- **Troubleshooting** — license, tracking, payout issues.
 
-## Module documentation
+## Quick links
 
-Alphabetical by display title:
+- [Pricing](/pricing) — Starter $149 / Pro $299 / Agency $549 per year.
+- [Free tier](/free) — up to 25 affiliates, core tracking, manual payouts.
+- [Live demo](/demo) — try it in your browser via WordPress Playground, no install.
+- [Changelog](/docs/changelog) — every release, version by version.
 
-- [AI Suite](/docs/modules/ai-suite)
-- [Analytics](/docs/modules/analytics)
-- [Asteris Coupons](/docs/modules/coupons)
-- [Asteris Links](/docs/modules/links)
-- [Back-in-Stock Notifications](/docs/modules/back-in-stock)
-- [Delivery Timeline](/docs/modules/delivery-timeline)
-- [Feature Labels](/docs/modules/feature-labels)
-- [Free Shipping Bar](/docs/modules/free-shipping-bar)
-- [Min/Max Quantity Rules](/docs/modules/min-max-quantity)
-- [PDF Invoices and Packing Slips](/docs/modules/pdf-invoices)
-- [Product Badges](/docs/modules/product-badges)
-- [Product Filtering](/docs/modules/product-filtering)
-- [Quote Request](/docs/modules/quote)
-- [SEO module](/docs/modules/seo)
-- [Sequential Order Numbers](/docs/modules/sequential-order-numbers)
-- [Side Cart](/docs/modules/side-cart)
-- [Stock Urgency](/docs/modules/stock-urgency)
-- [Trust Badges](/docs/modules/trust-badges)
-- [Variation Swatches](/docs/modules/variation-swatches)
-- [Wishlist](/docs/modules/wishlist)
+## Need help?
 
----
-
-## Migration guides
-
-- [From Yoast SEO](/migrate/from-yoast)
-- [From Rank Math](/migrate/from-rank-math)
-- [From YITH plugins](/migrate/from-yith)
-- [From WP Overnight PDF Invoices](/migrate/from-wp-overnight)
-- [From Pretty Links](/migrate/from-pretty-links)
-- [From Iconic plugins](/migrate/from-iconic) (covers Swatches, Filters, Stock Urgency, Delivery Timeline)
-- [From Skyverge plugins](/migrate/from-skyverge) (covers Sequential Order Numbers)
-- [From MonsterInsights](/migrate/from-monsterinsights) (Analytics migration)
-- [From CartFlows / FunnelKit](/migrate/from-cartflows) (cart-side features only)
-
----
-
-If you can't find what you need, email [support@asterisaffiliates.com](mailto:support@asterisaffiliates.com) — or see [/support](/support) for full SLAs by tier.
+Email [support@asterisaffiliates.com](mailto:support@asterisaffiliates.com) — 1 business day response from a small Australian team.
