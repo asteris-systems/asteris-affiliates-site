@@ -5,7 +5,7 @@
     "description": "WordPress + WooCommerce + Storefront + Asteris Affiliates (all 20 modules pre-activated). In your browser, no install.",
     "author": "Asteris Commerce"
   },
-  "landingPage": "/wp-admin/admin.php?page=asteris",
+  "landingPage": "/wp-admin/admin.php?page=asteris-affiliates",
   "preferredVersions": {
     "php": "8.2",
     "wp": "latest"
