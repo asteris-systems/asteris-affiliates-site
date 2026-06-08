@@ -1,0 +1,198 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout seoSlug="/why-asteris">
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">★ WHY ASTERIS AFFILIATES</div>
+      <h1>Every affiliate feature you'd ever buy.<br /><span class="accent">One plugin. One bill. Forever yours.</span></h1>
+      <p class="lead">
+        Most affiliate plugins force a choice: pay $599/yr for the leader, hand your data to a SaaS forever, or stitch together half a dozen add-ons that fight each other. Asteris ships <strong>31 modules in one plugin</strong> — MLM, AI swipe-copy, Stripe Connect, cloud-assist fraud, EDD + Surecart adapters, REST API — for $149/yr. Self-hosted. Your database. Your customers.
+      </p>
+      <div class="hactions">
+        <a href="/pricing" class="btn btn-pop btn-large">See pricing →</a>
+        <a href="/modules" class="btn btn-outline btn-large">See all 31 modules →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="six">
+    <div class="container">
+      <h2>The six reasons people switch to Asteris</h2>
+
+      <div class="point">
+        <div class="num">1</div>
+        <div class="body">
+          <h3>One plugin instead of six</h3>
+          <p>AffiliateWP needs add-ons for MLM ($199/yr), per-product rates ($79), bank-CSV payouts ($59), A/B emails ($129/yr) and impersonation ($79). That's $545/yr in add-ons <em>on top of</em> the $299–$599 base. Asteris ships every one of them in the box. <a href="/modules">See the 31 modules</a>.</p>
+        </div>
+      </div>
+
+      <div class="point">
+        <div class="num">2</div>
+        <div class="body">
+          <h3>Your database, your data, forever</h3>
+          <p>Tapfiliate charges $890/yr and your affiliate list, click data and payout history live on their servers. Cancel and you lose the data. Asteris stores everything in your own <code>wp_</code> tables on your own host. Export anywhere, anytime, with a single <code>wp asteris export</code> command.</p>
+        </div>
+      </div>
+
+      <div class="point">
+        <div class="num">3</div>
+        <div class="body">
+          <h3>Stripe Connect at 0.25% beats PayPal at 2%</h3>
+          <p>Every other major WP affiliate plugin defaults to PayPal Mass Payouts (2% per payout, capped at $1). On a $50K month of commissions you keep $1,000 more with Asteris's Stripe Connect Express integration. PayPal is still there if you want it — Stripe is the default. <a href="/docs/payouts/stripe-connect">How it works →</a></p>
+        </div>
+      </div>
+
+      <div class="point">
+        <div class="num">4</div>
+        <div class="body">
+          <h3>Three carts, one plugin, one UX</h3>
+          <p>WooCommerce. Easy Digital Downloads. Surecart. Same admin screens, same affiliate portal, same commission engine. AffiliateWP's EDD add-on costs $79/yr extra; no rival ships a Surecart adapter at all. Run a Woo store and a course site on one licence. <a href="/docs/integrations/woocommerce">Integration docs →</a></p>
+        </div>
+      </div>
+
+      <div class="point">
+        <div class="num">5</div>
+        <div class="body">
+          <h3>Cloud-assist fraud detection no rival has</h3>
+          <p>Opt-in SHA-256 hashed signal sharing across Asteris stores: when one shop sees a fraud pattern, every shop's defences update. No PII leaves your site. No competitor — AffiliateWP, SliceWP, Tapfiliate, YITH — has anything like this. <a href="/docs/fraud/cloud-assist">How it works →</a></p>
+        </div>
+      </div>
+
+      <div class="point">
+        <div class="num">6</div>
+        <div class="body">
+          <h3>Locked launch pricing for the life of your licence</h3>
+          <p>$149/yr Starter, $349/yr Pro, $549/yr Agency at launch. Lock in today's price for the life of your active subscription — even when we raise prices in 2027. <a href="/pricing">Pricing →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="objections">
+    <div class="container narrow">
+      <h2>The honest objections</h2>
+
+      <details>
+        <summary>"AffiliateWP has been around since 2014. Aren't you risky?"</summary>
+        <p>Longevity isn't a feature. AffiliateWP is solid software — it's also expensive, add-on-laden, and hasn't shipped a meaningful new differentiator in three years. Asteris is built by a small team that ships a release every 1–2 weeks. You'll see more new functionality from us in Q3 than from AffiliateWP in the whole calendar year. The product moves; the price doesn't.</p>
+      </details>
+
+      <details>
+        <summary>"What happens if Asteris goes out of business?"</summary>
+        <p>The plugin is GPL-2.0+. The code is yours forever. The data is in your database. Self-hosted updaters degrade gracefully — if our licence server vanishes tomorrow your plugin keeps working, you just stop receiving updates. Compare to Tapfiliate: cancel them and you lose the entire system overnight.</p>
+      </details>
+
+      <details>
+        <summary>"Why not just use SliceWP — it's cheaper."</summary>
+        <p>SliceWP Pro is $299/yr (more than our $149 Starter) and ships fewer modules. It doesn't have MLM, AI swipe-copy, cloud-assist fraud, Stripe Connect, an EDD adapter, or a Surecart adapter. We respect the SliceWP team — we just out-feature them at lower price. <a href="/vs/slicewp">Full comparison →</a></p>
+      </details>
+
+      <details>
+        <summary>"I'm on Easy Digital Downloads / Surecart, not WooCommerce."</summary>
+        <p>Good. Most WP affiliate plugins are WC-only or charge $79/yr for the EDD bridge. Asteris ships both adapters in core, same admin, same affiliate portal. If you're on a different cart, the <code>Order_Source</code> interface is one PHP file — point us at your cart and we'll build you an adapter. <a href="/docs/integrations/custom-adapter">Custom adapter docs →</a></p>
+      </details>
+
+      <details>
+        <summary>"What's the catch with the locked pricing?"</summary>
+        <p>None. As long as your subscription is active, you pay what you signed up for. Cancel and re-subscribe later, you pay the then-current rate. This isn't a "for 12 months" trick — it's a "for life of active subscription" lock. The Founder cohort is capped at 100 paid + 20 competition winners per product; after that everyone pays regular pricing forever.</p>
+      </details>
+
+      <details>
+        <summary>"Why should I trust an Australian small team over a US-based company?"</summary>
+        <p>Same legal protections (we're a registered Pty Ltd — ACN 652 358 159), same Stripe / GDPR / consumer-rights frameworks, support in your timezone if you're APAC. If you're US/EU, our small team writes the code, answers the support email, and ships the fixes — no offshore L1 funnel, no "let me check with engineering." <a href="/founder">Meet the founder →</a></p>
+      </details>
+    </div>
+  </section>
+
+  <section class="proof">
+    <div class="container">
+      <h2>What you get for $149/yr that costs $545+ elsewhere</h2>
+      <div class="ptable">
+        <div class="prow head">
+          <div>Feature</div>
+          <div>Asteris</div>
+          <div>AffiliateWP equivalent</div>
+        </div>
+        <div class="prow"><div>Core plugin</div><div class="ok">Included</div><div class="cost">$299/yr (1 site) — $599/yr (Plus)</div></div>
+        <div class="prow"><div>Two-tier (MLM) referrals</div><div class="ok">Included</div><div class="cost">$199/yr add-on</div></div>
+        <div class="prow"><div>Per-product commission rates</div><div class="ok">Included</div><div class="cost">$79/yr add-on</div></div>
+        <div class="prow"><div>Bank-CSV payouts</div><div class="ok">Included</div><div class="cost">$59/yr add-on</div></div>
+        <div class="prow"><div>A/B email testing</div><div class="ok">Included</div><div class="cost">$129/yr add-on</div></div>
+        <div class="prow"><div>Admin impersonation</div><div class="ok">Included</div><div class="cost">$79/yr add-on</div></div>
+        <div class="prow"><div>EDD adapter</div><div class="ok">Included</div><div class="cost">$79/yr add-on</div></div>
+        <div class="prow"><div>AI swipe-copy generator</div><div class="ok">Included</div><div class="diff">Not available</div></div>
+        <div class="prow"><div>Cloud-assist fraud detection</div><div class="ok">Included</div><div class="diff">Not available</div></div>
+        <div class="prow"><div>Stripe Connect direct payouts</div><div class="ok">Included</div><div class="diff">Not available</div></div>
+        <div class="prow"><div>Surecart adapter</div><div class="ok">Included</div><div class="diff">Not available</div></div>
+        <div class="prow"><div>Real-time stats REST API</div><div class="ok">Included</div><div class="diff">Not available</div></div>
+        <div class="prow total"><div>Total annual cost</div><div class="ok">$149</div><div class="cost">$923+ (1 site) — $1,223+ (Plus)</div></div>
+      </div>
+      <p class="ptr">Numbers verified from competitor websites on the date of publication. We don't quote a competitor price we haven't verified.</p>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Stop renting your affiliate program.</h2>
+      <p>Self-hosted. Your database. Locked launch pricing for the life of your licence. 14-day refund — no questions asked.</p>
+      <div class="aactions">
+        <a href="/pricing" class="btn btn-pop btn-large">Get Asteris — from $149/yr →</a>
+        <a href="/free" class="btn btn-outline btn-large">Or try the free tier →</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 36px; }
+  .narrow { max-width: 820px; }
+
+  .hero { padding: 80px 0 56px; }
+  .hero .eyebrow { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-mint); font-weight: 800; margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(36px, 6vw, 64px); font-weight: 900; line-height: 1.05; letter-spacing: -1.5px; margin: 0 0 20px; }
+  .hero h1 .accent { color: var(--c-mint); }
+  .hero .lead { font-size: 19px; color: var(--c-text); line-height: 1.55; max-width: 820px; margin-bottom: 28px; }
+  .hero .lead strong { color: var(--c-text); font-weight: 700; }
+  .hactions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .six { background: var(--c-white); border-top: 2px solid var(--c-text); padding: 80px 0; }
+  .six h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 900; margin-bottom: 40px; letter-spacing: -1px; }
+  .point { display: grid; grid-template-columns: 80px 1fr; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--c-border); }
+  .point:last-child { border-bottom: none; }
+  .num { font-size: 64px; font-weight: 900; color: var(--c-mint); line-height: 1; }
+  .body h3 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+  .body p { font-size: 16px; line-height: 1.65; color: var(--c-text); }
+  .body code { background: rgba(0,0,0,0.06); padding: 1px 6px; border-radius: 3px; font-family: var(--font-mono); font-size: 13px; }
+  .body a { color: var(--c-mint); text-decoration: underline; font-weight: 600; }
+  @media (max-width: 700px) { .point { grid-template-columns: 1fr; gap: 8px; } .num { font-size: 40px; } }
+
+  .objections { background: var(--c-bg); padding: 80px 0; }
+  .objections h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 900; margin-bottom: 24px; letter-spacing: -1px; }
+  details { background: var(--c-white); border: 1px solid var(--c-border); border-radius: 6px; margin-bottom: 12px; }
+  summary { padding: 18px 22px; font-weight: 700; font-size: 17px; cursor: pointer; }
+  summary:hover { color: var(--c-mint); }
+  details[open] summary { border-bottom: 1px solid var(--c-border); }
+  details p { padding: 16px 22px 22px; font-size: 15.5px; line-height: 1.6; color: var(--c-text); }
+  details a { color: var(--c-mint); }
+
+  .proof { padding: 80px 0; background: var(--c-white); border-top: 2px solid var(--c-text); }
+  .proof h2 { font-size: clamp(24px, 3.5vw, 34px); font-weight: 900; letter-spacing: -1px; margin-bottom: 24px; }
+  .ptable { border: 2px solid var(--c-text); border-radius: 8px; overflow: hidden; }
+  .prow { display: grid; grid-template-columns: 2fr 1fr 1.5fr; padding: 14px 18px; border-bottom: 1px solid var(--c-border); font-size: 15px; }
+  .prow.head { background: var(--c-text); color: var(--c-white); font-weight: 800; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; }
+  .prow.total { background: rgba(6,214,160,0.08); font-weight: 800; font-size: 17px; border-top: 2px solid var(--c-text); border-bottom: none; }
+  .ok { color: var(--c-mint); font-weight: 700; }
+  .cost { color: #c0392b; font-weight: 600; }
+  .diff { color: var(--c-muted); font-style: italic; }
+  .ptr { font-size: 13px; color: var(--c-muted); margin-top: 14px; }
+  @media (max-width: 700px) { .prow { grid-template-columns: 1fr; gap: 4px; padding: 12px; } .prow.head { display: none; } }
+
+  .cta-section { background: var(--c-text); color: #fff; padding: 96px 24px; border-top: 6px solid var(--c-mint); }
+  .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+  .cta-section h2 { font-size: clamp(28px, 4vw, 40px); color: #fff; margin-bottom: 16px; font-weight: 900; }
+  .cta-section p { color: #ccc; font-size: 17px; margin-bottom: 28px; line-height: 1.6; }
+  .aactions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .cta-section .btn-outline { background: transparent; color: #fff; border-color: #fff; }
+</style>

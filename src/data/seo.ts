@@ -492,6 +492,28 @@ export const SEO_DATA: Record<string, SeoEntry> = {
     ],
   },
 
+  '/why-asteris': {
+    title: 'Why Asteris Affiliates — 31 modules, $149/yr, your database',
+    description: 'Six reasons stores switch to Asteris: one plugin instead of six, your data forever, Stripe Connect at 0.25%, three carts in one, cloud-assist fraud, locked launch pricing.',
+    ogImage: 'og-home.png',
+    jsonLd: [
+      ORG,
+      breadcrumb([{ name: 'Home', url: `${SITE}/` }, { name: 'Why Asteris', url: `${SITE}/why-asteris` }]),
+      SOFTWARE_APP,
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          { '@type': 'Question', name: 'AffiliateWP has been around since 2014. Is Asteris risky?', acceptedAnswer: { '@type': 'Answer', text: 'Longevity is not a feature. Asteris is built by a small team shipping a release every 1–2 weeks. The plugin is GPL-2.0+, your data stays in your database, and you keep the code forever even if the company changes shape.' } },
+          { '@type': 'Question', name: 'What happens if Asteris goes out of business?', acceptedAnswer: { '@type': 'Answer', text: 'The plugin is GPL-2.0+. The code is yours forever. The data is in your database. If our licence server vanished tomorrow your plugin would keep working — you would just stop receiving updates.' } },
+          { '@type': 'Question', name: 'Why not just use SliceWP — it is cheaper?', acceptedAnswer: { '@type': 'Answer', text: 'SliceWP Pro is $299/yr — more than our $149 Starter — and ships fewer modules. No MLM, no AI swipe-copy, no cloud-assist fraud, no Stripe Connect, no EDD adapter, no Surecart adapter.' } },
+          { '@type': 'Question', name: 'I am on Easy Digital Downloads or Surecart, not WooCommerce.', acceptedAnswer: { '@type': 'Answer', text: 'Both adapters ship in core. Same admin, same portal. Most WP affiliate plugins are WC-only or charge $79/yr for the EDD bridge.' } },
+          { '@type': 'Question', name: 'What is the catch with the locked pricing?', acceptedAnswer: { '@type': 'Answer', text: 'None. As long as your subscription is active, you pay what you signed up for — for life. Cancel and re-subscribe later, you pay the then-current rate.' } },
+        ],
+      },
+    ],
+  },
+
   '/modules': {
     title: 'All 31 Modules — Asteris Affiliates',
     description: '31 modules in Asteris Affiliates v1.1.0: MLM, AI swipe-copy, Stripe Connect + PayPal payouts, cloud-assist fraud, EDD + Surecart adapters, REST API. 6 differentiators.',
