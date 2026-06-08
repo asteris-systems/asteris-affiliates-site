@@ -7,34 +7,119 @@ import CompareBody from '../components/CompareBody.astro';
     rivalName="AffiliateWP"
     rivalTagline="The established affiliate plugin for WordPress, owned by the same team as Easy Digital Downloads. Mature, battle-tested feature set."
     rivalUrl="https://affiliatewp.com"
-    intro="AffiliateWP is the most established WordPress affiliate plugin and works well for stores that want only first-tier referrals. Asteris Affiliates includes two-tier referrals (MLM) from $149/yr, where AffiliateWP requires a paid add-on for the same feature."
+    intro="AffiliateWP is the most-installed paid WordPress affiliate plugin and works well for stores that want only first-tier referrals. Asteris Affiliates includes two-tier (MLM) referrals, AI swipe-copy, cloud-assist fraud detection and a Surecart adapter in core for $149/yr — features that either require paid AffiliateWP add-ons or aren't available from the AffiliateWP catalogue at all."
     whenRivalWins={[
-      'You need a 10-year track record and a vast third-party integrations ecosystem',
-      'You have an existing AffiliateWP-add-on stack you do not want to replace',
-      'You prefer a mature reporting layer with multi-year historical data',
+      'You need a vast third-party integrations ecosystem (membership plugins, CRMs, page builders) with first-party AffiliateWP integration pages',
+      'You have an existing AffiliateWP add-on stack you have already paid for and do not want to replace',
+      'You prefer the AffiliateWP team and their support cadence — both are well-regarded',
     ]}
     whenAsterisWins={[
-      'Two-tier (MLM) referrals included from Starter — no add-on cost',
-      'AI swipe-copy generator built in (no rival has this)',
-      'Cloud-assist fraud detection (opt-in, SHA-256 hashed)',
-      'PayPal API auto-batch payout out of the box',
-      'EDD + Surecart adapters (not just WC)',
+      'Two-tier (MLM) referrals included from Starter — no $199/yr add-on',
+      'AI swipe-copy generator built in (no AffiliateWP equivalent)',
+      'Cloud-assist fraud detection (opt-in, SHA-256 hashed) — no AffiliateWP equivalent',
+      'Stripe Connect Express direct payouts at 0.25% — no AffiliateWP equivalent',
+      'PayPal API auto-batch payouts in core',
+      'Surecart adapter (no AffiliateWP equivalent)',
+      'A/B email testing in core (no AffiliateWP equivalent)',
+      'Real-time stats REST API (cursor-paginated + transient-cached)',
+      'Self-hosted at $149/yr vs $299–$599/yr for AffiliateWP base licence',
     ]}
     comparisonRows={[
-      { feature: 'Two-tier (MLM) referrals',     rival: 'Paid add-on',         asteris: 'Included from Starter',  win: 'asteris' },
-      { feature: 'AI swipe-copy generator',      rival: 'No',                   asteris: 'Built in',                win: 'asteris' },
-      { feature: 'Cloud-assist fraud detection', rival: 'No',                   asteris: 'Opt-in (hashed)',         win: 'asteris' },
-      { feature: 'PayPal API auto-batch',        rival: 'Add-on / manual',      asteris: 'Built in',                win: 'asteris' },
-      { feature: 'EDD adapter',                  rival: 'Yes',                  asteris: 'Yes',                     win: 'tie' },
-      { feature: 'Surecart adapter',             rival: 'No',                   asteris: 'Yes',                     win: 'asteris' },
-      { feature: 'Vanity /go/ landing pages',    rival: 'No',                   asteris: 'Built in',                win: 'asteris' },
-      { feature: 'Stats REST API',               rival: 'Limited',              asteris: 'Cursor-paginated + cached', win: 'asteris' },
-      { feature: 'A/B email testing',            rival: 'No',                   asteris: 'Built in',                win: 'asteris' },
-      { feature: 'WP-CLI commands',              rival: 'Limited',              asteris: 'Full suite',              win: 'asteris' },
-      { feature: 'Self-hosted',                  rival: 'Yes',                  asteris: 'Yes',                     win: 'tie' },
-      { feature: 'Per-affiliate fees',           rival: 'None',                 asteris: 'None',                    win: 'tie' },
-      { feature: '10+ years in market',          rival: 'Yes',                  asteris: 'Launched Jun 2026',       win: 'rival' },
+      { feature: 'Base price (1 site)',           rival: '$299/yr',              asteris: '$149/yr',                 win: 'asteris' },
+      { feature: 'Two-tier (MLM) referrals',      rival: 'Paid add-on',          asteris: 'Included from Starter',   win: 'asteris' },
+      { feature: 'Per-product commission rates',  rival: 'Paid add-on',          asteris: 'Included',                 win: 'asteris' },
+      { feature: 'A/B email testing',             rival: 'Not available',        asteris: 'Included',                 win: 'asteris' },
+      { feature: 'Admin impersonation',           rival: 'Paid add-on',          asteris: 'Included',                 win: 'asteris' },
+      { feature: 'AI swipe-copy generator',       rival: 'Not available',        asteris: 'Included',                 win: 'asteris' },
+      { feature: 'Cloud-assist fraud detection',  rival: 'Not available',        asteris: 'Opt-in (hashed)',          win: 'asteris' },
+      { feature: 'Stripe Connect direct payouts', rival: 'Not available',        asteris: 'Included',                 win: 'asteris' },
+      { feature: 'PayPal API auto-batch',         rival: 'Add-on / manual',      asteris: 'Included',                 win: 'asteris' },
+      { feature: 'EDD adapter',                   rival: 'Paid add-on',          asteris: 'Included',                 win: 'asteris' },
+      { feature: 'Surecart adapter',              rival: 'Not available',        asteris: 'Included',                 win: 'asteris' },
+      { feature: 'Vanity /go/ landing pages',     rival: 'Not available',        asteris: 'Included',                 win: 'asteris' },
+      { feature: 'Stats REST API',                rival: 'Limited',              asteris: 'Cursor-paginated + cached', win: 'asteris' },
+      { feature: 'WP-CLI commands',               rival: 'Limited',              asteris: 'Full suite',               win: 'asteris' },
+      { feature: 'Self-hosted',                   rival: 'Yes',                  asteris: 'Yes',                      win: 'tie' },
+      { feature: 'GPL-licensed plugin code',      rival: 'Yes',                  asteris: 'Yes (GPL-2.0+)',           win: 'tie' },
+      { feature: 'Per-affiliate fees',            rival: 'None',                 asteris: 'None',                     win: 'tie' },
+      { feature: 'Third-party integrations catalogue', rival: 'Extensive', asteris: 'Growing',           win: 'rival' },
     ]}
     migrateSlug="/migrate/from-affiliatewp"
-  />
+  >
+    <section class="prose">
+      <div class="prose-inner">
+        <h2>Why stores are looking for an AffiliateWP alternative in 2026</h2>
+        <p>AffiliateWP's reputation is well-earned and we're not going to pretend otherwise. The team behind it (Sandhills Development, also the EDD team) ships solid code, runs a competent support operation, and has a deep integrations catalogue. If you're already on AffiliateWP and happy, this comparison probably isn't for you. The stores moving across are the ones running into one or more of these patterns.</p>
+        <h3>The add-on stack adds up fast</h3>
+        <p>AffiliateWP's <strong>base licence is $299/yr for one site, $499/yr for unlimited sites, $599/yr for "Plus" (which adds priority support and a few extras)</strong>. The base licence does not include: two-tier referrals (MLM add-on, around $199/yr), per-product commission rates (around $79/yr), bank-CSV payouts (around $59/yr), A/B email testing (no first-party add-on — third-party only), or admin impersonation (around $79/yr). A store that wants the full stack ends up at roughly <strong>$923/yr at the Personal tier or $1,223/yr at Plus</strong>. We don't quote prices we haven't verified — confirm on AffiliateWP's pricing page before you compare.</p>
+        <p>Asteris Affiliates's Starter licence is <a href="/pricing">$149/yr for one site</a>, includes every feature in that stack, and adds AI swipe-copy, cloud-assist fraud detection, Stripe Connect and a Surecart adapter on top.</p>
+        <h3>Features AffiliateWP simply doesn't offer</h3>
+        <p>Even with every paid add-on enabled, the AffiliateWP catalogue does not include AI-generated swipe copy, cross-store fraud signal sharing, Stripe Connect Express direct payouts at 0.25% fee, or a Surecart adapter. These aren't on a roadmap we can find — they're a non-starter unless something changes. If any of them matters to your program, you're shopping outside the AffiliateWP ecosystem regardless of price.</p>
+        <h3>The Surecart customers have no real option</h3>
+        <p>If your storefront is on Surecart instead of WooCommerce, AffiliateWP doesn't have a first-party adapter and there's no Surecart add-on in their catalogue. We built the Surecart adapter into core specifically because Surecart users had no working option until Asteris.</p>
+      </div>
+    </section>
+
+    <section class="prose dark">
+      <div class="prose-inner">
+        <h2>The add-on math, line by line</h2>
+        <p>Here's the comparison stores make when they're evaluating switching. We don't list specific add-on prices because they change — verify each one on AffiliateWP's add-ons page before you make a decision. The list is what you'd need to recreate Asteris's Starter feature set on AffiliateWP.</p>
+        <ul class="addons">
+          <li>AffiliateWP base licence ($299/yr Personal, $499/yr Plus)</li>
+          <li>+ Multi-Level Affiliates add-on for two-tier referrals</li>
+          <li>+ Direct-Link Tracking add-on for vanity landing pages (partial equivalent)</li>
+          <li>+ Tiered Affiliate Rates add-on for per-product commissions</li>
+          <li>+ Direct Bank Transfer add-on for bank-CSV payouts</li>
+          <li>+ PayPal Payouts add-on for batch payouts</li>
+          <li>+ Affiliate Dashboard Sharing add-on for impersonation (partial equivalent)</li>
+          <li>+ External AI tool subscription for swipe-copy generation (no AffiliateWP add-on)</li>
+          <li>+ External A/B email testing tool (no AffiliateWP add-on)</li>
+          <li>+ A separate plugin for cross-store fraud detection (no AffiliateWP add-on)</li>
+          <li>+ A separate plugin or service for Stripe Connect direct payouts (no AffiliateWP add-on)</li>
+          <li>+ Easy Digital Downloads integration add-on if you're on EDD</li>
+          <li>+ Surecart — no equivalent at any price</li>
+        </ul>
+        <p>Asteris Starter at $149/yr unlocks all of the items above that are available in core, plus the ones with no AffiliateWP add-on. <a href="/pricing">See pricing →</a></p>
+      </div>
+    </section>
+
+    <section class="prose">
+      <div class="prose-inner">
+        <h2>What you keep when you migrate from AffiliateWP</h2>
+        <p>Migration is intentionally boring. Our <a href="/migrate/from-affiliatewp">step-by-step AffiliateWP migration guide</a> covers the WP-CLI command that reads AffiliateWP's standard export and recreates affiliates, referrals, visits and payouts in Asteris's tables. The default rules:</p>
+        <ul>
+          <li><strong>Affiliates:</strong> ID, email, username, payment_email, account_email, rate, rate_type, payment_method, status (active / inactive / pending), date_registered → all preserved.</li>
+          <li><strong>Referrals (commissions):</strong> visit ID, affiliate ID, reference (order ID), amount, currency, description, context (which integration), campaign, status, date → all preserved.</li>
+          <li><strong>Visits:</strong> affiliate ID, URL, referrer, campaign, IP, date → preserved up to 12 months back by default (configurable).</li>
+          <li><strong>Payouts:</strong> historical payout records preserved for affiliate-facing transparency.</li>
+        </ul>
+        <p>Your existing affiliate referral URLs (<code>?ref=123</code>) keep working — Asteris registers a compatibility filter that re-attributes the legacy parameter to the corresponding Asteris affiliate ID, so links your affiliates have already shared continue to track. <a href="/migrate/from-affiliatewp">Full migration guide →</a></p>
+
+        <h2>The honest case for staying on AffiliateWP</h2>
+        <p>We'd rather you stay on AffiliateWP if you actually use one of its strengths. The ones we'd flag:</p>
+        <ul>
+          <li><strong>You rely on a specific AffiliateWP-only integration</strong> — there are some membership and CRM integrations that AffiliateWP has and we don't (yet). Check our <a href="/docs/integrations/woocommerce">integrations docs</a> against what you actually use before you commit.</li>
+          <li><strong>You're heavily invested in the AffiliateWP add-on stack already</strong> — if you've paid for the add-ons this year, the value reset isn't immediate. We can offer a 30-day full refund (vs the standard 14-day) for any AffiliateWP customer migrating with a documented existing licence — email <a href="mailto:support@asterisaffiliates.com">support@asterisaffiliates.com</a>.</li>
+          <li><strong>Your program doesn't need any of our differentiators</strong> — if you'll never use MLM, AI swipe, Surecart, Stripe Connect or A/B emails, AffiliateWP at $299/yr does the basics well.</li>
+        </ul>
+        <p>For everyone else, <a href="/pricing">Asteris's $149/yr Starter</a> is the same core feature set plus the differentiators, at half the base licence price, with a one-command migration path.</p>
+      </div>
+    </section>
+  </CompareBody>
 </Layout>
+
+<style>
+  .prose { padding: 64px 24px; background: #fff; border-top: 1px solid var(--c-border); }
+  .prose.dark { background: var(--c-bg); }
+  .prose-inner { max-width: 820px; margin: 0 auto; }
+  .prose h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 18px; margin-top: 36px; }
+  .prose h2:first-child { margin-top: 0; }
+  .prose h3 { font-size: 18px; margin: 24px 0 10px; }
+  .prose p { font-size: 16px; line-height: 1.65; color: var(--c-text); margin-bottom: 14px; }
+  .prose ul { padding-left: 24px; margin-bottom: 14px; }
+  .prose li { padding: 4px 0; line-height: 1.6; font-size: 15.5px; }
+  .prose a { color: var(--c-mint); font-weight: 600; }
+  .prose code { background: rgba(0,0,0,0.06); padding: 1px 5px; border-radius: 3px; font-family: var(--font-mono); font-size: 13px; }
+  .prose strong { color: var(--c-text); font-weight: 700; }
+  .addons li { padding: 5px 0; font-size: 14.5px; color: var(--c-text); }
+</style>

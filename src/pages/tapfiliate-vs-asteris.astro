@@ -7,32 +7,104 @@ import CompareBody from '../components/CompareBody.astro';
     rivalName="Tapfiliate"
     rivalTagline="SaaS affiliate-tracking platform. Cross-platform, hosted, billed monthly forever. Targets enterprise multi-cart deployments."
     rivalUrl="https://tapfiliate.com"
-    intro="Tapfiliate is a SaaS affiliate tracker — your affiliate data lives on Tapfiliate's servers, billed monthly forever. Asteris Affiliates is a self-hosted WordPress plugin at $149/yr, so your affiliate data stays in your own database and the cost stops climbing."
+    intro="Tapfiliate is a SaaS affiliate tracker — your affiliate data lives on Tapfiliate's servers, and the bill recurs forever. Asteris Affiliates is a self-hosted WordPress plugin at $149/yr, so your affiliate list, click data, commissions and payouts stay on your own server and the cost stops climbing after year one."
     whenRivalWins={[
-      'You need cross-platform tracking across non-WordPress sites (Shopify + custom carts simultaneously)',
-      'You prefer SaaS reliability and outsourced infrastructure',
-      'You have an enterprise compliance need for a dedicated SOC-2 SaaS vendor',
+      'You need first-class tracking across non-WordPress platforms simultaneously (Shopify + custom carts + WordPress on one ledger)',
+      'You explicitly want a fully-managed SaaS — no server, no plugin updates, infrastructure outsourced',
+      'You have an enterprise compliance need for a dedicated SOC-2 SaaS vendor and your procurement requires it in writing',
     ]}
     whenAsterisWins={[
-      'Annual licence vs monthly SaaS — total cost stops climbing',
-      'Your affiliate data stays on your WordPress server (not theirs)',
-      'No per-affiliate fees, no usage caps',
-      'Two-tier referrals included from $149/yr',
-      'AI swipe-copy generator built in',
-      'GPL code — fork it if you ever want to',
+      'Annual licence vs monthly SaaS — total cost stops climbing after year one',
+      'Affiliate list, clicks, commissions, payouts all stay on your WordPress server',
+      'No per-affiliate fees, no usage caps, no tier upgrades when you grow',
+      'Two-tier (MLM) referrals included from Starter',
+      'AI swipe-copy generator built in (Tapfiliate has no equivalent)',
+      'Cloud-assist fraud detection (opt-in, SHA-256 hashed)',
+      'Stripe Connect direct payouts at 0.25% vs Tapfiliate\'s payout flow',
+      'GPL-2.0+ — the code is yours, forever',
     ]}
     comparisonRows={[
-      { feature: 'Hosting model',                rival: 'SaaS (their servers)', asteris: 'Self-hosted (your WP)',  win: 'asteris' },
-      { feature: 'Data ownership',               rival: 'On Tapfiliate',        asteris: 'On your server',          win: 'asteris' },
-      { feature: 'Billing',                      rival: 'Monthly SaaS',         asteris: 'Annual licence',          win: 'asteris' },
-      { feature: 'Two-tier referrals',           rival: 'Available',            asteris: 'Included from Starter',  win: 'tie' },
-      { feature: 'AI swipe-copy generator',      rival: 'No',                   asteris: 'Built in',                win: 'asteris' },
-      { feature: 'WordPress-native',             rival: 'No (JS snippet)',      asteris: 'Yes',                     win: 'asteris' },
-      { feature: 'WooCommerce-native',           rival: 'Via integration',      asteris: 'Direct',                  win: 'asteris' },
-      { feature: 'GPL code',                     rival: 'Proprietary SaaS',     asteris: 'GPL-2.0',                 win: 'asteris' },
-      { feature: 'Cross-platform tracking',      rival: 'Strong',               asteris: 'WP-only',                 win: 'rival' },
-      { feature: 'Cloud infrastructure',         rival: 'Managed for you',      asteris: 'Your hosting',            win: 'rival' },
+      { feature: 'Hosting model',                rival: 'SaaS (their servers)',     asteris: 'Self-hosted (your WP)',     win: 'asteris' },
+      { feature: 'Data ownership',               rival: 'On Tapfiliate',            asteris: 'In your wp_ tables',         win: 'asteris' },
+      { feature: 'Billing cadence',              rival: 'Monthly SaaS, no end',    asteris: 'Annual licence',             win: 'asteris' },
+      { feature: 'Two-tier referrals',           rival: 'Available',                asteris: 'Included from Starter',      win: 'tie' },
+      { feature: 'AI swipe-copy generator',      rival: 'Not available',            asteris: 'Built in',                    win: 'asteris' },
+      { feature: 'WordPress-native',             rival: 'No (JS snippet)',          asteris: 'Native plugin',               win: 'asteris' },
+      { feature: 'WooCommerce-native',           rival: 'Via integration',          asteris: 'Direct hook-in',              win: 'asteris' },
+      { feature: 'EDD-native',                   rival: 'Via integration',          asteris: 'Direct hook-in',              win: 'asteris' },
+      { feature: 'Surecart-native',              rival: 'Via integration',          asteris: 'Webhook adapter',             win: 'asteris' },
+      { feature: 'Open-source / GPL',            rival: 'Proprietary SaaS',         asteris: 'GPL-2.0+',                    win: 'asteris' },
+      { feature: 'Per-affiliate fees',           rival: 'Usage-tiered',             asteris: 'None',                        win: 'asteris' },
+      { feature: 'Cross-platform tracking',      rival: 'Native',                   asteris: 'WP ecosystem only',           win: 'rival' },
+      { feature: 'Managed infrastructure',       rival: 'Yes',                      asteris: 'Your hosting',                win: 'rival' },
+      { feature: 'SOC-2 vendor compliance',      rival: 'Available',                asteris: 'Inherits your stack',         win: 'rival' },
     ]}
     migrateSlug="/migrate/from-tapfiliate"
-  />
+  >
+    <section class="prose">
+      <div class="prose-inner">
+        <h2>Self-hosted affiliate software vs SaaS — the trade-off in 2026</h2>
+        <p>Tapfiliate is a good SaaS affiliate tracker. We're not going to claim otherwise. It's mature, it has a dedicated team, and the cross-platform tracking (Shopify, WordPress, custom carts, all in one dashboard) is genuinely the strongest reason to pick a SaaS over a WordPress plugin. If you're running an affiliate program across three carts on three different platforms and you need one ledger, Tapfiliate or a similar SaaS is probably the right answer.</p>
+        <p>For everyone else — and that's the vast majority of WordPress-centric stores — the SaaS trade-off costs you more than it gives you. Here's the calculus stores run when they're shopping for a <strong>self-hosted affiliate software</strong> alternative.</p>
+        <h3>1. Cost compounds forever</h3>
+        <p>SaaS pricing is monthly. Even a "cheap" Tapfiliate plan adds up to hundreds of dollars per year, and every year is another full payment. Asteris is an annual licence — $149 for one site, $299 for three, $549 for ten — and after year one you can keep using the plugin even if you don't renew. Your existing affiliate program keeps working. You just stop getting plugin updates and support. Compare to cancelling a SaaS: when the subscription stops, the dashboard goes dark, the tracking pixel stops firing, and your affiliates can't see their stats anymore.</p>
+        <h3>2. The data is on your server, in your database</h3>
+        <p>This sounds like a checkbox feature until you actually need it. When your affiliate data lives in your own <code>wp_asteris_*</code> tables, you can: query it directly from any reporting tool, back it up nightly with your existing WP backup, export the whole thing to CSV any time, give your accountant SQL access for tax reconciliation, and — critically — leave to another platform whenever you want, with everything intact. When the data lives on Tapfiliate's servers, you get what their export gives you, and you get it on their schedule.</p>
+        <h3>3. WordPress-native means no JS snippet to maintain</h3>
+        <p>Tapfiliate and similar SaaS trackers work by injecting a JavaScript snippet on your checkout page that fires events back to their servers. That works, but it's another vendor in your page load, another GDPR/cookie banner conversation, another thing that breaks when a theme update changes the checkout template. Asteris hooks WooCommerce / EDD / Surecart directly, server-side, so attribution happens in PHP on the order-creation event. No JS, no page-load weight, no third-party domain in your privacy policy.</p>
+      </div>
+    </section>
+
+    <section class="prose dark">
+      <div class="prose-inner">
+        <h2>Total cost over 3 years</h2>
+        <p>The rough mental model most stores use when they're comparing recurring SaaS to an annual self-hosted licence:</p>
+        <ul>
+          <li><strong>SaaS over 3 years:</strong> 36 months × your monthly tier. A $50/mo plan costs $1,800 over 3 years. A $99/mo plan costs $3,564. A $200/mo plan costs $7,200.</li>
+          <li><strong>Asteris Starter over 3 years:</strong> $149 × 3 = $447. (You can also lock launch pricing for the life of your active subscription — see the <a href="/pricing">pricing page</a>.)</li>
+          <li><strong>What you give up:</strong> the SaaS multi-platform ledger (if you actually use it), and someone else managing the infrastructure.</li>
+          <li><strong>What you get:</strong> $1,300–$6,750+ in cumulative savings over 3 years, your data on your server, no JS tracking pixel on your checkout, and a plugin that keeps working if you stop paying.</li>
+        </ul>
+        <p>These numbers are illustrative — confirm Tapfiliate's current published pricing tiers before you make the call. The SaaS-vs-self-hosted gap widens every year because SaaS is recurring forever and annual licences plateau.</p>
+      </div>
+    </section>
+
+    <section class="prose">
+      <div class="prose-inner">
+        <h2>Migrating from Tapfiliate to Asteris</h2>
+        <p>Tapfiliate's export gives you a CSV of affiliates, conversions and clicks. Our <a href="/migrate/from-tapfiliate">Tapfiliate migration guide</a> walks you through the WP-CLI command that reads that CSV and creates matching Asteris records in your database. Specifically:</p>
+        <ul>
+          <li>Affiliates: email, name, payout method, custom commission rate, status — all preserved.</li>
+          <li>Conversions (commissions): order reference, affiliate, amount, currency, date, status — all preserved.</li>
+          <li>Clicks: limited to the window Tapfiliate's export covers — typically 12 months. Earlier history is summarised as aggregate counts rather than per-click rows.</li>
+          <li>Outstanding balances: marked as "pending" in Asteris so your first payout run correctly settles what affiliates were already owed.</li>
+        </ul>
+        <p>The trickiest part of any SaaS-to-self-hosted migration is the link cutover — affiliates have URLs in the wild pointing at Tapfiliate's tracking domain. Our guide covers two approaches: (1) graceful — Asteris registers a redirect handler on your domain that catches legacy Tapfiliate-style links and re-attributes to the matching Asteris affiliate; (2) hard cutover — you email affiliates their new <code>{`/go/{handle}`}</code> Asteris vanity URLs and ask them to update. Most stores do both: hard cutover for new content, graceful redirect for everything already published. <a href="/migrate/from-tapfiliate">Full migration walkthrough →</a></p>
+
+        <h2>The honest case for staying on Tapfiliate</h2>
+        <p>We'd rather you stay on Tapfiliate if any of these are true for you:</p>
+        <ul>
+          <li><strong>You really do need cross-platform tracking across non-WP carts.</strong> Asteris is WordPress-only by design. If half your business is on Shopify and the other half on a custom React storefront, Tapfiliate consolidates that in a way no WP plugin can.</li>
+          <li><strong>You don't want to manage WordPress.</strong> If WordPress is a chore for your team and you'd rather pay someone else to handle every layer of the stack, SaaS is the right answer regardless of cost.</li>
+          <li><strong>You have a procurement or compliance requirement</strong> for a third-party SOC-2 vendor — some enterprise contracts specify this in writing.</li>
+        </ul>
+        <p>For every other WordPress-centric store, <a href="/pricing">Asteris's $149/yr self-hosted Starter</a> wins on cost, data ownership, page-load weight, and feature set. The lock-in trade-off goes the other way — instead of being locked into a SaaS vendor, you keep the plugin and your data forever.</p>
+      </div>
+    </section>
+  </CompareBody>
 </Layout>
+
+<style>
+  .prose { padding: 64px 24px; background: #fff; border-top: 1px solid var(--c-border); }
+  .prose.dark { background: var(--c-bg); }
+  .prose-inner { max-width: 820px; margin: 0 auto; }
+  .prose h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 18px; margin-top: 36px; }
+  .prose h2:first-child { margin-top: 0; }
+  .prose h3 { font-size: 18px; margin: 24px 0 10px; }
+  .prose p { font-size: 16px; line-height: 1.65; color: var(--c-text); margin-bottom: 14px; }
+  .prose ul { padding-left: 24px; margin-bottom: 14px; }
+  .prose li { padding: 4px 0; line-height: 1.6; font-size: 15.5px; }
+  .prose a { color: var(--c-mint); font-weight: 600; }
+  .prose code { background: rgba(0,0,0,0.06); padding: 1px 5px; border-radius: 3px; font-family: var(--font-mono); font-size: 13px; }
+  .prose strong { color: var(--c-text); font-weight: 700; }
+</style>

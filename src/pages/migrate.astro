@@ -34,6 +34,14 @@ const targets = [
     diff: 'YITH has no MLM, no fraud detection, no PayPal API. Asteris adds all three for $69 more/yr.',
     time: '~10 min',
   },
+  {
+    slug: 'from-solid-affiliate',
+    name: 'Solid Affiliate',
+    price: null,
+    note: 'WooCommerce-only. Per-product rates in core; no MLM, no EDD, no Surecart.',
+    diff: 'Solid Affiliate is WC-only with no MLM or non-WC adapter. Asteris adds MLM + EDD + Surecart + Stripe Connect + AI swipe.',
+    time: '~10 min',
+  },
 ];
 ---
 
@@ -54,7 +62,7 @@ const targets = [
         {targets.map(t => (
           <a class="target-card" href={`/migrate/${t.slug}`}>
             <h3>{t.name}</h3>
-            <div class="target-price">${t.price}/yr → <strong>$149/yr</strong></div>
+            <div class="target-price">{t.price ? `$${t.price}/yr` : 'Verify on site'} → <strong>$149/yr</strong></div>
             <p class="target-note">{t.note}</p>
             <p class="target-diff"><strong>Key difference:</strong> {t.diff}</p>
             <p class="target-time">⏱ {t.time}</p>
@@ -62,6 +70,16 @@ const targets = [
           </a>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="what">
+    <div class="what-inner">
+      <h2>Why people move to an AffiliateWP alternative (or any rival)</h2>
+      <p>Across hundreds of migration emails the three patterns that come up over and over: <strong>add-on fatigue</strong> (paying for a base licence plus 4–5 add-ons just to get the feature set most stores actually need), <strong>SaaS lock-in fatigue</strong> (paying monthly forever for a tracker that holds your affiliate data hostage), and <strong>missing differentiators</strong> (no MLM in SliceWP, no Surecart adapter in any rival, no Stripe Connect direct payouts anywhere else).</p>
+      <p>The plumbing is the same across migrations — read the source plugin's standard export (CSV or DB query), normalise into Asteris's commission schema, recreate affiliates with their balances, recreate referrals with their attribution context, write a redirect handler that catches legacy <code>?ref=</code> tracking URLs and re-attributes to the matching Asteris affiliate ID. The variation is in step 1: each source has different fields, different export menus, different quirks. That's why each migration has its own walkthrough.</p>
+      <p>What you don't lose: historical commissions stay attached to the same affiliate (their lifetime stats look the same the day after migration). Pending payouts come across as "pending" so your first Asteris payout run correctly settles what was already owed. Legacy referral URLs already in the wild keep working via the compatibility redirect — your affiliates' published links don't 404.</p>
+      <p>What does change: the admin UX is Asteris's, the affiliate portal is Asteris's, and the payout flow is Asteris's (which is a strict upgrade — Stripe Connect at 0.25% is faster + cheaper than every rival's default).</p>
     </div>
   </section>
 
@@ -118,6 +136,12 @@ const targets = [
   .general-note { margin-top: 24px; padding: 20px; background: #fff; border-left: 4px solid var(--c-mint); border-radius: 4px; color: var(--c-text); line-height: 1.6; }
   .general-note a { color: var(--c-mint); font-weight: 700; }
 
+  .what { padding: 80px 24px; background: #fff; border-top: 1px solid var(--c-border); }
+  .what-inner { max-width: 820px; margin: 0 auto; }
+  .what h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 18px; }
+  .what p { font-size: 16px; line-height: 1.65; color: var(--c-text); margin-bottom: 14px; }
+  .what code { background: rgba(0,0,0,0.06); padding: 1px 5px; border-radius: 3px; font-family: var(--font-mono); font-size: 13px; }
+  .what strong { color: var(--c-text); font-weight: 700; }
   .cta-section { background: var(--c-black); color: #fff; padding: 96px 24px; }
   .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
   .cta-section h2 { font-size: clamp(28px, 4vw, 40px); color: #fff; margin-bottom: 16px; }

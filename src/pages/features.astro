@@ -60,6 +60,15 @@ const sprints = [
     <p class="lead">Affiliate program features that take AffiliateWP + 4 add-ons + Tapfiliate's SaaS to match. Self-hosted. Your data stays yours.</p>
   </section>
 
+  <section class="intro">
+    <div class="intro-inner">
+      <h2>The whole stack, in one plugin</h2>
+      <p>Most WordPress affiliate programs are assembled — a base plugin, plus a separate add-on for MLM, another for per-product commissions, another for advanced payouts, another for A/B email testing. By the time you wire it all together you're paying $500–$1,000/yr and managing five integrations that fight each other on update day. Asteris ships every one of those <strong>WordPress affiliate plugin features</strong> as core modules. One plugin. One update path. One settings screen.</p>
+      <p>The four <strong>two-tier (MLM) affiliate plugin</strong> features sit alongside the AI swipe-copy generator, cloud-assist fraud detection, EDD adapter and Surecart adapter — none of which are available as add-ons from rival vendors at any price. If you've shopped affiliate plugins before and bounced off the add-on stack, this is the shorter list. <a href="/modules">See all 31 modules grouped by category →</a></p>
+      <p>Every module in this list ships activated. There is no "Pro upgrade" hiding 80% of the value. The Starter licence (<a href="/pricing">$149/yr, one site</a>) unlocks the full feature set. The only thing the 3-site Pro and 10-site Agency tiers buy you is more activations — not more features.</p>
+    </div>
+  </section>
+
   {sprints.map(s => (
     <section class="sprint">
       <div class="sprint-inner">
@@ -75,6 +84,48 @@ const sprints = [
       </div>
     </section>
   ))}
+
+  <section class="cart-section">
+    <div class="cart-inner">
+      <h2>The cart integrations no rival ships in core</h2>
+      <p>Most rival affiliate plugins are WooCommerce-only. AffiliateWP charges $79/yr extra for an <strong>EDD affiliate plugin</strong> add-on. There is no first-party <strong>Surecart affiliate</strong> plugin from any major vendor. Asteris ships both adapters in core, sharing the same admin pages, the same affiliate portal, and the same commission engine.</p>
+      <div class="cart-grid">
+        <div class="cart-card">
+          <h3>WooCommerce</h3>
+          <p>HPOS-compatible. Subscription-renewal commissions. Coupon attribution. Bundle support. Tested on Storefront, Astra, Kadence, GeneratePress, Avada, Divi.</p>
+          <p><a href="/docs/integrations/woocommerce">Integration docs →</a></p>
+        </div>
+        <div class="cart-card">
+          <h3>Easy Digital Downloads (EDD)</h3>
+          <p>Adapter in core. Tracks downloads, bundles, recurring subscriptions, software licence keys. Same admin UX as Woo.</p>
+          <p><a href="/docs/integrations/edd">Integration docs →</a></p>
+        </div>
+        <div class="cart-card">
+          <h3>Surecart</h3>
+          <p>Webhook-based tracking on Surecart's hosted checkouts. The only major <strong>Surecart affiliate</strong> plugin option until v1.0.</p>
+          <p><a href="/docs/integrations/surecart">Integration docs →</a></p>
+        </div>
+        <div class="cart-card">
+          <h3>Custom carts</h3>
+          <p>Implement the <code>Order_Source</code> interface — one PHP file — to add any cart. We've used it to wire up MemberPress and LearnDash in customer support.</p>
+          <p><a href="/docs/integrations/custom-adapter">Custom adapter docs →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-section">
+    <div class="how-inner">
+      <h2>How to evaluate the feature set</h2>
+      <p>If you're comparing affiliate plugins, three lenses do most of the work:</p>
+      <h3>1. Total cost to match the feature list</h3>
+      <p>Don't compare "base price to base price". Compare base + every add-on you'd actually enable. Asteris's $149 Starter unlocks MLM, per-product rates, bank-CSV, A/B emails, impersonation, EDD + Surecart adapters, AI swipe-copy, cloud-assist fraud, Stripe Connect. The same stack assembled from a rival's add-on catalogue runs $923–$1,223+/yr at one-site pricing. <a href="/pricing">Pricing breakdown →</a></p>
+      <h3>2. Hosting model + data ownership</h3>
+      <p>SaaS affiliate platforms — Tapfiliate, Rewardful, Refersion — charge $79–$890/yr and keep your data on their servers. Cancel and you lose everything. Self-hosted plugins keep data in your <code>wp_</code> tables. Asteris is self-hosted. Period. <a href="/why-asteris">Why this matters →</a></p>
+      <h3>3. Cart coverage</h3>
+      <p>If you're on WooCommerce only, most plugins work. If you're on EDD, AffiliateWP charges $79/yr extra. If you're on Surecart, only Asteris ships a native adapter. If you're on something custom, only Asteris ships a documented adapter interface for it. <a href="/migrate">Migration guides for the 5 most-common rivals →</a></p>
+    </div>
+  </section>
 
   <section class="cta-section">
     <div class="cta-inner">
@@ -103,6 +154,31 @@ const sprints = [
   .feature-card h3 { font-size: 16px; margin-bottom: 8px; }
   .feature-card .star { color: var(--c-mint); }
   .feature-card p { font-size: 14px; color: var(--c-muted); line-height: 1.55; }
+
+  .intro { background: #fff; padding: 56px 24px; border-bottom: 1px solid var(--c-border); }
+  .intro-inner { max-width: 820px; margin: 0 auto; }
+  .intro h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 18px; }
+  .intro p { font-size: 16.5px; line-height: 1.65; color: var(--c-text); margin-bottom: 16px; }
+  .intro a { color: var(--c-mint); font-weight: 600; }
+
+  .cart-section { padding: 80px 24px; background: var(--c-bg); border-top: 1px solid var(--c-border); }
+  .cart-inner { max-width: var(--max-w); margin: 0 auto; }
+  .cart-section h2 { font-size: clamp(24px, 3vw, 34px); margin-bottom: 16px; }
+  .cart-section > .cart-inner > p { font-size: 16.5px; line-height: 1.6; margin-bottom: 28px; color: var(--c-text); max-width: 820px; }
+  .cart-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  .cart-card { background: #fff; padding: 24px; border-radius: 8px; border: 1px solid var(--c-border); }
+  .cart-card h3 { font-size: 17px; margin-bottom: 10px; color: var(--c-mint); }
+  .cart-card p { font-size: 14.5px; line-height: 1.55; color: var(--c-text); margin-bottom: 10px; }
+  .cart-card a { color: var(--c-mint); font-weight: 600; font-size: 13.5px; }
+  .cart-card code { background: rgba(0,0,0,0.05); padding: 1px 5px; border-radius: 3px; font-family: var(--font-mono); font-size: 12.5px; }
+
+  .how-section { background: #fff; padding: 80px 24px; }
+  .how-inner { max-width: 820px; margin: 0 auto; }
+  .how-section h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 20px; }
+  .how-section h3 { font-size: 18px; margin: 24px 0 10px; }
+  .how-section p { font-size: 16px; line-height: 1.6; color: var(--c-text); margin-bottom: 12px; }
+  .how-section a { color: var(--c-mint); font-weight: 600; }
+  .how-section code { background: rgba(0,0,0,0.05); padding: 1px 5px; border-radius: 3px; font-family: var(--font-mono); font-size: 13px; }
 
   .cta-section { background: var(--c-black); color: #fff; padding: 96px 24px; }
   .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }

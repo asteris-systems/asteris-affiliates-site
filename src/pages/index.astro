@@ -129,6 +129,68 @@ const features = [
     </div>
   </section>
 
+  <!-- What it is — primary kw "wordpress affiliate plugin" -->
+  <section class="what-section">
+    <div class="what-inner">
+      <h2>The WordPress affiliate plugin that doesn't rent you back your own data</h2>
+      <p>Asteris Affiliates is a self-hosted <a href="/best-woocommerce-affiliate-plugin">WordPress affiliate plugin</a> built for WooCommerce, Easy Digital Downloads, and Surecart stores. It runs entirely on your own server, stores every affiliate, commission, payout and click in your own database, and never sends data to a third party unless you explicitly opt in. There's no monthly subscription, no per-affiliate fee, and no per-transaction tax on what your affiliates earn.</p>
+      <p>It replaces a small pile of separate plugins and add-ons that most stores stitch together: a tracker, an MLM add-on, a per-product commission add-on, a payout module, an A/B email tool, an admin impersonator and a fraud detector. Asteris ships the lot for $149/yr (Starter, one site). Three sites is $299. Ten sites is $549. <a href="/pricing">See full pricing →</a></p>
+      <p>It is, deliberately, the cheapest serious affiliate plugin in the WordPress ecosystem with this much in the box — and it's the only one that pairs cloud-assist fraud detection (opt-in, SHA-256 hashed, zero PII) with a Stripe Connect direct-payout integration that costs 0.25% instead of PayPal's 2% mass-pay fee. <a href="/migrate">If you're moving from AffiliateWP, SliceWP or Tapfiliate</a>, our CLI importer reads their exports and recreates affiliates, referrals and pending commissions in one command.</p>
+    </div>
+  </section>
+
+  <!-- Who it's for -->
+  <section class="who-section">
+    <div class="who-inner">
+      <h2>Who Asteris Affiliates is built for</h2>
+      <div class="who-grid">
+        <div class="who-card">
+          <h3>WooCommerce stores running an in-house program</h3>
+          <p>If you sell anything on WooCommerce — physical, digital, subscription, bundle — Asteris drops in next to WC, picks up orders automatically, attributes commissions on first-click cookies (configurable), and pays affiliates via Stripe Connect, PayPal API, or bank-CSV. HPOS-compatible. Subscription-renewal commissions if you run WooCommerce Subscriptions. Tested on Storefront, Astra, Kadence, GeneratePress, Avada, Divi.</p>
+        </div>
+        <div class="who-card">
+          <h3>EDD shops selling courses, software or downloads</h3>
+          <p>The <a href="/docs/integrations/edd">EDD adapter</a> is in core — same admin, same affiliate portal, same payout engine. No $79/yr "EDD add-on" upcharge. If you sell licences, courses or software bundles, Asteris credits commissions on every successful order and reconciles on refunds automatically.</p>
+        </div>
+        <div class="who-card">
+          <h3>Surecart stores wanting an affiliate program at all</h3>
+          <p>Until Asteris, Surecart customers had no native affiliate plugin option. The <a href="/docs/integrations/surecart">Surecart adapter</a> hooks Surecart's checkout webhooks and credits commissions in your WP database. If you've been waiting for Surecart affiliates, this is the build that ships them.</p>
+        </div>
+        <div class="who-card">
+          <h3>Multi-cart agencies and stores</h3>
+          <p>Run Woo and EDD on the same site? Same plugin, same affiliates, same payouts. The 10-site Agency licence is for agencies running multiple client stores: one licence covers ten. <a href="/pricing">Agency pricing →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ for FAQPage schema (already declared in seo.ts JSON-LD) -->
+  <section class="faq-section">
+    <div class="faq-inner">
+      <h2>Frequently asked questions</h2>
+      <details>
+        <summary>Is Asteris Affiliates really self-hosted?</summary>
+        <p>Yes. Every affiliate, click, commission, payout and email log lives in your own WordPress database (<code>wp_asteris_*</code> tables). No data ever leaves your server unless you explicitly enable cloud-assist fraud detection — and even then only SHA-256 hashed signals (no IPs, no emails, no order data) are exchanged. Cancel your subscription and the plugin keeps working forever; you just stop getting updates.</p>
+      </details>
+      <details>
+        <summary>Does it support WooCommerce Subscriptions?</summary>
+        <p>Yes. Renewal commissions are credited on each successful renewal payment, with separate first-order-only vs lifetime-rebill rules per product if you want it. <a href="/docs/integrations/woocommerce">Integration details →</a></p>
+      </details>
+      <details>
+        <summary>What payout methods are supported?</summary>
+        <p>Stripe Connect Express (recommended — 0.25% fee, direct to bank), PayPal API auto-batch (2% PayPal fee, OAuth2-authenticated), bank transfer with AU + US bank-CSV export, and manual marking-as-paid. Per-affiliate method preference. Threshold + schedule control: pay weekly when balance exceeds $50, for example. <a href="/docs/payouts/stripe-connect">Payouts docs →</a></p>
+      </details>
+      <details>
+        <summary>How does Asteris compare to AffiliateWP?</summary>
+        <p>Asteris ships every paid AffiliateWP add-on (MLM, per-product rates, bank-CSV, A/B emails, impersonation) in core for $149/yr. AffiliateWP's base is $299/yr (one site) and the comparable add-on stack adds $545+/yr on top. We don't comment on AffiliateWP's longevity — we just out-feature it on price. <a href="/affiliatewp-vs-asteris">Full comparison →</a></p>
+      </details>
+      <details>
+        <summary>Can I try it before I buy?</summary>
+        <p>Three ways. <a href="/demo">Launch the Playground demo</a> — a full WP + WC + Asteris store in your browser, no install, no signup, all 31 modules active. Install the <a href="/free">Asteris Affiliates Free</a> tier on your real store (4 core features, up to 25 affiliates). Or buy paid with the 14-day money-back guarantee — no questions asked.</p>
+      </details>
+    </div>
+  </section>
+
   <!-- Free tier teaser -->
   <section class="free-section">
     <div class="free-inner">
@@ -202,6 +264,32 @@ const features = [
   .free-section h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 16px; }
   .free-section p { font-size: 17px; color: var(--c-text); line-height: 1.6; }
   .free-section a { color: var(--c-mint); font-weight: 700; }
+
+  .what-section { padding: 96px 24px; background: #fff; border-top: 1px solid var(--c-border); }
+  .what-inner { max-width: 820px; margin: 0 auto; }
+  .what-section h2 { font-size: clamp(28px, 4vw, 38px); margin-bottom: 24px; line-height: 1.2; }
+  .what-section p { font-size: 17px; line-height: 1.65; color: var(--c-text); margin-bottom: 18px; }
+  .what-section a { color: var(--c-mint); font-weight: 600; }
+
+  .who-section { padding: 96px 24px; background: var(--c-bg); }
+  .who-inner { max-width: var(--max-w); margin: 0 auto; }
+  .who-section h2 { font-size: clamp(28px, 4vw, 38px); margin-bottom: 36px; text-align: center; }
+  .who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+  .who-card { background: #fff; padding: 28px; border-radius: 10px; border: 1px solid var(--c-border); }
+  .who-card h3 { font-size: 18px; margin-bottom: 12px; color: var(--c-mint); }
+  .who-card p { font-size: 15px; line-height: 1.6; color: var(--c-text); }
+  .who-card a { color: var(--c-mint); font-weight: 600; }
+
+  .faq-section { padding: 96px 24px; background: #fff; }
+  .faq-inner { max-width: 820px; margin: 0 auto; }
+  .faq-section h2 { font-size: clamp(28px, 4vw, 38px); margin-bottom: 28px; text-align: center; }
+  .faq-section details { border: 1px solid var(--c-border); border-radius: 6px; margin-bottom: 10px; background: var(--c-bg); }
+  .faq-section summary { padding: 18px 22px; font-weight: 700; font-size: 16px; cursor: pointer; }
+  .faq-section summary:hover { color: var(--c-mint); }
+  .faq-section details[open] summary { border-bottom: 1px solid var(--c-border); }
+  .faq-section details p { padding: 16px 22px 20px; font-size: 15.5px; line-height: 1.6; color: var(--c-text); }
+  .faq-section details a { color: var(--c-mint); font-weight: 600; }
+  .faq-section code { background: rgba(0,0,0,0.06); padding: 1px 5px; border-radius: 3px; font-family: var(--font-mono); font-size: 13px; }
 
   .cta-section { background: var(--c-black); color: #fff; padding: 96px 24px; }
   .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
