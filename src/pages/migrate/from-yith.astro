@@ -40,6 +40,10 @@ import MigrateBody from '../../components/MigrateBody.astro';
         <h2>What you gain on day one</h2>
         <p>The features Asteris ships that YITH Affiliates doesn't: two-tier (MLM) referrals, AI swipe-copy generator, cloud-assist fraud detection, Stripe Connect direct payouts at 0.25%, PayPal API auto-batch with scheduling, EDD adapter, Surecart adapter, vanity <code>{`/go/{handle}`}</code> landing pages with cookie + view tracking, A/B email testing on transactional emails, real-time stats REST API, and the full WP-CLI suite. <a href="/best-woocommerce-affiliate-plugin">Best WooCommerce affiliate plugin comparison →</a></p>
 
+        <h2>YITH bundle considerations</h2>
+        <p>If you're running multiple YITH plugins (and most YITH Affiliates customers are), you can keep using the rest of the YITH suite after migrating just the affiliate component to Asteris. YITH WooCommerce Wishlist, YITH Quick View, YITH Stripe Connect (for store-level payment processing, separate from affiliate payouts), and YITH's other modules don't interact with the affiliate plugin's database tables, so removing YITH Affiliates leaves the rest of your YITH stack untouched.</p>
+        <p>One thing to double-check during the migration: if you're running YITH Stripe Connect for the storefront, confirm that customer-facing payouts (your business's WC settlement) continue working correctly while you set up Asteris's Stripe Connect for affiliate payouts. They're independent integrations against the same Stripe account but use different Stripe Connect product flows, so they don't conflict.</p>
+
         <h2>Migration assistance</h2>
         <p>Pro and Agency licences include migration support. Email <a href="mailto:support@asterisaffiliates.com">support@asterisaffiliates.com</a> with your YITH licence info and we'll run the import for you. Most YITH migrations finish in under 30 minutes.</p>
       </div>

@@ -5,50 +5,75 @@ import Layout from '../layouts/Layout.astro';
   <section class="hero">
     <div class="eyebrow">★ NO FIXED DATES · VELOCITY-DECIDED</div>
     <h1>Asteris Affiliates <span class="accent">roadmap</span></h1>
-    <p class="lead">What's shipped (v1.1.0, June 2026) and what's queued. No fixed dates — we ship when each item is ready. <a href="/changelog">Changelog</a> tracks what's actually landed.</p>
+    <p class="lead">What's shipped in v1.1.0 and what's queued for v1.2 and beyond. No fixed dates — we ship each item when it's ready, not when a marketing calendar says it should be. The <a href="/changelog">changelog</a> tracks what's actually landed; this page tracks what's coming.</p>
   </section>
 
   <section class="rm">
     <div class="rm-inner">
       <div class="lane done">
-        <h2>✅ Shipped — v1.1.0</h2>
+        <h2>✓ Shipped — v1.1.0</h2>
         <ul>
-          <li>23 features across 9 sprints</li>
-          <li>Two-tier referrals (MLM)</li>
+          <li>31 features across 9 sprints</li>
+          <li>Two-tier (MLM) referrals</li>
           <li>AI swipe-copy generator</li>
           <li>Cloud-assist fraud detection (opt-in)</li>
-          <li>PayPal API auto-payout</li>
-          <li>EDD + Surecart adapters</li>
+          <li>Stripe Connect Express direct payouts (0.25% fee)</li>
+          <li>PayPal API auto-batch payouts</li>
+          <li>Bank transfer with AU + US bank-CSV</li>
+          <li>EDD adapter + Surecart adapter</li>
           <li>Affiliate onboarding wizard (4 steps)</li>
           <li>Vanity /go/ landing pages</li>
+          <li>Admin impersonation ("View as")</li>
+          <li>Per-product commission rates</li>
+          <li>A/B email testing</li>
         </ul>
       </div>
       <div class="lane next">
-        <h2>🟡 Next — v1.2</h2>
+        <h2>○ Next — v1.2</h2>
         <ul>
           <li>Affiliate ranking-system reporting (tiered rewards by performance)</li>
           <li>PayPal webhook listener (PAYMENT.PAYOUTS-ITEM.SUCCEEDED handler)</li>
-          <li>A/B email click tracking (currently only opens)</li>
-          <li>Admin UI for Swipe Copy / A/B Tests / Landing Pages / Product Rates</li>
+          <li>A/B email click tracking (currently opens-only)</li>
+          <li>Admin UI polish for Swipe Copy / A/B Tests / Landing Pages / Product Rates</li>
           <li>Per-line-item commission splits</li>
+          <li>Cloud-assist fraud signal v2 (richer pattern types)</li>
         </ul>
       </div>
       <div class="lane later">
-        <h2>🔵 Later — v1.3+</h2>
+        <h2>○ Later — v1.3+</h2>
         <ul>
-          <li>Stripe Connect direct payouts</li>
           <li>Bonus / spiff campaigns (one-off uplift on specific products / dates)</li>
-          <li>Affiliate-side mobile app (PWA, not native)</li>
-          <li>Coupon-code attribution v2 (multi-coupon stacking)</li>
+          <li>Affiliate-side mobile experience polish (PWA, not a native app)</li>
+          <li>Coupon-code attribution v2 (multi-coupon stacking rules)</li>
+          <li>Visual fraud-rule builder on top of cloud-assist signals</li>
+          <li>BigCommerce adapter evaluation</li>
+          <li>Custom event attribution (non-purchase triggers)</li>
         </ul>
       </div>
     </div>
   </section>
 
+  <section class="how">
+    <div class="how-inner">
+      <h2>How we decide what to build next</h2>
+      <p>The roadmap above isn't a marketing wishlist. Every item has been requested by paying customers via the support email or the public idea board, scored against the same three criteria, and prioritised by team capacity. The three scoring criteria, in order:</p>
+      <ol>
+        <li><strong>How many customers does this unblock?</strong> Features requested by one customer in a niche edge case lose to features requested by 30 customers running mainstream WooCommerce stores. The goal isn't to build every possible feature; it's to keep widening the set of stores Asteris is the best answer for.</li>
+        <li><strong>How much does it cost us to maintain forever?</strong> Every feature is a maintenance commitment. A complex feature that needs constant updates as WC and WP evolve costs more than its initial build implies. We weight ongoing maintenance heavily and prefer simpler, more durable implementations over clever ones that age badly.</li>
+        <li><strong>Does it move the differentiator story forward?</strong> Asteris's market position is "all the features in core, fraction of the cost." Features that strengthen that position (deeper AI, broader cart coverage, novel fraud detection) ship sooner than features that match what rivals already offer (catch-up features ship when convenient, not on a clock).</li>
+      </ol>
+      <p>This is why some items that seem obvious — a native mobile app, a complete redesign of the affiliate portal, support for affiliate platforms we don't currently track — keep being deprioritised: they fail criterion 1, 2 or 3 against alternatives that do better on all three.</p>
+
+      <h2>How to influence the roadmap</h2>
+      <p>If you're a paying customer and there's a feature you want, email <a href="mailto:support@asterisaffiliates.com">support@asterisaffiliates.com</a> with the use case (not just "feature X please" — the user story, the rough scale, the workaround you're currently doing). Customer-requested features that match the three criteria above frequently jump the queue ahead of items that have been sitting in v1.3+ for a while.</p>
+      <p>If you're not yet a customer and there's a feature that would tip your decision, email <a href="mailto:nick@asterisaffiliates.com">nick@asterisaffiliates.com</a> directly. Sometimes "we'd buy if you had X" feedback genuinely changes priorities — particularly when X is something we'd have shipped anyway and just hadn't scheduled.</p>
+    </div>
+  </section>
+
   <section class="cta-section">
     <div class="cta-inner">
-      <h2>Start with v1.1.0</h2>
-      <p>23 features, $149/yr. Roadmap items ship as included updates.</p>
+      <h2>Start with v1.1.0 today</h2>
+      <p>31 features shipped. v1.2 ships as an included update on your active licence — no extra cost, no upgrade fee.</p>
       <a href="/pricing" class="btn btn-pop btn-large">See pricing →</a>
     </div>
   </section>
@@ -61,13 +86,22 @@ import Layout from '../layouts/Layout.astro';
   .hero h1 .accent { color: var(--c-mint); }
   .hero .lead { font-size: 18px; color: var(--c-text); line-height: 1.6; }
   .hero .lead a { color: var(--c-mint); font-weight: 600; }
-  .rm { padding: 32px 24px 96px; }
+  .rm { padding: 32px 24px 64px; }
   .rm-inner { max-width: var(--max-w); margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
   .lane { padding: 24px; background: #fff; border-radius: 10px; border: 2px solid var(--c-border); }
   .lane.done { border-color: var(--c-mint); }
   .lane h2 { font-size: 18px; margin-bottom: 16px; }
   .lane ul { padding-left: 22px; }
   .lane li { padding: 6px 0; line-height: 1.55; font-size: 14px; }
+  .how { padding: 80px 24px; background: var(--c-bg); border-top: 1px solid var(--c-border); }
+  .how-inner { max-width: 820px; margin: 0 auto; }
+  .how h2 { font-size: clamp(22px, 3vw, 30px); margin: 24px 0 14px; }
+  .how h2:first-child { margin-top: 0; }
+  .how p { font-size: 16px; line-height: 1.65; color: var(--c-text); margin-bottom: 14px; }
+  .how ol { padding-left: 24px; margin-bottom: 14px; }
+  .how li { padding: 6px 0; line-height: 1.6; font-size: 15.5px; }
+  .how a { color: var(--c-mint); font-weight: 600; }
+  .how strong { color: var(--c-text); font-weight: 700; }
   .cta-section { background: var(--c-black); color: #fff; padding: 96px 24px; }
   .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
   .cta-section h2 { font-size: clamp(28px, 4vw, 40px); color: #fff; margin-bottom: 16px; }

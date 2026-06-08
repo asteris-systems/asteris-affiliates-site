@@ -38,6 +38,15 @@ import MigrateBody from '../../components/MigrateBody.astro';
           <li><strong>After 30 days clean</strong>, deactivate and delete SliceWP, drop its tables.</li>
         </ol>
 
+        <h2>Coupon migration — the SliceWP-specific gotcha</h2>
+        <p>SliceWP Pro's headline feature is coupon-as-affiliate-link tracking — each WC coupon code can be tied to an affiliate, so customers who use the code at checkout credit the matching affiliate without needing to click an affiliate URL. This is genuinely useful for offline channels (podcast hosts reading the discount code aloud, print ads, video creators showing the code on screen).</p>
+        <p>Asteris ships the same feature in core. The migration importer reads SliceWP's coupon-attribution table and recreates each coupon → affiliate mapping in Asteris's settings. Three things to verify after import:</p>
+        <ul>
+          <li><strong>Each coupon links to the right affiliate</strong> in Asteris admin → Settings → Coupons. The mapping is usually preserved 1:1, but bulk-imported coupons sometimes lose their attribution if SliceWP stored the mapping in a non-standard meta field.</li>
+          <li><strong>The commission-on-coupon rate is correct</strong> — SliceWP's default uses the affiliate's standard rate, but if you've set a per-coupon override on any code, the override needs to be re-set in Asteris (Settings → Coupons → Override rate).</li>
+          <li><strong>Test a few coupon orders before going live.</strong> Place a test order in Asteris admin (or a small real order) using a coupon, verify the commission credits to the right affiliate at the right rate.</li>
+        </ul>
+
         <h2>What you gain on day one</h2>
         <p>The features Asteris ships that SliceWP doesn't, available immediately after import: two-tier (MLM) referrals (<a href="/docs/commissions/two-tier">how it works</a>), AI swipe-copy generator (<a href="/docs/growth/ai-swipe-copy">how it works</a>), Stripe Connect Express direct payouts (<a href="/docs/payouts/stripe-connect">how it works</a>), PayPal Payouts API batch payouts (<a href="/docs/payouts/paypal-api">how it works</a>), EDD + Surecart adapters (<a href="/docs/integrations/edd">EDD</a>, <a href="/docs/integrations/surecart">Surecart</a>), cloud-assist fraud detection (<a href="/docs/fraud/cloud-assist">how it works</a>), A/B email testing (<a href="/docs/growth/ab-email-testing">how it works</a>). <a href="/slicewp-vs-asteris">SliceWP vs Asteris full comparison →</a></p>
 

@@ -95,6 +95,10 @@ import CompareBody from '../components/CompareBody.astro';
         </ul>
         <p>Your existing affiliate referral URLs (<code>?ref=123</code>) keep working — Asteris registers a compatibility filter that re-attributes the legacy parameter to the corresponding Asteris affiliate ID, so links your affiliates have already shared continue to track. <a href="/migrate/from-affiliatewp">Full migration guide →</a></p>
 
+        <h2>The integration catalogue trade-off</h2>
+        <p>AffiliateWP's deepest moat in 2026 is its integrations catalogue. Years of first-party integration pages mean it ships native hooks for membership plugins (MemberPress, Restrict Content Pro, Paid Memberships Pro), CRMs (HubSpot, ActiveCampaign), forms (Gravity Forms, Ninja Forms, WPForms), page builders, learning management systems and others. If you're already running one of these and want the affiliate-attribution to "just work" without writing any code, AffiliateWP has the head start.</p>
+        <p>Asteris's approach is the opposite — fewer first-party named integrations, one well-documented adapter interface (Order_Source) that any plugin can implement in 50 lines of PHP. The trade-off: a developer-friendly path that scales to any cart or commerce engine, vs a catalogue-friendly path that handles the named ones out of the box. For stores running a mainstream stack (WooCommerce + maybe EDD), Asteris's coverage matches AffiliateWP's at a fraction of the cost. For stores running niche commerce engines or wanting affiliate attribution on non-purchase events (form submissions, course enrolments, custom triggers), AffiliateWP's catalogue may save you the half-day of writing an adapter.</p>
+
         <h2>The honest case for staying on AffiliateWP</h2>
         <p>We'd rather you stay on AffiliateWP if you actually use one of its strengths. The ones we'd flag:</p>
         <ul>

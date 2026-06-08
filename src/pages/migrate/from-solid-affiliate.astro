@@ -39,6 +39,11 @@ import MigrateBody from '../../components/MigrateBody.astro';
           <li><strong>After 30 days clean</strong>, deactivate Solid Affiliate and drop its tables.</li>
         </ol>
 
+        <h2>Per-product commission rates — the Solid Affiliate-specific carry-over</h2>
+        <p>Solid Affiliate is one of the few rival plugins that ships per-product commission rates in core (rather than as a paid add-on). If you've configured custom rates on specific WC products — for example, 25% commission on high-margin items and 5% on loss-leaders — those rates carry over to Asteris automatically via the importer.</p>
+        <p>The mechanics: Solid Affiliate stores per-product rates as WC product meta (<code>_solid_affiliate_rate</code> and similar keys). The Asteris importer reads each product's existing meta on import and writes the equivalent Asteris meta keys (<code>_asteris_aff_rate</code>) without touching the original Solid Affiliate keys. The result: both plugins see the rates after import, so if you're running the 30-day safety overlap, both systems credit commissions at the same rate.</p>
+        <p>Spot-check 3–5 products after import to confirm the rates carried correctly. Bulk-edit any that didn't via WP admin → Products → Quick Edit → Affiliate rate, or run <code>wp asteris-aff product-rates set --product=123 --rate=25</code> via WP-CLI.</p>
+
         <h2>What changes day one</h2>
         <p>The moment you cut over to Asteris, you get the features Solid Affiliate doesn't ship: two-tier MLM referrals, AI swipe-copy generator, cloud-assist fraud detection, Stripe Connect direct payouts at 0.25%, PayPal API auto-batch, EDD adapter, Surecart adapter, vanity <code>{`/go/{handle}`}</code> landing pages, A/B email testing. The features Solid Affiliate ships well (per-product rates, clean WC integration) continue to work — Asteris matches or exceeds them, just inside a larger feature surface. <a href="/solid-affiliate-vs-asteris">Solid Affiliate vs Asteris full comparison →</a></p>
 
