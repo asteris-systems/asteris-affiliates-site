@@ -4,7 +4,9 @@ import Layout from '../layouts/Layout.astro';
 // Live demo — link-out to WordPress Playground (matches WC/WP/Cart sales-site pattern).
 // Blueprint at /public/playground/blueprint.json installs WC + Storefront + Asteris Affiliates
 // then activates with dev-mode (no licence needed inside the sandbox).
-const PLAYGROUND_URL = 'https://playground.wordpress.net/?blueprint-url=https://asterisaffiliates.com/playground/blueprint.json';
+// Blueprint must be at an absolute, public URL Playground can CORS-fetch.
+// Using pages.dev until asterisaffiliates.com custom domain is wired to CF Pages.
+const PLAYGROUND_URL = 'https://playground.wordpress.net/?blueprint-url=https://asteris-affiliates-site.pages.dev/playground/blueprint.json';
 ---
 <Layout seoSlug="/demo">
   <section class="hero">
