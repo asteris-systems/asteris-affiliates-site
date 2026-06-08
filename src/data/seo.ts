@@ -492,6 +492,17 @@ export const SEO_DATA: Record<string, SeoEntry> = {
     ],
   },
 
+  '/modules': {
+    title: 'All 31 Modules — Asteris Affiliates',
+    description: '31 modules in Asteris Affiliates v1.1.0: MLM, AI swipe-copy, Stripe Connect + PayPal payouts, cloud-assist fraud, EDD + Surecart adapters, REST API. 6 differentiators.',
+    ogImage: 'og-features.png',
+    jsonLd: [
+      ORG,
+      breadcrumb([{ name: 'Home', url: `${SITE}/` }, { name: 'All modules', url: `${SITE}/modules` }]),
+      SOFTWARE_APP,
+    ],
+  },
+
   '/partners': {
     title: 'Asteris Partners — 30% recurring on every Asteris Affiliates customer',
     description: "Earn 30% recurring lifetime commission promoting Asteris Affiliates. Agency, creator, consultant, dev programs. Stripe Connect or PayPal payouts. No exclusivity.",

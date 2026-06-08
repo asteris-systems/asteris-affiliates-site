@@ -1,132 +1,175 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// WordPress Playground blueprint at /public/playground/blueprint.json.
-// Production URL resolves once the site is deployed at asterisaffiliates.com.
-// During local dev, the iframe loads the production blueprint URL — Playground
-// fetches blueprints over HTTPS so localhost can't host its own.
-const PLAYGROUND_BASE = 'https://playground.wordpress.net';
-const BLUEPRINT_URL = 'https://asterisaffiliates.com/playground/blueprint.json';
-const IFRAME_SRC = `${PLAYGROUND_BASE}/?blueprint-url=${encodeURIComponent(BLUEPRINT_URL)}&storage=none&mode=seamless`;
+// Live demo — link-out to WordPress Playground (matches WC/WP/Cart sales-site pattern).
+// Blueprint at /public/playground/blueprint.json installs WC + Storefront + Asteris Affiliates
+// then activates with dev-mode (no licence needed inside the sandbox).
+const PLAYGROUND_URL = 'https://playground.wordpress.net/?blueprint-url=https://asterisaffiliates.com/playground/blueprint.json';
 ---
-
 <Layout seoSlug="/demo">
   <section class="hero">
-    <div class="eyebrow">★ LIVE IN YOUR BROWSER · NO INSTALL · NO SIGNUP</div>
-    <h1>Try Asteris Affiliates. <span class="accent">In your browser.</span></h1>
-    <p class="lead">
-      A full WordPress + WooCommerce + Asteris Affiliates store, running entirely in your browser via <strong>WordPress Playground</strong>. All v1.1.0 features active. Click around, approve a test affiliate, watch a commission credit in real time.
-    </p>
-    <p class="boot">First boot takes ~30-60 seconds while Playground spins up WP + WC + the plugin. Subsequent loads are cached.</p>
-  </section>
-
-  <section class="frame-section">
-    <div class="frame-inner">
-      <div class="frame-bar">
-        <span class="dot red"></span>
-        <span class="dot yellow"></span>
-        <span class="dot green"></span>
-        <span class="url">playground.wordpress.net · loading Asteris Affiliates demo…</span>
-        <a href={IFRAME_SRC} target="_blank" rel="noopener" class="popout">Open full screen ↗</a>
-      </div>
-      <iframe
-        src={IFRAME_SRC}
-        title="Asteris Affiliates live demo — WordPress Playground"
-        class="playground-frame"
-        loading="lazy"
-        allow="clipboard-write"
-      ></iframe>
-    </div>
-  </section>
-
-  <section class="walkthrough">
-    <div class="walkthrough-inner">
-      <h2>4 things to try</h2>
-      <div class="step-grid">
-        <div class="step">
-          <div class="step-num">01</div>
-          <h3>Admin dashboard</h3>
-          <p>Already logged in. Browse <code>Affiliates → Dashboard</code> — 5 sample affiliates, 30 days of commission history, pending payouts.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">02</div>
-          <h3>Approve an affiliate</h3>
-          <p><code>Affiliates → Pending</code> → tick → <strong>Approve</strong>. They get a welcome email (visible in the Playground's mail log).</p>
-        </div>
-        <div class="step">
-          <div class="step-num">03</div>
-          <h3>Generate a test sale</h3>
-          <p>Front of store → use <code>/go/sarah</code> → add product → checkout. Watch the commission appear in Sarah's profile within 5 seconds.</p>
-        </div>
-        <div class="step">
-          <div class="step-num">04</div>
-          <h3>Enable MLM</h3>
-          <p><code>Settings → Commissions → Two-tier referrals → Enable</code>. Sarah's parent affiliate now earns 2.5% of Sarah's sales automatically.</p>
-        </div>
+    <div class="container">
+      <div class="eyebrow">★ LIVE IN YOUR BROWSER</div>
+      <h1>Try Asteris Affiliates.<br /><span class="accent">No install. No signup.</span></h1>
+      <p class="lead">
+        A full WordPress + WooCommerce + Asteris Affiliates store, running entirely in your browser via <strong>WordPress Playground</strong>. All 23 features enabled. Click around, approve a test affiliate, watch a commission credit in real time.
+      </p>
+      <p class="boot">First-time boot takes ~30–60 seconds while Playground spins up WordPress + WooCommerce + Asteris Affiliates.</p>
+      <div class="hactions">
+        <a href={PLAYGROUND_URL} target="_blank" rel="noopener" class="btn btn-pop btn-large">★ Launch the Playground demo →</a>
+        <a href="/free" class="btn btn-outline btn-large">Or install Asteris Free →</a>
       </div>
     </div>
   </section>
 
-  <section class="caveats">
-    <div class="caveats-inner">
-      <h3>Demo caveats</h3>
-      <ul>
-        <li><strong>Throwaway state.</strong> Close the tab and everything resets. The Playground is an in-browser WP install — no data persists between sessions.</li>
-        <li><strong>No outbound email.</strong> Emails are written to the Playground's log but don't actually send. Look in <code>Tools → Mail log</code>.</li>
-        <li><strong>No PayPal / Stripe API calls.</strong> The sandbox can't reach external APIs from the iframe. PayPal API auto-payout is simulated.</li>
-        <li><strong>Cloud-assist fraud sync disabled.</strong> The demo wouldn't contribute meaningful signals; sync is off by default.</li>
-      </ul>
+  <section class="status">
+    <div class="container narrow">
+      <div class="sbox">
+        <div class="seye">★ LIVE DEMO — ALL 23 FEATURES PRE-ACTIVATED</div>
+        <p>The Playground blueprint installs WordPress + WooCommerce + Storefront, then fetches the latest Asteris Affiliates zip directly from this site and activates it with every feature on in dev-mode (no licence key needed inside the sandbox). First boot takes 30–60 seconds — subsequent boots are cached.</p>
+        <p>Want it on your own store instead? <a href="/free">Grab Asteris Affiliates Free</a> on WordPress.org (when published) or <a href="/pricing">see paid pricing</a>.</p>
+      </div>
     </div>
   </section>
 
-  <section class="cta-section">
-    <div class="cta-inner">
-      <h2>Like what you see?</h2>
-      <p>$149/yr for 1 site. Install on your live store in 90 seconds.</p>
-      <a href="/pricing" class="btn btn-pop btn-large">See pricing →</a>
+  <section class="active">
+    <div class="container">
+      <h2>What's active in the demo</h2>
+      <p class="csub">5 sample affiliates, 30 days of commission history, pending payouts in queue. The Playground demo loads straight into the WP admin so you can approve, suspend, and explore every feature.</p>
+      <div class="agrid">
+        <div class="acol">
+          <h3>Admin side</h3>
+          <ul>
+            <li>Dashboard widget with 30-day commission totals</li>
+            <li>5 sample affiliates with mixed approval states</li>
+            <li>30 days of commission history with realistic mix</li>
+            <li>Pending payout batch ready to run (simulated)</li>
+            <li>Affiliate onboarding wizard (4 steps)</li>
+            <li>Admin impersonation ("View as Sarah")</li>
+            <li>Per-product commission rates (3 sample products)</li>
+            <li>Two-tier (MLM) toggle in Settings</li>
+            <li>AI swipe-copy library (16 seed snippets)</li>
+            <li>A/B email tests with sample results</li>
+          </ul>
+        </div>
+        <div class="acol">
+          <h3>Affiliate side</h3>
+          <ul>
+            <li>Front-end affiliate portal (mobile-responsive)</li>
+            <li>Vanity <code>/go/sarah</code> landing pages</li>
+            <li>Stats dashboard with charts</li>
+            <li>Referral link generator</li>
+            <li>Swipe-copy browser + copy-to-clipboard</li>
+            <li>Payout history + next-payout estimate</li>
+            <li>Profile + payout method editor</li>
+            <li>Sample storefront with test products</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="limits">
+    <div class="container narrow">
+      <h2>What works in Playground vs what doesn't</h2>
+      <div class="lgrid">
+        <div class="lcol works">
+          <h3>★ Works</h3>
+          <ul>
+            <li>Full WordPress + WooCommerce admin</li>
+            <li>Approving / suspending affiliates</li>
+            <li>Browsing the storefront + using affiliate links</li>
+            <li>Generating test orders that credit commissions</li>
+            <li>Enabling MLM tier-2 + seeing parent commissions credit</li>
+            <li>Configuring every plugin setting</li>
+            <li>Browsing 16 swipe-copy snippets</li>
+            <li>Running CSV exports + bulk actions</li>
+            <li>Using WP-CLI commands via the Playground console</li>
+          </ul>
+        </div>
+        <div class="lcol limited">
+          <h3>★ Limited / unavailable</h3>
+          <ul>
+            <li>AI swipe-copy variants need your own AI provider key (OpenAI, Anthropic, etc.)</li>
+            <li>No real PayPal / Stripe API calls (auto-payout simulated only)</li>
+            <li>Cloud-assist fraud sync disabled (no contribution from sandbox)</li>
+            <li>No real outbound email — written to Tools → Mail log instead</li>
+            <li>No persistent storage — close the tab and everything resets</li>
+            <li>Licence key not required inside the sandbox (dev-mode)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="after">
+    <div class="container narrow">
+      <h2>After the demo.</h2>
+      <p>Asteris Affiliates Free has 4 core features (tracking, commissions, manual payouts, affiliate portal) and is on WordPress.org. Install it on your store and see how it works with your theme + cart plugin before purchasing.</p>
+      <div class="aactions">
+        <a href="/free" class="btn btn-large">Get Asteris Affiliates Free →</a>
+        <a href="/pricing" class="btn btn-outline btn-large">See paid pricing →</a>
+      </div>
     </div>
   </section>
 </Layout>
 
 <style>
-  .hero { max-width: 880px; margin: 0 auto; padding: 64px 24px 32px; text-align: center; }
-  .eyebrow { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 16px; }
-  .hero h1 { font-size: clamp(36px, 5vw, 52px); font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
-  .hero h1 .accent { color: var(--c-mint); }
-  .hero .lead { font-size: 18px; color: var(--c-text); line-height: 1.6; max-width: 720px; margin: 0 auto 12px; }
-  .hero .boot { font-size: 13px; color: var(--c-muted); }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 36px; }
+  .narrow { max-width: 820px; }
 
-  .frame-section { padding: 24px; background: var(--c-bg); }
-  .frame-inner { max-width: 1280px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 12px 48px rgba(0,0,0,0.18); border: 1px solid var(--c-border); background: #fff; }
-  .frame-bar { background: #1e1e1e; padding: 10px 16px; display: flex; gap: 8px; align-items: center; }
-  .frame-bar .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
-  .frame-bar .dot.red { background: #ff5f57; }
-  .frame-bar .dot.yellow { background: #febc2e; }
-  .frame-bar .dot.green { background: #28c840; }
-  .frame-bar .url { color: #999; font-size: 12px; margin-left: 12px; font-family: var(--font-mono); flex: 1; }
-  .frame-bar .popout { color: var(--c-mint); font-size: 12px; font-weight: 700; text-decoration: none; }
-  .playground-frame { width: 100%; height: 720px; border: 0; display: block; background: #f0f0f0; }
-  @media (max-width: 768px) { .playground-frame { height: 560px; } }
+  .hero { padding: 80px 0 48px; }
+  .hero .eyebrow {
+    display: inline-block;
+    background: var(--c-mint);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+  .hero h1 { font-size: clamp(40px, 7vw, 80px); line-height: 0.98; letter-spacing: -2px; font-weight: 900; margin: 0 0 28px; }
+  .hero h1 .accent { background: linear-gradient(transparent 55%, rgba(6, 214, 160, 0.35) 55%); padding: 0 4px; }
+  .hero .lead { font-size: 19px; max-width: 760px; color: var(--c-text); line-height: 1.55; margin-bottom: 14px; }
+  .hero .lead strong { color: var(--c-text); font-weight: 700; }
+  .hero .boot { font-size: 14px; color: var(--c-muted); margin-bottom: 28px; }
+  .hactions { display: flex; gap: 14px; flex-wrap: wrap; }
 
-  .walkthrough { padding: 64px 24px; background: #fff; border-top: 1px solid var(--c-border); }
-  .walkthrough-inner { max-width: var(--max-w); margin: 0 auto; }
-  .walkthrough h2 { font-size: clamp(28px, 4vw, 40px); text-align: center; margin-bottom: 48px; }
-  .step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-  .step { padding: 24px; border-left: 4px solid var(--c-mint); background: var(--c-bg); border-radius: 4px; }
-  .step-num { font-size: 13px; color: var(--c-mint); font-weight: 800; letter-spacing: 0.12em; margin-bottom: 8px; }
-  .step h3 { font-size: 17px; margin-bottom: 8px; }
-  .step p { font-size: 14px; color: var(--c-muted); line-height: 1.5; }
-  .step code { background: rgba(0,0,0,0.06); padding: 2px 6px; border-radius: 3px; font-family: var(--font-mono); font-size: 12px; }
+  .status { padding: 32px 0; background: rgba(6, 214, 160, 0.12); }
+  .sbox { background: var(--c-white); border: 2px solid var(--c-text); border-radius: 8px; padding: 22px 24px; }
+  .seye { color: var(--c-mint); font-weight: 800; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 10px; }
+  .sbox p { font-size: 15px; color: var(--c-text); line-height: 1.55; margin-bottom: 10px; }
+  .sbox a { color: var(--c-mint); text-decoration: underline; font-weight: 600; }
 
-  .caveats { padding: 48px 24px; background: var(--c-bg); }
-  .caveats-inner { max-width: 760px; margin: 0 auto; padding: 24px; background: #fff; border-left: 4px solid #f59e0b; border-radius: 4px; }
-  .caveats h3 { font-size: 18px; margin-bottom: 12px; }
-  .caveats ul { padding-left: 22px; }
-  .caveats li { padding: 6px 0; line-height: 1.55; font-size: 14px; }
-  .caveats strong { color: var(--c-text); }
+  .active { padding: 80px 0; background: var(--c-white); border-top: 2px solid var(--c-text); border-bottom: 2px solid var(--c-text); }
+  .active h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 900; letter-spacing: -1.5px; margin-bottom: 12px; }
+  .csub { font-size: 16px; color: var(--c-muted); max-width: 760px; line-height: 1.55; margin-bottom: 28px; }
+  .agrid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .acol h3 { font-size: 20px; font-weight: 800; margin-bottom: 14px; color: var(--c-mint); }
+  .acol ul { list-style: none; padding: 0; }
+  .acol li { padding: 6px 0 6px 22px; position: relative; font-size: 15px; color: var(--c-text); }
+  .acol li::before { content: '→'; position: absolute; left: 0; color: var(--c-mint); font-weight: 700; }
+  .acol code { background: rgba(0,0,0,0.06); padding: 1px 6px; border-radius: 3px; font-family: var(--font-mono); font-size: 13px; }
+  @media (max-width: 800px) { .agrid { grid-template-columns: 1fr; } }
 
-  .cta-section { background: var(--c-black); color: #fff; padding: 96px 24px; }
-  .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
-  .cta-section h2 { font-size: clamp(28px, 4vw, 40px); color: #fff; margin-bottom: 16px; }
-  .cta-section p { color: rgba(255,255,255,0.85); font-size: 17px; margin-bottom: 32px; }
+  .limits { padding: 80px 0; background: var(--c-bg); }
+  .limits h2 { font-size: clamp(24px, 3vw, 36px); font-weight: 900; letter-spacing: -1.2px; margin-bottom: 24px; }
+  .lgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .lcol { border: 2px solid var(--c-text); border-radius: 8px; padding: 22px; background: var(--c-white); }
+  .works h3 { color: #1a7f37; font-size: 18px; margin-bottom: 12px; }
+  .limited h3 { color: #c0392b; font-size: 18px; margin-bottom: 12px; }
+  .lcol ul { list-style: none; padding: 0; }
+  .lcol li { padding: 6px 0 6px 22px; position: relative; font-size: 14.5px; color: var(--c-text); line-height: 1.5; }
+  .works li::before { content: '✓'; position: absolute; left: 0; color: #1a7f37; font-weight: 800; }
+  .limited li::before { content: '⚠'; position: absolute; left: 0; color: #c0392b; }
+  @media (max-width: 800px) { .lgrid { grid-template-columns: 1fr; } }
+
+  .after { padding: 80px 0; background: var(--c-text); color: var(--c-white); text-align: center; border-top: 6px solid var(--c-mint); }
+  .after h2 { font-size: clamp(32px, 4vw, 42px); font-weight: 900; letter-spacing: -1.5px; margin-bottom: 16px; color: #fff; }
+  .after p { font-size: 17px; color: #ccc; max-width: 680px; margin: 0 auto 24px; line-height: 1.6; }
+  .aactions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .after .btn { background: var(--c-mint); border-color: var(--c-mint); color: var(--c-text); }
+  .after .btn-outline { background: var(--c-white); color: var(--c-text); border-color: var(--c-white); }
 </style>

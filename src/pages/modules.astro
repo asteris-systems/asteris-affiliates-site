@@ -1,0 +1,148 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// All 23 features in Asteris Affiliates v1.1.0, grouped by category.
+// Sourced from memory/project_asteris_affiliates_v1_1_shipped.md (Sprint 9A/9B/9C/9D/10+).
+//
+// Star = differentiator (no major rival ships it in core).
+// "replaces" = what a competitor would need (plugin / SaaS / add-on) to match this feature.
+
+const modules = [
+  // Affiliate management
+  { id: 'onboarding-wizard',   cat: 'management', name: 'Affiliate onboarding wizard',     tagline: '4-step guided signup capturing payout + tax + commission preferences', replaces: 'manual setup', star: false },
+  { id: 'impersonation',       cat: 'management', name: 'Admin impersonation',             tagline: '"View as" any affiliate with full audit log + yellow banner UI',         replaces: 'paid add-on ($79)', star: false },
+  { id: 'bulk-actions',        cat: 'management', name: 'Bulk operations',                 tagline: 'Approve / reject / suspend / pay across affiliates, commissions, payouts', replaces: 'manual one-at-a-time', star: false },
+  { id: 'csv-export',          cat: 'management', name: 'CSV export everywhere',           tagline: 'Every admin list table exports to CSV honouring active filters',         replaces: 'separate export plugin', star: false },
+  { id: 'mobile-portal',       cat: 'management', name: 'Mobile-responsive affiliate portal', tagline: 'Affiliates can manage stats + payouts on phone', replaces: 'desktop-only UX', star: false },
+
+  // Commissions
+  { id: 'two-tier',            cat: 'commissions', name: 'Two-tier (MLM) referrals',        tagline: 'Optional tier-2 commissions on sub-affiliate sales',                  replaces: 'AffiliateWP add-on ($199/yr)', star: true },
+  { id: 'per-product-rates',   cat: 'commissions', name: 'Per-product commission rates',    tagline: 'Override default rate per WC product. High-margin items pay more',   replaces: 'paid add-on ($79)', star: false },
+  { id: 'denormalised',        cat: 'commissions', name: 'Denormalised aggregates',         tagline: 'Lifetime balances on affiliates table — sub-50ms stats on 50K commissions', replaces: 'slow SUM() queries', star: false },
+  { id: 'refund-handling',     cat: 'commissions', name: 'Auto refund handling',            tagline: 'WC/EDD/Surecart refunds revoke commissions automatically',           replaces: 'manual reconciliation', star: false },
+
+  // Payouts
+  { id: 'stripe-connect',      cat: 'payouts',    name: 'Stripe Connect direct payouts',    tagline: 'Express onboarding, direct-to-bank settlement, 0.25% fees',           replaces: '2% PayPal fees', star: true },
+  { id: 'paypal-api',          cat: 'payouts',    name: 'PayPal API auto-batch',            tagline: 'OAuth2 + Payouts API. Schedule weekly batches up to 15K recipients',  replaces: 'manual mass-pay', star: false },
+  { id: 'bank-transfer',       cat: 'payouts',    name: 'Bank transfer with bank-CSV',      tagline: 'AU + US bank CSV formats. Encrypted-at-rest bank details capture',    replaces: 'paid add-on ($59)', star: false },
+  { id: 'thresholds',          cat: 'payouts',    name: 'Thresholds + schedules',           tagline: 'Minimum balance + frequency per payout method. Dry-run preview',     replaces: 'manual triggers', star: false },
+
+  // Growth + marketing
+  { id: 'ai-swipe',            cat: 'growth',     name: 'AI swipe-copy generator',          tagline: '16 seed snippets + AI variants via your Asteris AI module',         replaces: 'no rival ships this', star: true },
+  { id: 'vanity-pages',        cat: 'growth',     name: 'Vanity /go/ landing pages',        tagline: 'Branded affiliate landing pages with cookie + view tracking',       replaces: 'separate landing-page builder', star: false },
+  { id: 'ab-emails',           cat: 'growth',     name: 'A/B email testing',                tagline: 'Variant routing on transactional emails. Open-pixel tracking',      replaces: 'paid add-on ($129/yr)', star: false },
+  { id: 'email-throttle',      cat: 'growth',     name: 'Email throttling',                 tagline: 'Per-recipient per-template per-day cap. Stops runaway send loops',  replaces: 'manual oversight', star: false },
+
+  // Fraud + security
+  { id: 'cloud-fraud',         cat: 'security',   name: 'Cloud-assist fraud detection',     tagline: 'Opt-in SHA-256 signal sharing across Asteris stores. No PII',       replaces: 'no rival ships this', star: true },
+  { id: 'self-referral',       cat: 'security',   name: 'Self-referral prevention',         tagline: '5-pattern detection: user-ID, email, payout-detail, IP, cookie',    replaces: 'manual audit', star: false },
+  { id: 'ip-throttle',         cat: 'security',   name: 'IP throttling',                    tagline: 'Per-IP click + signup caps. Blocks bot-driven referral spam',       replaces: 'fraud-detection plugin ($99)', star: false },
+
+  // Integrations
+  { id: 'wc-native',           cat: 'integrations', name: 'WooCommerce native',             tagline: 'HPOS-compatible. Coupon attribution. Subscription support',         replaces: 'core requirement', star: false },
+  { id: 'edd-adapter',         cat: 'integrations', name: 'EDD adapter',                    tagline: 'Easy Digital Downloads tracking with same UX as WC',                replaces: 'paid AffiliateWP add-on ($79/yr)', star: false },
+  { id: 'surecart-adapter',    cat: 'integrations', name: 'Surecart adapter',               tagline: 'Webhook-based tracking on hosted Surecart checkouts',               replaces: 'no rival ships this', star: true },
+  { id: 'custom-adapter',      cat: 'integrations', name: 'Custom cart adapter',            tagline: 'Order_Source interface — single PHP file for any cart',             replaces: 'custom dev work', star: false },
+
+  // Developer
+  { id: 'rest-api',            cat: 'developer',   name: 'Real-time stats REST API',        tagline: 'Cursor-paginated + transient-cached. Sub-50ms response',            replaces: 'no rival ships this', star: true },
+  { id: 'wp-cli',              cat: 'developer',   name: 'Full WP-CLI suite',               tagline: 'list / approve / reject / payout / recompute / import / export',     replaces: 'admin clicks', star: false },
+  { id: 'i18n',                cat: 'developer',   name: 'Translation-ready (.pot)',        tagline: 'i18n foundation + .pot template for any locale',                    replaces: 'core requirement', star: false },
+  { id: 'license-client',      cat: 'developer',   name: 'HMAC-signed license client',      tagline: 'Activate / validate / deactivate against pay.asteriscommerce.com',  replaces: 'core requirement', star: false },
+
+  // Reporting
+  { id: 'date-range',          cat: 'reporting',   name: 'Date-range picker on Reports',    tagline: 'Narrow to any window. Today, 7d, 30d, MTD, YTD, custom',           replaces: 'fixed periods only', star: false },
+  { id: 'dashboard-widget',    cat: 'reporting',   name: 'WP admin dashboard widget',       tagline: '30-day totals + top affiliate + pending count at a glance',         replaces: 'separate dashboard', star: false },
+  { id: 'sortable-columns',    cat: 'reporting',   name: 'Sortable column headers',         tagline: 'All admin list tables sort by any column, ascending or descending', replaces: 'fixed sort order', star: false },
+];
+
+const CATEGORIES = [
+  { id: 'management',   label: 'Affiliate management' },
+  { id: 'commissions',  label: 'Commissions' },
+  { id: 'payouts',      label: 'Payouts' },
+  { id: 'growth',       label: 'Growth + marketing' },
+  { id: 'security',     label: 'Fraud + security' },
+  { id: 'integrations', label: 'Integrations' },
+  { id: 'developer',    label: 'For developers' },
+  { id: 'reporting',    label: 'Reporting' },
+];
+
+const starCount = modules.filter(m => m.star).length;
+---
+<Layout seoSlug="/modules">
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">★ {modules.length} MODULES · 1 PLUGIN · 1 BILL</div>
+      <h1>Every module.<br /><span class="accent">One plugin.</span></h1>
+      <p class="lead">
+        Every feature in Asteris Affiliates v1.1.0, grouped by category. <strong>{starCount} of these are differentiators no rival ships in core</strong> — two-tier MLM, AI swipe-copy, cloud-assist fraud, Stripe Connect direct payouts, Surecart adapter, REST stats API.
+      </p>
+      <div class="hactions">
+        <a href="/pricing" class="btn btn-pop btn-large">See pricing →</a>
+        <a href="/free" class="btn btn-outline btn-large">Get Asteris Free →</a>
+      </div>
+    </div>
+  </section>
+
+  {CATEGORIES.map(cat => {
+    const items = modules.filter(m => m.cat === cat.id);
+    if (items.length === 0) return null;
+    return (
+      <section class="cat-sect">
+        <div class="container">
+          <h2 class="cat-h">{cat.label} <span class="count">{items.length}</span></h2>
+          <div class="grid">
+            {items.map(m => (
+              <div class:list={['card', { star: m.star }]}>
+                <div class="cname">
+                  {m.star && <span class="badge">★ Differentiator</span>}
+                  {m.name}
+                </div>
+                <p class="ctag">{m.tagline}</p>
+                <p class="creplaces"><strong>Replaces:</strong> {m.replaces}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  })}
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>{modules.length} modules, $149/yr</h2>
+      <p>All modules unlocked in Starter. Annual licence. Self-hosted. No SaaS subscription.</p>
+      <a href="/pricing" class="btn btn-pop btn-large">See pricing →</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 36px; }
+  .hero { padding: 80px 0 48px; text-align: center; }
+  .hero .eyebrow { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(40px, 6vw, 64px); font-weight: 900; line-height: 1.05; letter-spacing: -1.5px; margin: 0 0 20px; }
+  .hero h1 .accent { color: var(--c-mint); }
+  .hero .lead { font-size: 18px; color: var(--c-text); line-height: 1.6; max-width: 760px; margin: 0 auto 28px; }
+  .hero .lead strong { color: var(--c-mint); }
+  .hactions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  .cat-sect { padding: 48px 0; }
+  .cat-sect:nth-of-type(odd) { background: #fff; }
+  .cat-h { font-size: clamp(22px, 3vw, 30px); margin-bottom: 24px; font-weight: 800; }
+  .cat-h .count { display: inline-block; background: var(--c-mint); color: #fff; font-size: 13px; padding: 2px 10px; border-radius: 999px; margin-left: 8px; vertical-align: middle; font-weight: 700; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+  .card { padding: 20px; background: var(--c-bg); border: 1px solid var(--c-border); border-radius: 8px; }
+  .card.star { border-color: var(--c-mint); background: rgba(6, 214, 160, 0.04); }
+  .cat-sect:nth-of-type(odd) .card { background: var(--c-bg); }
+  .cname { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .badge { display: inline-block; background: var(--c-mint); color: #fff; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 3px; margin-right: 6px; letter-spacing: 0.04em; }
+  .ctag { font-size: 14px; color: var(--c-text); line-height: 1.5; margin-bottom: 10px; }
+  .creplaces { font-size: 12px; color: var(--c-muted); }
+  .creplaces strong { color: var(--c-text); }
+
+  .cta-section { background: var(--c-black); color: #fff; padding: 96px 24px; }
+  .cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+  .cta-section h2 { font-size: clamp(28px, 4vw, 40px); color: #fff; margin-bottom: 16px; }
+  .cta-section p { color: rgba(255,255,255,0.85); font-size: 17px; margin-bottom: 32px; }
+</style>
