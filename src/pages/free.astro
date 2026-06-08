@@ -78,6 +78,17 @@ const faqs = [
     </div>
   </section>
 
+  <section class="why-free">
+    <div class="why-free-inner">
+      <h2>Why we ship a free WooCommerce affiliate plugin tier</h2>
+      <p>Most paid affiliate plugins don't have a free tier on WordPress.org, and the ones that do tend to use it as a 7-day trial dressed up as "free" — feature-restricted, banner-laden, designed to make you upgrade as fast as possible. We don't. The Asteris Affiliates Free tier on WordPress.org is genuinely the same plugin code as the paid one, with feature flags that gate the four "Pro" features (MLM, AI swipe-copy, cloud-assist fraud, Stripe Connect direct payouts) and a soft cap at 25 active affiliates.</p>
+      <p>The reasoning: small WooCommerce stores running an affiliate program for the first time shouldn't need to pay $149 to find out if affiliate marketing works for them at all. Try it on the free tier with 25 affiliates, see if the program drives meaningful revenue, then upgrade to Starter when you outgrow the cap or want one of the Pro features. We'd rather earn the $149 when you actually need what we're charging for than gate the trial behind a credit card.</p>
+      <h3>Free vs paid — the honest version</h3>
+      <p>Free covers: WooCommerce-only affiliate tracking (no EDD or Surecart), up to 25 active affiliates, single-tier referrals only (no MLM), manual payout flow (mark as paid yourself), basic commission tracking, the standard affiliate portal, basic email notifications. That's a real affiliate program — many stores run successfully on exactly this configuration.</p>
+      <p>Paid adds: unlimited affiliates, two-tier MLM referrals, AI swipe-copy generator, cloud-assist fraud detection, Stripe Connect direct payouts (0.25% fee), PayPal API auto-batch (2% fee, scheduled), bank-CSV export, EDD + Surecart adapters, per-product commission rates, A/B email testing, vanity <code>{`/go/{handle}`}</code> landing pages, real-time stats REST API, full WP-CLI suite, admin impersonation, bulk operations with CSV export, dashboard widget, date-range reports, onboarding wizard, mobile-responsive portal polish, denormalised aggregates for sub-50ms stats. <a href="/modules">All 31 modules →</a></p>
+    </div>
+  </section>
+
   <section class="faq">
     <div class="faq-inner">
       <h2>FAQ</h2>
@@ -124,6 +135,13 @@ const faqs = [
   .tier-col li span { font-size: 13px; color: var(--c-muted); line-height: 1.5; display: block; }
   .star { color: var(--c-mint); }
 
+  .why-free { padding: 80px 24px; background: #fff; }
+  .why-free-inner { max-width: 820px; margin: 0 auto; }
+  .why-free h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 18px; }
+  .why-free h3 { font-size: 18px; margin: 24px 0 10px; color: var(--c-mint); }
+  .why-free p { font-size: 16px; line-height: 1.65; color: var(--c-text); margin-bottom: 14px; }
+  .why-free a { color: var(--c-mint); font-weight: 600; }
+  .why-free code { background: rgba(0,0,0,0.06); padding: 1px 5px; border-radius: 3px; font-family: var(--font-mono); font-size: 13px; }
   .faq { padding: 96px 24px; background: var(--c-bg); }
   .faq-inner { max-width: 760px; margin: 0 auto; }
   .faq h2 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 32px; text-align: center; }
