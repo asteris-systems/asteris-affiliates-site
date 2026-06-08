@@ -12,7 +12,7 @@ import Layout from '../layouts/Layout.astro';
     <p class="tag">Minor release · Onboarding + integration clarity</p>
     <h3>New — Overview admin page</h3>
     <ul>
-      <li>New top-of-menu "★ Overview" landing — surfaces every URL a new customer needs to know: signup-page URL (auto-detected by scanning for the <code>[aff_signup]</code> shortcode), affiliate portal URL (<code>/affiliate-portal/</code>), vanity URL pattern (<code>/go/{handle}</code>), REST stats endpoint.</li>
+      <li>New top-of-menu "★ Overview" landing — surfaces every URL a new customer needs to know: signup-page URL (auto-detected by scanning for the <code>[aff_signup]</code> shortcode), affiliate portal URL (<code>/affiliate-portal/</code>), vanity URL pattern (<code>{`/go/{handle}`}</code>), REST stats endpoint.</li>
       <li>One-click "Create signup page" button when no shortcode is detected — drops a published page at <code>/become-an-affiliate/</code> with the shortcode pre-filled.</li>
       <li>5-item setup checklist (signup page · first test affiliate · default rate · payout method · test order via Test Tracking).</li>
     </ul>
