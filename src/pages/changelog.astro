@@ -8,6 +8,25 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <article class="log">
+    <h2>v1.2.0 — 9 June 2026</h2>
+    <p class="tag">Minor release · Onboarding + integration clarity</p>
+    <h3>New — Overview admin page</h3>
+    <ul>
+      <li>New top-of-menu "★ Overview" landing — surfaces every URL a new customer needs to know: signup-page URL (auto-detected by scanning for the <code>[aff_signup]</code> shortcode), affiliate portal URL (<code>/affiliate-portal/</code>), vanity URL pattern (<code>/go/{handle}</code>), REST stats endpoint.</li>
+      <li>One-click "Create signup page" button when no shortcode is detected — drops a published page at <code>/become-an-affiliate/</code> with the shortcode pre-filled.</li>
+      <li>5-item setup checklist (signup page · first test affiliate · default rate · payout method · test order via Test Tracking).</li>
+    </ul>
+    <h3>New — 3-state integration detection</h3>
+    <ul>
+      <li>"Detected cart integrations" panel on Overview + 1-line status banner at the top of every Settings tab. Shows WooCommerce, EDD and Surecart adapter state with clear distinctions:</li>
+      <li><strong>ACTIVE</strong> (green ✓) — source plugin present + licence tier allows it. Adapter is live.</li>
+      <li><strong>DORMANT (Pro upgrade)</strong> (amber ★) — source plugin installed BUT free tier in use. Adapter would activate after upgrading.</li>
+      <li><strong>DORMANT (not installed)</strong> (grey ○) — source plugin not installed. Adapter ships in core but has nothing to hook.</li>
+      <li>Version numbers shown for WC and EDD where the source plugin exposes a stable constant.</li>
+    </ul>
+    <h3>Menu reorder</h3>
+    <ul><li>Overview submenu appears FIRST in the plugin menu so freshly-activated stores hit setup info before the Affiliates list.</li></ul>
+
     <h2>v1.1.0 — 8 June 2026</h2>
     <p class="tag">Major release · 23 features across 9 sprints</p>
     <h3>Sprint 9A — Polish</h3>
@@ -21,7 +40,7 @@ import Layout from '../layouts/Layout.astro';
     <h3>Sprint 10+ — Differentiators</h3>
     <ul><li>Two-tier (MLM) referrals</li><li>AI swipe-copy generator</li><li>Vanity /go/ landing pages</li><li>Cloud-assist fraud detection (opt-in, SHA-256 hashed)</li><li>PayPal API auto-batch</li><li>EDD + Surecart adapters</li><li>A/B email testing</li></ul>
 
-    <h2 class="next">v1.2 — In progress</h2>
+    <h2 class="next">v1.3 — In progress</h2>
     <p>See <a href="/roadmap">roadmap</a> for what's queued.</p>
   </article>
 </Layout>
