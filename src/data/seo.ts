@@ -398,16 +398,16 @@ export const SEO_DATA: Record<string, SeoEntry> = {
   },
 
   '/founder': {
-    title: 'Founder Story — Asteris Affiliates',
+    title: 'About Asteris Affiliates — the team behind the project',
     description: 'Why a small Australian team built a self-hosted affiliate plugin with AffiliateWP-grade features at SliceWP pricing. The story behind Asteris Affiliates.',
     ogImage: 'og-founder.png',
     jsonLd: [
       ORG,
-      breadcrumb([{ name: 'Home', url: `${SITE}/` }, { name: 'Why I built Asteris Affiliates', url: `${SITE}/founder` }]),
+      breadcrumb([{ name: 'Home', url: `${SITE}/` }, { name: 'Why we built Asteris Affiliates', url: `${SITE}/founder` }]),
       {
         '@context': 'https://schema.org', '@type': 'Article',
-        headline: 'Why I built Asteris Affiliates',
-        author: { '@type': 'Person', name: 'Nick Lord' },
+        headline: 'Why we built Asteris Affiliates',
+        author: { '@type': 'Organization', name: 'Asteris Affiliates' },
         publisher: PUB,
         datePublished: PUBLISHED,
         image: `${SITE}/og-founder.png`,
@@ -494,7 +494,7 @@ export const SEO_DATA: Record<string, SeoEntry> = {
 
   '/why-asteris': {
     title: 'Why Asteris Affiliates — 31 modules, $149/yr, your database',
-    description: 'Six reasons stores switch to Asteris: one plugin instead of six, your data forever, Stripe Connect at 0.25%, three carts in one, cloud-assist fraud, locked launch pricing.',
+    description: 'Six reasons stores switch to Asteris: one plugin instead of six, your data forever, Stripe Connect at 0.25%, three carts in one, cloud-assist fraud, one standard price.',
     ogImage: 'og-home.png',
     jsonLd: [
       ORG,
@@ -508,7 +508,7 @@ export const SEO_DATA: Record<string, SeoEntry> = {
           { '@type': 'Question', name: 'What happens if Asteris goes out of business?', acceptedAnswer: { '@type': 'Answer', text: 'The plugin is GPL-2.0+. The code is yours forever. The data is in your database. If our licence server vanished tomorrow your plugin would keep working — you would just stop receiving updates.' } },
           { '@type': 'Question', name: 'Why not just use SliceWP — it is cheaper?', acceptedAnswer: { '@type': 'Answer', text: 'SliceWP Pro is $299/yr — more than our $149 Starter — and ships fewer modules. No MLM, no AI swipe-copy, no cloud-assist fraud, no Stripe Connect, no EDD adapter, no Surecart adapter.' } },
           { '@type': 'Question', name: 'I am on Easy Digital Downloads or Surecart, not WooCommerce.', acceptedAnswer: { '@type': 'Answer', text: 'Both adapters ship in core. Same admin, same portal. Most WP affiliate plugins are WC-only or charge $79/yr for the EDD bridge.' } },
-          { '@type': 'Question', name: 'What is the catch with the locked pricing?', acceptedAnswer: { '@type': 'Answer', text: 'None. As long as your subscription is active, you pay what you signed up for — for life. Cancel and re-subscribe later, you pay the then-current rate.' } },
+          { '@type': 'Question', name: 'Is there any pricing catch?', acceptedAnswer: { '@type': 'Answer', text: 'No. Everyone pays one standard price — $149/yr Starter, $299/yr Pro, $549/yr Agency — with every feature unlocked on every tier. No metering, no add-on bills.' } },
         ],
       },
     ],

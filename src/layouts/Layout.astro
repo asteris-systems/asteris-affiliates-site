@@ -63,6 +63,15 @@ const fallbackTitle = title ?? (hasCanonicalSeo ? SEO_DATA[seoSlug!].title : 'As
   <link rel="sitemap" href="/sitemap-index.xml" />
 
   <slot name="head" />
+
+  <!-- Google Analytics 4 (G-7VHTF35D69) -->
+  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-7VHTF35D69"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7VHTF35D69');
+  </script>
 </head>
 <body>
   <Nav currentPath={currentPath} />

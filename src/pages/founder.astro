@@ -3,9 +3,9 @@ import Layout from '../layouts/Layout.astro';
 ---
 <Layout seoSlug="/founder">
   <section class="hero">
-    <div class="eyebrow">★ FOUNDER STORY</div>
-    <h1>Why I built <span class="accent">Asteris Affiliates</span></h1>
-    <p class="byline">By Nick Lord · Founder, Asteris Commerce · Sydney, Australia</p>
+    <div class="eyebrow">★ ABOUT THE PROJECT</div>
+    <h1>Why we built <span class="accent">Asteris Affiliates</span></h1>
+    <p class="byline">The story behind Asteris · Asteris Commerce · Sydney, Australia</p>
   </section>
 
   <article class="story">
@@ -22,24 +22,23 @@ import Layout from '../layouts/Layout.astro';
     <p>We built it. <a href="/why-asteris">Asteris Affiliates</a> is what I would have wanted to install five years ago — at a quarter of what we were paying then.</p>
 
     <h2>The pricing decision</h2>
-    <p>$149/yr for one site (Starter). $299/yr for three (Pro). $549/yr for ten (Agency). Every tier unlocks every feature — the tier just changes site count and support level. There's no founder discount, no lifetime deal, no upsell, no bundle. The regular price is the price. <a href="/pricing">Pricing details →</a></p>
-    <p>Pricing lock: as long as your subscription is active, you pay what you signed up for. When we raise prices in the future (and we will, as the feature surface grows), existing customers stay at the rate they joined at. Cancel and re-subscribe later and you pay the then-current rate.</p>
+    <p>$149/yr for one site (Starter). $299/yr for three (Pro). $549/yr for ten (Agency). Every tier unlocks every feature — the tier just changes site count and support level. One standard price for everyone, no upsell, no bundle. <a href="/pricing">Pricing details →</a></p>
 
     <h2>The architecture decision</h2>
     <p>Self-hosted. No cloud calls during normal operation. Every affiliate, every click, every commission, every payout, every email log stays in your <code>wp_asteris_*</code> tables on your own database. The one optional exception is cloud-assist fraud detection — opt-in, off by default — which sends SHA-256 hashed signals (no IPs, no emails, no order data) to a shared network for cross-store fraud-pattern matching. Disable it and there is literally zero outbound traffic from the plugin.</p>
     <p>If you cancel your Asteris licence, the plugin keeps working. You stop receiving updates and you can't reach support, but the affiliate program itself continues running indefinitely on the last installed version. Your data is on your server. Your code is GPL-2.0+. Nothing is held hostage. <a href="/why-asteris">Why this matters →</a></p>
 
     <h2>The build team</h2>
-    <p>Asteris is built by a small team in Sydney, Australia. The legal entity is My Cosmic Message Pty Ltd, registered in NSW (ACN 652 358 159, ABN 30 652 358 159). I'm the founder and primary developer. The team writes the code, answers the support email, and ships the releases — there's no offshore Level-1 support funnel to bounce off. If you email <a href="mailto:support@asterisaffiliates.com">support@asterisaffiliates.com</a> you're emailing one of three people who know the codebase end-to-end.</p>
+    <p>Asteris is built by a small team in Sydney, Australia. The legal entity is My Cosmic Message Pty Ltd, registered in NSW (ACN 652 358 159, ABN 30 652 358 159). The team writes the code, answers the support email, and ships the releases — there's no offshore Level-1 support funnel to bounce off. If you email <a href="mailto:support@asterisaffiliates.com">support@asterisaffiliates.com</a> you're emailing one of the people who know the codebase end-to-end.</p>
     <p>Asteris Affiliates is part of a wider product family: <a href="https://asterisforwoocommerce.com" target="_blank" rel="noopener">Asteris for WooCommerce</a> (a 31-module utility plugin for WC), <a href="https://asterisforwordpress.com" target="_blank" rel="noopener">Asteris for WordPress</a> (SEO + AI for WP sites), <a href="https://asteriscart.com" target="_blank" rel="noopener">Asteris Cart</a> (a dedicated checkout replacement) and <a href="https://asterisblocks.com" target="_blank" rel="noopener">Asteris Blocks</a> (a free Gutenberg block library). All four ship from the same codebase principles — self-hosted, no SaaS lock-in, GPL-2.0+, your data forever.</p>
 
     <h2>What's next</h2>
     <p>The public <a href="/roadmap">roadmap</a> tracks queued work. The themes for 2026 are: deeper reporting and analytics, broader cart adapters (a SureCart adapter is shipping, BigCommerce is being evaluated), a no-code visual fraud-rule builder on top of the cloud-assist signal feed, and a much richer AI swipe-copy generator that learns from your existing customer email tone.</p>
 
-    <h2>How to reach me</h2>
-    <p>If you have a question that the docs or pricing page doesn't answer — feature request, integration question, pricing edge case, "would Asteris work for our weird setup" — email me directly: <a href="mailto:nick@asterisaffiliates.com">nick@asterisaffiliates.com</a>. I read every email. If it makes sense to spend 30 minutes on a video call, I'll book one with you. We're at the stage where founder-to-customer contact is still possible and we want to keep it that way as long as we can.</p>
+    <h2>How to reach us</h2>
+    <p>If you have a question that the docs or pricing page doesn't answer — feature request, integration question, pricing edge case, "would Asteris work for our weird setup" — email us directly: <a href="mailto:nick@asterisaffiliates.com">nick@asterisaffiliates.com</a>. We read every email. If it makes sense to spend 30 minutes on a video call, we'll book one with you. We're at the stage where direct team-to-customer contact is still possible and we want to keep it that way as long as we can.</p>
 
-    <p class="closing">— Nick Lord. <a href="mailto:nick@asterisaffiliates.com">nick@asterisaffiliates.com</a> · Sydney, AU</p>
+    <p class="closing">— The Asteris team. <a href="mailto:nick@asterisaffiliates.com">nick@asterisaffiliates.com</a> · Sydney, AU</p>
   </article>
 
   <section class="cta-section">
