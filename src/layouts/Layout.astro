@@ -1,6 +1,7 @@
 ---
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import OrionStrip from '../components/OrionStrip.astro';
 import CookieBanner from '../components/CookieBanner.astro';
 import SEOHead from '../components/SEOHead.astro';
 import { SEO_DATA } from '../data/seo';
@@ -78,6 +79,7 @@ const fallbackTitle = title ?? (hasCanonicalSeo ? SEO_DATA[seoSlug!].title : 'As
   <main>
     <slot />
   </main>
+  <OrionStrip />
   <Footer />
   <CookieBanner />
 </body>
