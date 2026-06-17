@@ -21,7 +21,14 @@ const navLinks = [
     <a href="/" class="logo" aria-label="Asteris Affiliates home">
       <span class="star" aria-hidden="true">★</span> Asteris Affiliates
     </a>
-    <div class="nav-links">
+    <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span class="nav-toggle-box" aria-hidden="true">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </span>
+    </button>
+    <div class="nav-links" id="nav-links">
       {navLinks.map(link => (
         <a
           href={link.href}
@@ -86,8 +93,59 @@ const navLinks = [
   .nav-link:hover {
     color: var(--c-mint);
   }
-  @media (max-width: 768px) {
-    .nav-links { gap: 14px; font-size: 13px; }
-    .nav-links .btn { display: none; }
+
+  /* Hamburger toggle — hidden on desktop */
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 2px solid var(--c-black);
+    border-radius: 8px;
+    padding: 9px 10px;
+    cursor: pointer;
+    line-height: 0;
+  }
+  .nav-toggle-box { display: inline-flex; flex-direction: column; gap: 4px; width: 22px; }
+  .nav-toggle-bar {
+    display: block; height: 2.5px; width: 100%;
+    background: var(--c-black); border-radius: 2px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  @media (max-width: 900px) {
+    .site-nav { flex-wrap: wrap; gap: 14px 16px; }
+    .logo { order: 1; }
+    .nav-toggle { display: inline-flex; order: 2; }
+    .nav-links {
+      order: 3;
+      flex-basis: 100%;
+      width: 100%;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      display: none;
+      margin-top: 4px;
+      font-size: 16px;
+    }
+    .nav-links.open { display: flex; }
+    .nav-link { width: 100%; padding: 14px 2px; border-bottom: 1px solid #efefef; }
+    .nav-links .btn { display: block; margin-top: 12px; text-align: center; }
   }
 </style>
+
+<script>
+  const btn = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('nav-links');
+  if (btn && menu) {
+    const close = () => { menu.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-label', 'Open menu'); };
+    btn.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+  }
+</script>
