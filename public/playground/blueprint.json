@@ -57,7 +57,7 @@
       "step": "unzip",
       "zipFile": {
         "resource": "url",
-        "url": "https://asteris-affiliates-site.pages.dev/playground/asteris-affiliates.zip"
+        "url": "https://asteris-affiliates-site.pages.dev/playground/asteris-affiliates.zip?v=1314"
       },
       "extractToPath": "/wordpress/wp-content/plugins"
     },
